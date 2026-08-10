@@ -2,7 +2,7 @@
 
 <img width="120" src="logo.jpg" alt="Ni Haixia skill Logo">
 
-**🌐 [中文](https://github.com/jangviktor-web/nihaixia/README.md) | [English](https://github.com/jangviktor-web/nihaixia/README_EN.MD)**
+**🌐 [中文](https://github.com/jangviktor-web/nihaixia/blob/StableV2026.5.23/README.MD) | [English](https://github.com/jangviktor-web/nihaixia/blob/StableV2026.5.23/README_EN.MD)**
 
 # Ni Haixia skill · Classical Formula TCM AI
 
