@@ -16,8 +16,6 @@
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Ready-orange?style=for-the-badge&logo=anthropic&logoColor=white)]()
 [![平台](https://img.shields.io/badge/平台-5个-purple?style=for-the-badge)](#安装)
 
-[English](#english) · 中文
-
 </div>
 
 ---
