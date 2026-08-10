@@ -201,7 +201,24 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 
 </div>
 
----
+### [温病派吴鞠通skill · 经方中医AI](https://github.com/jangviktor-web/wujutong)
+**吴鞠通**（1758-1836）——温病学派集大成者，三焦辨证 + 卫气营血，359 医案 45 病证，自称"羽翼伤寒"，以"津液的存亡"为核心，温病禁汗、甘寒存津，护阴第一。
+
+| 维度 | 倪海厦（经方） | 吴鞠通（温病） |
+|------|--------------|--------------|
+| **辨证** | 六经（看深浅） | 三焦（看部位） |
+| **治法核心** | 驱邪外出 | 存津液 |
+| **汗法** | 该汗则汗 | 温病禁汗 |
+| **方剂** | 药少力专（麻黄/附子/乌头） | 药多面广（银翘/白虎/复脉） |
+| **医案** | 849 案全科 | 359 案温病+杂病 |
+
+**互补关系**：倪海厦修水龙头（温阳化湿治本），吴鞠通扫积水（清湿护津治标）——一纵一横，急性期从吴、缓解期从倪，合观乃得中医外感病全貌。
+
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=flat-square&logo=github)](https://github.com/jangviktor-web/wujutong)
+[![ClawHub](https://img.shields.io/badge/ClawHub-install%20like-green?style=flat-square)](https://clawhub.ai/skills/wujutong)
+
+</div>
+
 
 ## 数据来源
 
@@ -323,7 +340,7 @@ nihaixia/
 
 <img width="120"  alt="1000195332" src="https://github.com/user-attachments/assets/e3705e80-0576-4dd7-a88d-297c93a07567" />
 </details>
----
+
 
 ## 免责声明
 
