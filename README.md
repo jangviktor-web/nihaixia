@@ -318,7 +318,7 @@ nihaixia/
 
 ---
 ## 问题反馈交流群
-<img width="1220" height="2712" alt="1000195332" src="https://github.com/user-attachments/assets/e3705e80-0576-4dd7-a88d-297c93a07567" />
+<img width="120"  alt="1000195332" src="https://github.com/user-attachments/assets/e3705e80-0576-4dd7-a88d-297c93a07567" />
 
 ---
 
