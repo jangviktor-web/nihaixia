@@ -2,9 +2,9 @@
 
 <img width="120" src="logo.jpg" alt="倪海厦skill Logo">
 
-**🌐 [中文](https://github.com/jangviktor-web/nihaixia/blob/StableV2026.5.23/README.MD) | [English](https://github.com/jangviktor-web/nihaixia/blob/StableV2026.5.23/README_EN.MD)**
-
 # 倪海厦skill · 经方中医AI
+
+**🌐 [中文](https://github.com/jangviktor-web/nihaixia/blob/StableV2026.5.23/README.MD) | [English](https://github.com/jangviktor-web/nihaixia/blob/StableV2026.5.23/README_EN.MD)**
 
 **将经方大师倪海厦的完整中医思维体系注入 AI Agent**
 
