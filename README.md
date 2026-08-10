@@ -4,8 +4,6 @@
 
 # 倪海厦skill · 经方中医AI
 
-**🌐 [中文](https://github.com/jangviktor-web/nihaixia/blob/StableV2026.5.23/README.MD) | [English](https://github.com/jangviktor-web/nihaixia/blob/StableV2026.5.23/README_EN.MD)**
-
 **将经方大师倪海厦的完整中医思维体系注入 AI Agent**
 
 `129条伤寒论` · `23篇金匮` · `71篇黄帝内经` · `345种本草` · `849个医案` · `2,452页讲义` · `3.5M字精萃`
@@ -15,6 +13,8 @@
 [![License](https://img.shields.io/badge/协议-MulanPSL--2.0-green?style=for-the-badge)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Ready-orange?style=for-the-badge&logo=anthropic&logoColor=white)]()
 [![平台](https://img.shields.io/badge/平台-5个-purple?style=for-the-badge)](#安装)
+
+**🌐 [中文](https://github.com/jangviktor-web/nihaixia/blob/StableV2026.5.23/README.MD) | [English](https://github.com/jangviktor-web/nihaixia/blob/StableV2026.5.23/README_EN.MD)**
 
 </div>
 
