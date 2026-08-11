@@ -163,197 +163,197 @@ Daily Health & Dietary Contraindications
 
 ---
 
-Related Projects
+## Related Projects
 
 <div align="center">
 
-Han-Tang TCM · Android Diagnosis APP
+### [Han‑Tang Chinese Medicine · Android Diagnosis APP](https://github.com/jangviktor-web/nihaixia-app)
 
-Same knowledge base, standalone Android application. Offline capable, completely free.
+Same knowledge base, standalone Android application. Offline‑capable, completely free.
 
-https://img.shields.io/badge/Download-APK-green?style=for-the-badge&logo=android
-https://img.shields.io/badge/GitHub-Repo-blue?style=for-the-badge
+[![Download APK](https://img.shields.io/badge/Download-APK-green?style=for-the-badge&logo=android)](https://github.com/jangviktor-web/nihaixia-app/releases/latest)
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia-app)
 
-Six-Meridian Diagnosis 271 Formulas Quick Reference 345 Herbs Quick Reference Ziwu Liuzhu Point Selection
-Smart Diagnostic Guidance Search + Six-Meridian Filter Properties & Meridian Classification 361 Points + Time Calculation
-
-</div>
-
-Li Ke skill · Critical Care TCM AI
-
-Li Ke (1930-2013) critical and severe condition thinking system. 395 medical cases, 170+ formulas, 92 symptom routing, 25 false pattern identifications.
-
-Complements Ni Haixia skill: Ni Haixia covers comprehensive teaching (849 cases), Li Ke focuses on critical care practice (Fuzi up to 750g).
-
-https://img.shields.io/badge/GitHub-Repo-blue?style=flat-square&logo=github
-https://img.shields.io/badge/ClawHub-install%20like-green?style=flat-square
-
-Pojie Jiuxin Tang 25 False Pattern Identifications Circular Motion Theory Classical Formula Dosage System
-Fuzi 30-750g 24 False Yang + 1 False Yin Complete Peng Ziyi Distillation Han Dynasty 1 Liang = 15.625g
+| Six‑Meridian Pattern Differentiation | 271 Formula Quick Lookup | 345 Medicinal Herb Quick Lookup | Midnight‑Noon Ebb‑Flow Acupoint Selection |
+|:---:|:---:|:---:|:---:|
+| Guided Intelligent Inquiry | Search + Six‑Meridian Filter | Nature, Flavor & Channel Tropism Classification | Time Calculation for 361 Acupoints |
 
 </div>
 
-Hu Xishu skill · Classical Formula TCM AI
+### [Li Ke Skill · Critical & Emergency TCM AI](https://github.com/jangviktor-web/likeskill)
 
-Distill Hu Xishu's (1898-1984) classical formula clinical thinking, Six-Meridian Eight-Principle differentiation system, and formula-pattern correspondence into an activatable Agent Skill, enabling AI to perform Six-Meridian differentiation, formula differentiation, and clinical formula selection through Hu Xishu's lens.
+Critical‑care clinical thinking system of senior TCM physician Li Ke (1930‑2013). 395 medical cases, 170+ formulas, 92 symptom routing rules, 25 false‑pattern identification rules.
 
-Hu Xishu is hailed as "the foremost transmitter of classical formulas." His groundbreaking insight that "Six Meridians originate from the Eight Principles" provides the clearest interpretation of the differentiation system in Shanghan Lun, directly influencing contemporary classical formula masters like Feng Shilun.
+Complementary to Ni Haixia Skill: Ni Haixia covers general clinical teaching (849 medical cases), while Li Ke focuses on critical‑emergency real‑world practice (Aconitum carmichaelii up to 750g).
 
-Complements Ni Haixia skill: Ni Haixia covers comprehensive teaching (849 cases), while Hu Xishu offers the clearest systematic interpretation of Shanghan Lun.
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=flat-square&logo=github)](https://github.com/jangviktor-web/likeskill)
+[![ClawHub](https://img.shields.io/badge/ClawHub-install%20like-green?style=flat-square)](https://clawhub.ai/jangviktor-web/skills/like)
 
-https://img.shields.io/badge/GitHub-Repo-blue?style=flat-square&logo=github
-https://img.shields.io/badge/ClawHub-install%20huxishu-green?style=flat-square
-
-</div>
-
-Wenbing School Wu Jutong skill · Wenbing TCM AI
-
-Wu Jutong (1758-1836)—the great synthesizer of the Warm Disease school, Triple Burner differentiation + Wei-Qi-Ying-Xue system. 359 medical cases covering 45 conditions. He claimed to "supplement the wings of Shanghan Lun," with "preservation of bodily fluids" at the core. Warm diseases prohibit sweating, use sweet and cold herbs to preserve fluids, prioritizing yin protection.
-
-Dimension Ni Haixia (Classical Formulas) Wu Jutong (Wenbing School)
-Differentiation Six Meridians (depth) Triple Burner (location)
-Treatment Core Expel pathogenic factors Preserve bodily fluids
-Sweating Method Sweat when appropriate Sweating prohibited for warm diseases
-Formulas Few herbs with focused power (Mahuang/Fuzi/Wutou) Many herbs with broad coverage (Yinqiao/Baihu/Fumai)
-Cases 849 full-spectrum cases 359 warm disease + miscellaneous cases
-
-Complementary Relationship: Ni Haixia fixes the faucet (warming yang and transforming dampness to treat the root), Wu Jutong sweeps up the water (clearing damp and protecting fluids to treat the branch)—one vertical, one horizontal. Follow Wu in acute phases, follow Ni in recovery phases; together they present the complete picture of externally-contracted diseases in TCM.
-
-https://img.shields.io/badge/GitHub-Repo-blue?style=flat-square&logo=github
-https://img.shields.io/badge/ClawHub-install%20wujutong-green?style=flat-square
+| Po‑Ge Jiu‑Xin Decoction | 25 False‑Pattern Identifications | Circular Movement Theory | Classical Prescription Dosage System |
+|:---:|:---:|:---:|:---:|
+| Aconitum 30‑750g | 24 False‑Yang Patterns + 1 False‑Yin Pattern | Complete distillation of Peng Ziyi’s works | 1 Han liang = 15.625g |
 
 </div>
 
-Data Sources
+### [Hu Xishu Skill · Classical Prescription TCM AI](https://github.com/jangviktor-web/huxishu)
+
+Distills Hu Xishu’s (1898‑1984) classical‑prescription clinical thinking, six‑meridian & eight‑outline pattern differentiation framework, and formula‑pattern correspondence methodology into an activatable Agent Skill. Enables AI to perform six‑meridian differentiation, formula‑pattern discrimination and clinical formula selection from Hu Xishu’s perspective.
+
+Hu Xishu is honored as "the foremost inheritor of classical prescriptions". His insight that "Six meridians originate from eight outlines" delivers the clearest interpretation of *Shang Han Lun* pattern‑differentiation system, and has directly influenced contemporary classical‑prescription masters including Feng Shilun.
+
+Complementary to Ni Haixia Skill: Ni Haixia provides comprehensive general‑practice teaching (849 cases), whereas Hu Xishu offers the definitive reading of *Shang Han Lun* classical‑prescription pattern differentiation.
+
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=flat-square&logo=github)](https://github.com/jangviktor-web/huxishu)
+[![ClawHub](https://img.shields.io/badge/ClawHub-install%20huxishu-green?style=flat-square)](https://clawhub.ai/jangviktor-web/skills/huxishu)
+
+</div>
+
+### [Wu Jutong Skill · Warm‑Disease School TCM AI](https://github.com/jangviktor-web/wujutong)
+**Wu Jutong** (1758‑1836) — Grand synthesist of the Warm‑Disease School. Triple‑Jiao pattern differentiation + Wei‑Qi‑Ying‑Xue theory. 359 medical cases covering 45 disease entities. He described his work as "complementing *Shang Han Lun*", centering on "preservation or consumption of body fluids". Core principles: Warm diseases forbid diaphoresis; sweet‑cold therapy preserves fluids; yin protection takes priority.
+
+| Dimension | Ni Haixia (Classical Prescriptions) | Wu Jutong (Warm‑Disease School) |
+|------|--------------|--------------|
+| **Pattern Differentiation** | Six meridians (assessing disease depth) | Triple‑Jiao (assessing disease location) |
+| **Core Therapeutic Principle** | Expel pathogenic factors outward | Preserve body fluids |
+| **Diaphoretic Method** | Apply sweating when indicated | Diaphoresis contraindicated for warm diseases |
+| **Formulas** | Few ingredients, potent effect (Ephedra / Aconitum / Aconitum kusnezoffii) | Multi‑ingredient broad‑spectrum formulas (Yinqiao San / Baihu Tang / Fumai Decoction) |
+| **Medical Cases** | 849 cases covering general medicine | 359 cases for warm diseases & miscellaneous disorders |
+
+**Complementary Relationship**: Ni Haixia repairs the water tap (warming yang & resolving dampness to treat root causes), Wu Jutong drains accumulated floodwater (clearing dampness & protecting fluids to treat manifestations). One vertical, one horizontal. Adopt Wu Jutong for acute‑phase conditions, Ni Haixia for remission‑phase management. Combined, they yield a full picture of TCM exogenous disease theory.
+
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=flat-square&logo=github)](https://github.com/jangviktor-web/wujutong)
+[![ClawHub](https://img.shields.io/badge/ClawHub-install%20wujutong-green?style=flat-square)](https://clawhub.ai/jangviktor-web/skills/wujutong)
+
+</div>
+
+## Data Sources
 
 <details>
-<summary><b>Click to view complete data source list (10 lectures, 2,452 pages)</b></summary>
+<summary><b>Click to expand full data‑source inventory (10 lecture manuscripts, 2,452 pages)</b></summary>
 
-Lecture Pages Extracted Characters Status
-Shanghan Lun Lecture 209 pages 277K Full distillation
-Jingui Yaolüe Lecture 419 pages 626K Full distillation
-Huangdi Neijing Lecture 461 pages 227K Full distillation
-Acupuncture Lecture 216 pages 347K Full distillation
-Shennong Bencao Jing 339 pages 843K Full distillation
-Tianjidao (Ziwei Doushu) 75 pages 85K Full distillation
-Renjiandao (I Ching) 146 pages 164K Full distillation
-Dimaidao (Fengshui) 65 pages 52K Full distillation
-Han-Tang Articles Collection 383 pages 670K 10 articles distilled
-Ni Haixia Collected Works 139 pages 234K 8 cases distilled
-Total 2,452 pages 3.5M 
+| Manuscript | Pages | Extracted Characters | Status |
+|---|---|---|---|
+| *Shang Han Lun* Lecture Notes | 209 pages | 277K | Fully distilled |
+| *Jin Gui Yao Lue* Lecture Notes | 419 pages | 626K | Fully distilled |
+| *Huang Di Nei Jing* Lecture Notes | 461 pages | 227K | Fully distilled |
+| Acupuncture & Moxibustion Tutorial | 216 pages | 347K | Fully distilled |
+| *Shen Nong Ben Cao Jing* Manuscript | 339 pages | 843K | Fully distilled |
+| *Tian Ji Dao* (Zi Wei Dou Shu Astrology) | 75 pages | 85K | Fully distilled |
+| *Ren Jian Dao* (I‑Ching) | 146 pages | 164K | Fully distilled |
+| *Di Mai Dao* (Feng‑Shui) | 65 pages | 52K | Fully distilled |
+| Han‑Tang Collected Articles | 383 pages | 670K | 10 articles distilled |
+| Ni Haixia Collected Works | 139 pages | 234K | 8 medical cases distilled |
+| **Total** | **2,452 pages** | **3.5M** | |
 
 </details>
 
 <details>
 <summary><b>Click to view repository directory structure</b></summary>
-
 ```
+
 nihaixia/
-├── SKILL.md                    # Main skill file (840K, read directly by Claude)
+├── SKILL.md                    # Main skill file (840K, directly readable by Claude)
 ├── modules/                    # 9 knowledge modules
-│   ├── 01_shanghan_sun.md      # Shanghan Lun Taiyang chapter
-│   ├── 02_shanghan_other.md    # Shanghan Lun other five meridians
+│   ├── 01_shanghan_sun.md      # Shang Han Lun Taiyang chapter
+│   ├── 02_shanghan_other.md    # Remaining five chapters of Shang Han Lun
 │   ├── 03_yian.md              # Medical case collection (849 cases)
-│   ├── 04_jingui.md            # Jingui Yaolüe
-│   ├── 05_huangdi_neijing.md   # Huangdi Neijing
-│   ├── 06_liangdong.md         # Liang Dong dialogues
-│   ├── 07_bimen_hantang.md     # Closed-door sessions + Han-Tang
-│   ├── 08_huangdi_detail.md    # Huangdi Neijing detailed annotations
-│   └── 09_zhenjiu_bencao.md    # Acupuncture + Shennong Bencao Jing
-├── cases/                      # Categorized cases (245 cases)
+│   ├── 04_jingui.md            # Jin Gui Yao Lue
+│   ├── 05_huangdi_neijing.md   # Huang Di Nei Jing
+│   ├── 06_liangdong.md         # Liang‑Dong interview transcripts
+│   ├── 07_bimen_hantang.md     # Closed‑door lectures & Han‑Tang clinic materials
+│   ├── 08_huangdi_detail.md    # Annotated Huang Di Nei Jing
+│   └── 09_zhenjiu_bencao.md    # Acupuncture‑Moxibustion + Shen Nong Ben Cao Jing
+├── cases/                      # Categorized medical cases (245 cases)
 │   ├── 01_cancer.md            # 147 cancer cases
-│   ├── 02_cardiovascular.md    # 22 cardiovascular cases
-│   ├── 03_metabolic.md         # 12 metabolic disease cases
-│   ├── 04_autoimmune.md        # 2 autoimmune cases
-│   ├── 05_neurological.md      # 3 neurological/psychiatric cases
-│   └── 06_other.md             # 59 other cases
-└── references/research/        # Research materials
-```
+│   ├── 02_cardiovascular.md    # 22 cardiovascular disorder cases
+│   ├── 03_metabolic.md         # 12 metabolic disorder cases
+│   ├── 04_autoimmune.md        # 2 autoimmune disorder cases
+│   ├── 05_neurological.md      # 3 neurological & psychiatric cases
+│   └── 06_other.md             # 59 miscellaneous cases
+└── references/research/        # Research reference materials
 
+```
 </details>
 
 ---
 
-Changelog
+## Changelog
 
 <details>
-<summary><b>Click to expand full changelog</b></summary>
+<summary><b>Click to expand complete changelog</b></summary>
 
-v2.1.0 (2026-06-08) — Six-Meridian Diagnosis Formulas
+#### v2.1.0 (2026‑06‑08) — Six‑Meridian Pattern‑Differentiation Diagnostic Formulas
 
-Core Upgrade: Evolved from a knowledge base query tool into a clinical diagnostic assistant equipped with Six-Meridian pattern differentiation thinking.
+**Core Upgrade**: Upgraded from knowledge‑base query tool to clinical diagnostic assistant equipped with six‑meridian pattern‑differentiation reasoning.
 
-New Additions:
+**New Additions**:
+- **8 diagnostic formulas**: Taiyang / Yangming / Shaoyang / Taiyin / Shaoyin / Jueyin / Shaoyin heat‑transformation / combined & concurrent disease patterns. Each includes IF‑THEN pattern‑differentiation rules, subtype discrimination tables and representative formulas.
+- **Rapid‑diagnosis flowchart**: Complete decision tree mapping patient symptoms to six‑meridian localization.
+- **Pulse quick reference**: 8 single pulses + 8 composite pulse conditions.
+- **Tongue quick reference**: 5 tongue manifestations + 6 composite tongue presentations + decision tree for pulse‑tongue contradiction resolution.
+- **True‑cold false‑heat / false‑cold discrimination**: Eight‑dimensional evaluation (complexion / nasal‑oral exhalation / tongue form / pulse / chest‑abdomen temperature / urine / thirst / stool) + critical‑condition warnings.
+- **Combined / concurrent disease quick reference**: 11 pattern combinations plus therapeutic priority principles.
+- **Seven‑step pattern‑differentiation workflow**: Exterior‑interior determination → yin‑yang classification → cold‑heat discrimination → transmission‑transformation assessment → constitution evaluation → formula selection → fine‑tuned modification.
+- **Medication iron‑rules**: 7 contraindications + 5 first‑aid protocols.
+- **Jianzhong Decoction series**: Xiao Jianzhong / Huangqi Jianzhong / Danggui Jianzhong / Da Jianzhong (Taiyin disease expansion).
+- **Three liver‑treatment methods**: Wumei Wan / Wuzhuyu Tang / Xiao Jianzhong Tang (core of *Jin Gui Yao Lue*).
+- **Detailed explanation of Ba Wei Shen Qi Wan**: Three‑tonify three‑drain framework + comparison between Gui‑Fu Ba Wei Wan and Liu Wei Di Huang Wan.
+- **Quick mapping for miscellaneous disorders in *Jin Gui Yao Lue* to six meridians**: 12 miscellaneous disorders plus representative formulas.
+- **Six‑meridian attribution for unique *Jin Gui Yao Lue* formulas**: 4 cough‑asthma formulas + 8 tonifying formulas + 3 bi‑syndrome formulas (full ingredient composition included).
+- **11 cross‑references**: Bidirectional links from diagnostic formulas to detailed articles under `modules/`.
 
-· 8 diagnostic formulas: Taiyang/Yangming/Shaoyang/Taiyin/Shaoyin/Jueyin/Shaoyin heat transformation/combined and overlapping patterns, each with IF-THEN differentiation rules + subtype differentiation tables + representative formulas
-· Quick diagnosis flowchart: Complete decision tree from patient symptoms to Six-Meridian localization
-· Pulse diagnosis quick reference: 8 single pulses + 8 combined pulse patterns
-· Tongue diagnosis quick reference: 5 tongue patterns + 6 combined tongue patterns + pulse-tongue contradiction decision tree
-· True cold false heat / false cold differentiation: 8-dimensional method (facial color/breath odor/tongue shape/pulse/chest-abdomen/urine/thirst/stool) + critical pattern warnings
-· Combined/overlapping patterns quick reference: 11 combinations + treatment priority principles
-· 7-step diagnostic thinking model: Determine exterior-interior → differentiate yin-yang → distinguish cold-heat → assess transmission → evaluate constitution → select formula → fine-tune modifications
-· Medication iron rules: 7 contraindications + 5 emergency protocols
-· Jianzhong Tang series: Xiao Jianzhong/Huangqi Jianzhong/Danggui Jianzhong/Da Jianzhong (Taiyin disease expansion)
-· Three methods for treating liver: Wumei Wan/Wuzhuyu Tang/Xiao Jianzhong Tang (Jingui core)
-· Bawei Shenqi Wan detailed explanation: Three tonifying + three draining + Guifu Bawei vs Liuwei Dihuang
-· Jingui miscellaneous diseases Six-Meridian attribution quick reference: 12 conditions + representative formulas
-· Jingui unique formulas Six-Meridian attribution: 4 cough/asthma formulas + 8 tonification formulas + 3 arthralgia formulas (with complete composition)
-· 11 cross-references: Diagnostic formulas ↔ detailed provisions in modules/
+**Data Sources**:
+- Ni Haixia *Shang Han Lun Lecture Notes* (Ren‑Ji Series)
+- Ni Haixia *Huang Di Nei Jing Lecture Notes* (Ren‑Ji Series)
+- Ni Haixia *Jin Gui Yao Lue Lecture Notes* (Ren‑Ji Series)
 
-Data Sources:
+**Quality Validation**:
+- Darwin Skill Score: 9.4/10
+- 10 clinical‑scenario tests: 10/10 coverage
+- Dosage cross‑check for 11 formulas: 100% consistency against source documents
+- Six‑meridian outline clause verification: 5 out of 6 exact matches, 1 variant‑character discrepancy.
 
-· Ni Haixia, Shanghan Lun Lecture (Renji Series)
-· Ni Haixia, Huangdi Neijing Lecture (Renji Series)
-· Ni Haixia, Jingui Yaolüe Lecture (Renji Series)
-
-Quality Validation:
-
-· Darwin skill score: 9.4/10
-· 10 clinical scenario tests: 10/10 coverage
-· 11 formula dosages verified individually: 100% consistent with source files
-· Six-Meridian outline provisions verified: 5 of 6 fully consistent, 1 variant character difference
-
-SKILL.md changes: +476 lines (10,697→11,169 lines), new lines 6097-6545
+**SKILL.md Changes**: +476 lines (10,697 → 11,169 lines), newly added lines 6097‑6545.
 
 ---
 
-· v2.0.1 (2026-05-26): Added categorized case library cases/ (245 cases) + research materials references/; fixed .gitignore
-· v2.0.0 (2026-05-25): Repository cleanup—removed original reference materials (110MB), kept only runtime essentials (4MB)
-· v1.1.2 (2026-05-24): Details page rewrite—added installation guide, usage examples
-· v1.1.1 (2026-05-24): Renamed to "Ni Haixia skill," slug changed to nihaixia
-· v1.1.0 (2026-05-23): Deep distillation of Shennong Bencao Jing herbal properties; comprehensive keyword index optimization
-· v1.0.1 (2026-05-02): Structural optimization; OCR correction of 13 entries; added 10 Han-Tang article essences
-· v1.0.0 (2026-04-14): Initial release
+- **v2.0.1** (2026‑05‑26): Added categorized medical‑case library `cases/` (245 cases) + research materials `references/`; fixed `.gitignore`.
+- **v2.0.0** (2026‑05‑25): Repository refactoring — removed raw reference assets (110 MB), retaining only runtime‑required files (4 MB).
+- **v1.1.2** (2026‑05‑24): Rewrote documentation pages; added installation guide and usage examples.
+- **v1.1.1** (2026‑05‑24): Renamed to "Ni Haixia Skill", slug updated to `nihaixia`.
+- **v1.1.0** (2026‑05‑23): In‑depth distillation of *Shen Nong Ben Cao Jing* medicinal property system; comprehensive keyword‑index optimization.
+- **v1.0.1** (2026‑05‑02): Structural optimization; OCR correction for 13 entries; added 10 selected Han‑Tang articles.
+- **v1.0.0** (2026‑04‑14): Initial release.
 
 </details>
 
 ---
 
-Acknowledgements
+## Acknowledgements
 
-· Thanks to huoyalong for providing the nihaisha-skill foundational framework
-· Thanks to 9527qingfeng for medical case data support
-
----
-
-Star History
-
-https://repostars.dev/api/embed?repo=jangviktor-web%2Fnihaixia&theme=grape
+- Thanks to [huoyalong](https://github.com/huoyalong/nihaisha-skill) for the base framework of `nihaisha‑skill`.
+- Thanks to [9527qingfeng](https://github.com/9527qingfeng/hantang-nihaixia-follower) for medical‑case dataset support.
 
 ---
 
-Disclaimer
+## Star History
 
-This project is for TCM learning and research purposes only. It is not a substitute for professional medical diagnosis. All medical consultations should be conducted with licensed practitioners.
+[![RepoStars](https://repostars.dev/api/embed?repo=jangviktor-web%2Fnihaixia&theme=grape)](https://repostars.dev/?repos=jangviktor-web%2Fnihaixia&theme=grape)
+
+---
+
+## Disclaimer
+
+This project is intended solely for traditional Chinese‑medicine study and research. It does not replace professional medical diagnosis. For all diagnosis and treatment please consult a licensed medical practitioner.
 
 ---
 
 <div align="center">
 
-Forked from nihaisha-skill · Licensed under MulanPSL-2.0
+**Secondary development based on [nihaisha‑skill](https://github.com/huoyalong/nihaisha-skill) · Licensed under MulanPSL‑2.0 open‑source license**
 
-https://img.shields.io/badge/ClawHub-v2.1.0-orange
-https://img.shields.io/badge/OpenClawMP-v2.0.1-blueviolet
-https://img.shields.io/badge/SkillHub-nihaixia--pro-red
+[![ClawHub](https://img.shields.io/badge/ClawHub-v2.1.0-orange)](https://clawhub.ai/jangviktor-web/skills/nihaixia)
+[![OpenClawMP](https://img.shields.io/badge/OpenClawMP-v2.0.1-blueviolet)](https://openclawmp.cc)
+[![SkillHub](https://img.shields.io/badge/SkillHub-nihaixia--pro-red)](https://skillhub.cloud.tencent.com/skills/nihaixia-pro)
 
 </div>
