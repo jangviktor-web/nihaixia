@@ -173,6 +173,8 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 
 </div>
 
+<div align="center">
+         
 ### [李可skill · 急危重症中医AI](https://github.com/jangviktor-web/likeskill)
 
 李可老中医（1930-2013）急危重症思维操作系统。395个医案、170+首方剂、92种症状路由、25种假证识别。
@@ -188,6 +190,8 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 
 </div>
 
+<div align="center">
+
 ### [胡希恕skill · 经方中医AI](https://github.com/jangviktor-web/huxishu)
 
 将胡希恕（1898-1984）的经方临床思维、六经八纲辨证体系、方证对应心法蒸馏为可激活的 Agent Skill，使 AI 能以胡希恕的视角进行六经辨证、方证鉴别、临床选方。
@@ -200,6 +204,8 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 [![ClawHub](https://img.shields.io/badge/ClawHub-install%20huxishu-green?style=flat-square)](https://clawhub.ai/jangviktor-web/skills/huxishu)
 
 </div>
+
+<div align="center">
 
 ### [温病派吴鞠通skill · 温病派中医AI](https://github.com/jangviktor-web/wujutong)
 **吴鞠通**（1758-1836）——温病学派集大成者，三焦辨证 + 卫气营血，359 医案 45 病证，自称"羽翼伤寒"，以"津液的存亡"为核心，温病禁汗、甘寒存津，护阴第一。
