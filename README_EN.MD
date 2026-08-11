@@ -103,33 +103,29 @@ How to invoke:
 
 ---
 
-Usage Examples
+## Usage Examples
 
-Cold Pattern Differentiation
+**Common Cold Pattern Differentiation**
+> **Q**: I have caught a cold, feel cold aversion, no sweating, and pain at the back of my neck.
+> **A**: Taiyang cold‑damage, Ephedra Decoction syndrome. Aversion to cold with no sweating and body pain — cold constrains the exterior. Ephedra opens the pores, Cinnamon Twig releases muscle tension, Apricot Kernel descends qi.
 
-Q: I have a cold, feel chills, no sweating, and pain at the back of my neck
-A: Taiyang cold damage, Mahuang Tang pattern. No sweat, chills, body pain—cold constrains the exterior. Mahuang opens the pores, Guizhi relieves the muscles, Xingren descends the qi.
+**Formula Query**
+> **Q**: When should Minor Bupleurum Decoction be used?
+> **A**: The chief formula for Shaoyang disease. Bitter taste in mouth, dry throat, dizzy eyes, alternating chills and fever — any one of these manifestations indicates its use.
 
-Formula Inquiry
+**Medicinal Herb Nature & Flavor**
+> **Q**: What is the difference between raw Aconite and processed Aconite?
+> **A**: Raw Aconite — for interior yin‑cold, Sini Decoction pattern. Processed Aconite — for unstable exterior yang, spontaneous sweating with wind aversion.
 
-Q: When is Xiao Chaihu Tang used?
-A: The primary formula for Shaoyang disease. Bitter taste in the mouth, dry throat, dizziness, alternating fever and chills—any one symptom is sufficient.
-
-Herbal Properties
-
-Q: What's the difference between raw Fuzi and prepared Fuzi?
-A: Raw Fuzi—internal yin cold, Sini patterns. Prepared Fuzi—exterior yang insecurity, sweating and aversion to wind.
-
-Case Reference
-
-Q: Do you have any liver cancer cases?
-A: Yes, 147 cancer cases. Liver cancer cases often use formula combinations targeting masses, combined with soothing the liver and regulating qi.
+**Medical Case Reference**
+> **Q**: Are there any medical cases for liver cancer?
+> **A**: Yes, there are 147 cancer‑related cases. Liver cancer cases commonly use attacking‑and‑breaking prescriptions combined with liver‑soothing and qi‑regulating therapy.
 
 ---
 
-Core Knowledge System
+## Core Knowledge System
 
-Six-Meridian Pattern Differentiation Quick Reference
+### Six-Meridian Pattern Differentiation Quick Reference
 
 ```
 Taiyang (exterior) → Yangming (interior heat) → Shaoyang (half-exterior half-interior)
@@ -137,7 +133,7 @@ Taiyang (exterior) → Yangming (interior heat) → Shaoyang (half-exterior half
 Taiyin (spleen cold) → Shaoyin (heart/kidney yang deficiency) → Jueyin (yin-yang chaos / upper heat lower cold)
 ```
 
-Ni's Six Health Criteria
+### Ni's Six Health Criteria
 
 1. Sleep through the night without insomnia
 2. Normal appetite, hunger and fullness at proper mealtimes
@@ -148,17 +144,17 @@ Ni's Six Health Criteria
 
 ---
 
-Demonstration
+## Demonstration
 
 <div align="center">
 
-Six-Meridian Pattern Differentiation Basic Application
+**Six-Meridian Pattern Differentiation Basic Application**
 <img width="729" alt="Six-Meridian Differentiation" src="https://github.com/user-attachments/assets/98af88a7-fbaa-4a50-ac63-7f10e8c61dbe" />
 
-Six-Meridian Transmission Patterns
+**Six-Meridian Transmission Patterns**
 <img width="726" alt="Six-Meridian Transmission" src="https://github.com/user-attachments/assets/af0fb0c1-944b-4846-8dc2-4aaa2bc5b531" />
 
-Daily Health & Dietary Contraindications
+**Daily Health & Dietary Contraindications**
 <img width="731" alt="Dietary Health" src="https://github.com/user-attachments/assets/7c252c14-9497-4a94-be31-4a9670df3afb" />
 
 </div>
