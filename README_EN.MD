@@ -84,20 +84,22 @@ How to invoke:
 
 ---
 
-Feature Matrix
+## Feature Matrix
 
-Capability Coverage Description
-Six-Meridian Pattern Differentiation ✅ Taiyang/Yangming/Shaoyang/Taiyin/Shaoyin/Jueyin, transmission patterns + optimal recovery times
-Six-Meridian Diagnosis Formulas ✅ 8 diagnostic formulas + quick diagnosis flowchart + pulse/tongue quick reference + 7-step thinking model (new in v2.1.0)
-Classical Formula Selection ✅ 129 Tiaos of Shanghan Lun + 23 chapters of Jingui, including composition/dosage/decoction methods/contraindications
-Herbal Properties & Tastes ✅ 345 herbs from Shennong Bencao Jing, 3-grade classification + five tastes and meridian tropism + processing essentials
-Clinical Cases ✅ 849 real Ni Haixia cases, categorized into 6 groups including cancer/cardiovascular/metabolic diseases
-Acupuncture Points ✅ Twelve meridians + Jing-Rong-Shu-Jing-He points + Ren/Du vital points + stroke first aid
-Huangdi Neijing ✅ Complete distillation of 71 chapters, core TCM foundational theory
-Tianji Metaphysics ✅ Ziwei Doushu + 64 hexagrams of I Ching + Yangzhai Fengshui
-Liang Dong Dialogues ✅ Complete distillation of 7 episodes from 2009 recordings, perspectives on modern topics
-Closed-Door Sessions ✅ 7 major severe disease topics + 7 disciple classes, covering leukemia/breast cancer/brain tumors etc.
-Oral Expression ✅ Ni Haixia's spoken style module, making responses sound "like" Master Ni
+| Capability | Coverage | Description |
+|:---|:---:|:---|
+| Six‑Meridian Pattern Differentiation | ✅ | Taiyang / Yangming / Shaoyang / Taiyin / Shaoyin / Jueyin, transmission‑transformation rules + expected resolution time |
+| **Six‑Meridian Diagnostic Formulas** | ✅ | **8 diagnostic formulas + rapid‑diagnosis flowchart + pulse‑tongue quick reference + seven‑step reasoning workflow (New in v2.1.0)** |
+| Classical Prescription Medication Selection | ✅ | 129 chapters from *Shang Han Lun* + 23 chapters from *Jin Gui Yao Lue*, including composition / dosage / decoction‑administration methods / contraindications |
+| Medicinal Herb Nature & Flavor | ✅ | 345 substances from *Shen Nong Ben Cao Jing*, three‑grade classification + five‑flavor channel tropism + key processing notes |
+| Clinical Medical Cases | ✅ | 849 real‑world cases by Master Ni, categorized into 6 groups: cancer, cardiovascular disorders, metabolic diseases and more |
+| Acupuncture Points | ✅ | Twelve regular meridians + Jing‑Ying‑Shu‑Jing‑He points + key Ren‑Du points + stroke first‑aid protocols |
+| *Huang Di Nei Jing* | ✅ | Full distillation of 71 chapters, core fundamental theories of Traditional Chinese Medicine |
+| Heavenly Chronicles Metaphysics | ✅ | Zi Wei Dou Shu astrology + 64 hexagrams of I‑Ching + Yang‑Zhai residential feng‑shui |
+| Liang‑Dong Interviews | ✅ | Distilled full transcripts of 7 episodes recorded in 2009, viewpoints on modern‑world topics |
+| Closed‑Door Lectures | ✅ | 7 major severe‑disease special topics + 7 disciple classes, covering blood cancer, breast cancer, brain tumor and others |
+| Spoken‑Style Response | ✅ | Ni Haixia colloquial‑style module, outputs responses sounding like Master Ni |
+
 
 ---
 
