@@ -2,8 +2,6 @@
 
 <img width="120" src="logo.jpg" alt="Ni Haixia skill Logo">
 
-**🌐 [中文](https://github.com/jangviktor-web/nihaixia/blob/StableV2026.5.23/README.md) | [English](https://github.com/jangviktor-web/nihaixia/blob/StableV2026.5.23/README_EN.MD)**
-
 # Ni Haixia skill · Classical Formula TCM AI
 
 **Inject Master Ni Haixia's complete TCM thinking system into AI Agent**
@@ -16,7 +14,7 @@
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Ready-orange?style=for-the-badge&logo=anthropic&logoColor=white)]()
 [![Platforms](https://img.shields.io/badge/Platforms-5-purple?style=for-the-badge)](#installation)
 
-[English](#english) · 中文
+**🌐 [中文](https://github.com/jangviktor-web/nihaixia/blob/main/README.md) | [English](https://github.com/jangviktor-web/nihaixia/blob/main/README_EN.MD)**
 
 </div>
 
