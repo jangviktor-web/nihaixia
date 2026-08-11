@@ -14,7 +14,7 @@
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Ready-orange?style=for-the-badge&logo=anthropic&logoColor=white)]()
 [![平台](https://img.shields.io/badge/平台-5个-purple?style=for-the-badge)](#安装)
 
-**🌐 [中文](https://github.com/jangviktor-web/nihaixia/blob/StableV2026.5.23/README.md) | [English](https://github.com/jangviktor-web/nihaixia/blob/StableV2026.5.23/README_EN.MD)**
+**🌐 [中文](https://github.com/jangviktor-web/nihaixia/blob/main/README.md) | [English](https://github.com/jangviktor-web/nihaixia/blob/main/README_EN.MD)**
 
 </div>
 
