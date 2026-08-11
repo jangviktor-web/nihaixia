@@ -249,7 +249,6 @@ Complementary to Ni Haixia Skill: Ni Haixia provides comprehensive general‑pra
 
 <details>
 <summary><b>Click to view repository directory structure</b></summary>
-```
 
 nihaixia/
 ├── SKILL.md                    # Main skill file (840K, directly readable by Claude)
@@ -272,7 +271,6 @@ nihaixia/
 │   └── 06_other.md             # 59 miscellaneous cases
 └── references/research/        # Research reference materials
 
-```
 </details>
 
 ---
