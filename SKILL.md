@@ -5,7 +5,7 @@ description: |
   核心心智模型：六经辨证、阳气论、经典至上、经方为主。
   决策启发式：先辨六经再选方、阳气不足先扶阳、经典原方最可靠。
   触发词：「倪海厦」「海厦视角」「中医倪海厦」「经方思维」「倪海厦会怎么看」「倪师」。
-  知识库覆盖：伤寒论129条全+金匮23篇+黄帝内经18篇+针灸教程+神农本草经345种+天纪+849医案（按疾病分类6个模块）+梁冬对话+口述表达DNA+六经辨证诊断公式（8个公式+快速诊断流程图+脉舌速查+合病并病速查+真寒假热鉴别+七步走思维模式）。
+  知识库覆盖：伤寒论129条全+金匮23篇+黄帝内经54篇+针灸教程+神农本草经345种+天纪+1257例全量结构化医案（cases/00_merged_table.md）+245例分类叙事医案（cases/01-06）+医案集 modules/03_yian.md+梁冬对话+口述表达DNA+六经辨证诊断公式（8个公式+快速诊断流程图+脉舌速查+合病并病速查+真寒假热鉴别+七步走思维模式）。
   基于一手素材：梁冬对话录音稿、人纪班闭门课记录、医案集、神农本草经视频讲义。版本：StableV2026.5.23+Bencao；v2026.8.6 已用倪海厦经方知识库（深度蒸馏版）42 篇内容做增强教验，新增 references/distilled/（4 文件，共 213KB 速查本），教验报告见 references/distilled/audit-notes.md。
 ---
 
@@ -80,7 +80,94 @@ description: |
 | `references/distilled/02-acupuncture-quick-ref.md` | 621 | 针灸取穴/子午流注 |
 | `references/distilled/03-clinical-experience.md` | 150 | 感冒/咳嗽/妇科感冒 |
 | `references/distilled/04-acupuncture-highlights.md` | 1761 | 针灸详解详注 |
-| `references/distilled/audit-notes.md` | 130 | 校对/版本历史 |
+| `references/distilled/audit-notes.md` | 132 | 校对/版本历史 |
+| `references/distilled/README.md` | — | 蒸馏目录说明/AI 调用顺序 |
+
+## G. 金匮篇目导航（23 篇定位表）
+
+> **⚠️ 金匮篇目在文件内非自然序**：modules/04 从第八篇开始、第一篇在文件 85% 处。查某篇请按下表**直接跳转行号**，勿按文件顺序阅读。
+> **篇目分布**：第一~第四 + 第八~第二十三在 modules/04；第五~第七在 modules/05。
+
+| 篇 | 篇名 | 文件 | 行号 |
+|----|------|------|-----:|
+| 第一 | 藏府经络先后病 | modules/04_jingui.md | 9306 |
+| 第二 | 痉湿暍 | modules/04_jingui.md | 9769 |
+| 第三 | 百合狐惑阴阳毒 | modules/04_jingui.md | 10524 |
+| 第四 | 疟病 | modules/04_jingui.md | 10923 |
+| 第五 | 中风历节 | modules/05_huangdi_neijing.md | 9 |
+| 第六 | 血痹虚劳 | modules/05_huangdi_neijing.md | 617 |
+| 第七 | 肺痿肺痈咳嗽上气 | modules/05_huangdi_neijing.md | 1318 |
+| 第八 | 奔豚气 | modules/04_jingui.md | 25 |
+| 第九 | 胸痹心痛短气 | modules/04_jingui.md | 218 |
+| 第十 | 腹满寒疝宿食 | modules/04_jingui.md | 743 |
+| 第十一 | 五藏风寒积聚 | modules/04_jingui.md | 1436 |
+| 第十二 | 痰饮欬嗽 | modules/04_jingui.md | 2101 |
+| 第十三 | 消渴小便不利淋 | modules/04_jingui.md | 3157 |
+| 第十四 | 水气病 | modules/04_jingui.md | 3812 |
+| 第十五 | 黄瘅 | modules/04_jingui.md | 4943 |
+| 第十六 | 惊悸吐衄下血胸满瘀血 | modules/04_jingui.md | 5606 |
+| 第十七 | 呕吐哕下利 | modules/04_jingui.md | 6163 |
+| 第十八 | 疮痈肠痈浸淫 | modules/04_jingui.md | 7292 |
+| 第十九 | 趺蹶手指臂肿转筋狐疝蚘虫 | modules/04_jingui.md | 7615 |
+| 第二十 | 妇人妊娠 | modules/04_jingui.md | 7810 |
+| 第二十一 | 妇人产后 | modules/04_jingui.md | 8273 |
+| 第二十二 | 妇人杂病 | modules/04_jingui.md | 8542 |
+| 第二十三 | 阴阳易差后劳复 | modules/04_jingui.md | 9161 |
+
+## G2. 黄帝内经篇目导航（54 篇定位表）
+
+> 黄帝内经 54 篇全部位于 `modules/08_huangdi_detail.md`，按《素问》原书顺序排列。查某篇直接按下表**行号跳转**。
+
+| 篇名 | 行号 | 篇名 | 行号 |
+|------|-----:|------|-----:|
+| 上古天真论 | 9 | 刺疟 | 907 |
+| 四气调神大论 | 83 | 气厥论 | 964 |
+| 生气通天论 | 121 | 咳论 | 987 |
+| 金匮真言论 | 197 | 举痛论 | 1029 |
+| 阴阳应象大论 | 258 | 腹中论 | 1105 |
+| 阴阳离合论 | 360 | 刺腰痛 | 1187 |
+| 阴阳别论 | 389 | 风论 | 1241 |
+| 脏气法时论 | 417 | 痹论 | 1297 |
+| 宣明五气 | 490 | 痿论 | 1354 |
+| 太阴阳明论 | 531 | 厥论 | 1408 |
+| 阳明脉解 | 570 | 通评虚实论 | 1461 |
+| 热论 | 614 | 奇病论 | 1515 |
+| 刺热 | 667 | 大奇论 | 1573 |
+| 评热病论 | 707 | 脉解 | 1641 |
+| 逆调论 | 771 | 刺要论 | 1705 |
+| 疟论 | 817 | 刺齐论 | 1731 |
+| 刺禁论 | 1754 | 经络论 | 1931 |
+| 刺志论 | 1803 | 气穴论 | 1953 |
+| 针解 | 1835 | 气府论 | 1993 |
+| 长刺节论 | 1868 | 骨空论 | 2029 |
+| 皮部论 | 1902 | 水热穴论 | 2061 |
+| 调经论 | 2094 | 四时刺逆从论 | 2164 |
+| 缪刺论 | 2127 | 标本病传论 | 2204 |
+| 刺法论 | 2242 | 着至教论 | 2279 |
+| 示从容论 | 2313 | 阴阳类论 | 2421 |
+| 疏五过论 | 2351 | 方盛衰论 | 2459 |
+| 征四失论 | 2387 | 解精微论 | 2494 |
+
+> 内经原文+倪师讲解在 modules/08；五行/脏腑经络/病因病机等理论基础查询优先此表定位。
+
+## H. 医案导航（全量 1257 结构化 + 245 分类）
+
+> **优先使用 `cases/00_merged_table.md`（1257 例全量结构化表，12 列：诊断/病机/方剂/针灸/疗程/观点）**：按「主要诊断」或「具体方剂」列 grep 定位最快。
+> cases/01-06 共 **245 例全局编号 1-245**，按疾病切分（叙事详文）。
+> **⚠️ 检索以条目标题（`### 编号. 日期病名` 行）为准**：部分条目分类标签错标（如 193 红斑狼疮被标"肺癌"、240 乳癌论文被标"肺癌"），且 cases/ 各文件 190-243 段均混入本草/论文/要点提炼等非医案条目（01/02/03/06 均波及）。请用 grep 标题行定位，不要信任文件头部的"包含"声明。
+
+| 想查疾病 | 打开文件 | 建议检索 |
+|---------|---------|---------|
+| **任意疾病/方剂（全量优先）** | **cases/00_merged_table.md** | **grep 诊断或方剂关键词（12 列结构化）** |
+| 肝癌/乳癌/肺癌/脑瘤/血癌/淋巴癌/大肠癌/胰脏癌/骨癌/摄护腺癌/舌癌 | cases/01_cancer.md | grep "### .*癌" |
+| 心脏病/高血压/中风/动脉阻塞 | cases/02_cardiovascular.md | grep 病名 |
+| 糖尿病/肾衰竭/腹水/肝硬化 | cases/03_metabolic.md | grep 病名 |
+| 类风湿/红斑狼疮 | cases/01_cancer.md 搜"红斑狼疮"（### 3/18/20/51/83）或 modules/07_bimen_hantang.md 专题 | grep 标题行 |
+| 癫痫/帕金森/忧郁 | cases/05_neurological.md | grep 病名 |
+| 痛经/鼻炎/不孕/皮肤病 | cases/06_other.md | grep 病名 |
+
+> **重病深度内容**：血癌/红斑狼疮/脑瘤/肾衰竭/乳癌/肝癌专题闭门课讲义在 modules/07_bimen_hantang.md（搜具体病名），比 cases/ 更深入。
+> **超长医案精炼**：distilled_cases.md 与 cases/ 前 189 条重复，仅作辅助对照，回答以 cases/ 为准。
 
 ---
 
@@ -104,6 +191,7 @@ description: |
 | 牛奶 | SKILL.md 搜"牛奶" + modules/06_liangdong.md 搜"牛奶" | 六经总结+医案+梁冬对话 |
 | 羊奶/豆浆/水果/咖啡/味精 | modules/06_liangdong.md 搜"牛奶"或"味精"或"咖啡" | 梁冬对话中的饮食讨论 |
 | 糖尿病/减肥 | SKILL.md 搜"诊病十问" + modules/06_liangdong.md 搜"肥胖"或"糖尿病" | 十问+梁冬对话 |
+| 五行饮食观 | modules/07_bimen_hantang.md 搜"五行饮食" | 淡味vs厚味+五味过食 |
 
 ### 常见症状
 | 关键词 | 搜索位置 | 说明 |
@@ -114,10 +202,16 @@ description: |
 | 腹泻/下利 | SKILL.md 搜"太阴病" + 搜"理中汤" | 太阴病篇 |
 | 咳嗽 | SKILL.md 搜"咳嗽" + modules/04_jingui.md 搜"肺痿" | 六经+金匮肺痿 |
 | 头痛 | SKILL.md 搜"头项强痛" | 太阳病条文1 |
-| 月经/痛经/不孕 | SKILL.md 搜"妇人" + modules/04_jingui.md 搜"妇人" | SKILL.md速查+金匮妇人篇详文 |
+| 月经/痛经/不孕 | SKILL.md 搜"妇人" + modules/04_jingui.md 搜"妇人" + modules/03_yian.md 搜"月经" + modules/09_zhenjiu_bencao.md 搜"妇人" + modules/11_zhongjing_xinfa.md 搜"月经" | SKILL.md速查+金匮妇人篇+医案+本草+仲景心法 |
 | 水肿 | SKILL.md 搜"水气" + modules/04_jingui.md 搜"水气" | SKILL.md速查+金匮水气篇详文 |
 | 胸痹/心绞痛 | SKILL.md 搜"胸痹" + modules/04_jingui.md 搜"胸痹" | SKILL.md速查+金匮胸痹篇详文 |
 | 风湿/关节痛 | SKILL.md 搜"痉湿暍" + modules/04_jingui.md 搜"痉湿暍" | SKILL.md速查+金匮痉湿暍详文 |
+| 甲状腺/甲亢/瘿瘤 | modules/09_zhenjiu_bencao.md 搜"瘿" + modules/05_huangdi_neijing.md 搜"甲状腺" + modules/03_yian.md 搜"甲状腺" | 瘿瘤用药+甲状腺癌医案+甲状腺属三焦 |
+| 尿毒症/肾衰竭 | modules/07_bimen_hantang.md 搜"尿毒症" + modules/10_fuyang_luntan.md 搜"尿毒症" + modules/11_zhongjing_xinfa.md 搜"尿毒症" | 闭门课专题+扶阳案例+急救 |
+| 渐冻症/ALS | modules/07_bimen_hantang.md 搜"渐冻" + modules/03_yian.md 搜"渐冻" | 弟子课堂复盘+医案 |
+| 小儿/儿科/育儿 | modules/07_bimen_hantang.md 搜"育儿" + modules/09_zhenjiu_bencao.md 搜"小儿" + SKILL.md 搜"小儿" | 育儿原则+纯阳之体+小儿用药+误治案例 |
+| 鼻窦炎/中耳炎/麝香矾石散 | SKILL.md 搜"麝香矾石" + modules/07_bimen_hantang.md 搜"迎香" | 麝香矾石散方案+迎香穴清鼻法 |
+| 腹膜透析/肾衰竭停药 | modules/07_bimen_hantang.md 搜"腹膜透析" | 腹透vs血透+停药指征 |
 
 ### 诊断方法
 | 关键词 | 搜索位置 | 说明 |
@@ -128,11 +222,19 @@ description: |
 | 原穴 | SKILL.md 搜"十二经原穴" | 原穴表+口诀 |
 | 中风急救 | SKILL.md 搜"中风急救" | 七大穴+急救放血 |
 | 脉诊 | SKILL.md 搜"浮脉原理" | 浮沉迟数脉法 |
-| 瘀血诊断 | SKILL.md 搜"瘀血诊断" | 瘀血五法 |
-| 望诊 | SKILL.md 搜"望面色" | 金匮望面色 |
+| 瘀血诊断 | SKILL.md 搜"瘀血"（判断瘀血的方法 L4868） | 瘀血五法 |
+| 望诊 | SKILL.md 搜"望诊" + modules/12_stanford_jingfang.md 搜"望诊" | 望诊总结+金匮望面色 |
+| 足三里 | references/distilled/02-acupuncture-quick-ref.md 搜"足三里" | 胃经合穴/保健灸第一穴/防中风 |
+| 合谷 | references/distilled/02-acupuncture-quick-ref.md 搜"合谷" | 大肠经原穴/面口合谷收/止痛大穴 |
+| 曲池 | references/distilled/02-acupuncture-quick-ref.md 搜"曲池" | 大肠经合穴/上半身皮肤病 |
+| 太冲 | references/distilled/02-acupuncture-quick-ref.md 搜"太冲" | 肝经原穴/疏肝理气 |
+| 三阴交 | references/distilled/02-acupuncture-quick-ref.md 搜"三阴交" | 妇科要穴/脾肝肾三经交会 |
+| 其他穴位 | references/distilled/02 搜穴名（速查）→ 04（详解） | 穴位定位/主治 |
 | 六经快速诊断 | SKILL.md 搜"快速诊断流程图" | 一望而知病在何经的决策树 |
 | 真寒假热/真热假寒 | SKILL.md 搜"真寒假热" | 八维法鉴别+触诊要点 |
 | 脉舌矛盾 | SKILL.md 搜"脉舌矛盾决策树" | 脉舌不一致时以舌为准 |
+| 针灸治症精选 | modules/09_zhenjiu_bencao.md 搜"针灸治症" + SKILL.md 搜"针灸治疗" | 失眠/中风/心脏病针灸方案+散在各科针灸 |
+| 面相望诊/山根青色 | modules/07_bimen_hantang.md 搜"面相"或"山根" | 面相五行+山根青色分级 |
 
 ### 方剂/药物
 | 关键词 | 搜索位置 | 说明 |
@@ -186,9 +288,15 @@ description: |
 | 关键词 | 搜索位置 | 说明 |
 |--------|----------|------|
 | 浸淫疮 | SKILL.md 搜"浸淫疮" | 外治法+黄连粉 |
+| 百合狐惑 | modules/04_jingui.md 搜"百合"或"狐惑" | 金匮第三篇 |
+| 疟病 | modules/04_jingui.md 搜"疟" | 金匮第四篇 |
 | 肺痿/肺痈 | modules/04_jingui.md 搜"肺痿" | 金匮第七篇 |
 | 奔豚 | modules/04_jingui.md 搜"奔豚" | 金匮第八篇 |
+| 腹满寒疝 | modules/04_jingui.md 搜"腹满"或"寒疝" | 金匮第十篇 |
+| 痰饮/咳嗽 | modules/04_jingui.md 搜"痰饮" | 金匮第十二篇 |
 | 消渴 | modules/04_jingui.md 搜"消渴" | 金匮第十三篇 |
+| 黄疸 | modules/04_jingui.md 搜"黄疸" | 金匮第十五篇 |
+| 惊悸/吐衄 | modules/04_jingui.md 搜"惊悸" | 金匮第十六篇 |
 | 呕吐/哕/下利 | modules/04_jingui.md 搜"呕吐" | 金匮第十七篇 |
 | 疮痈/肠痈 | modules/04_jingui.md 搜"疮痈" | 金匮第十八篇 |
 | 妊娠/产后 | SKILL.md 搜"妇人" + modules/04_jingui.md 搜"妇人妊娠"或"妇人产后" | SKILL.md速查+金匮详文 |
@@ -214,15 +322,18 @@ description: |
 | 关键词 | 搜索位置 | 说明 |
 |--------|----------|------|
 | 桂枝汤精义/剂量 | modules/11_zhongjing_xinfa.md | 桂枝汤为群方之祖 |
-| 风湿/类风湿 | modules/11_zhongjing_xinfa.md 搜"风湿" | 甘附汤→知母汤→乌头汤递进 |
+| 风湿/类风湿 | modules/11_zhongjing_xinfa.md 搜"风湿" + modules/03_yian.md 搜"风湿" + cases/01_cancer.md 搜"类风湿" + modules/09_zhenjiu_bencao.md 搜"风湿" | 甘附汤→知母汤→乌头汤递进+医案+本草 |
 | 消化堵塞 | modules/11_zhongjing_xinfa.md 搜"消化系统" | 食道到肛门口经方对应 |
 | 奶水即月经 | modules/11_zhongjing_xinfa.md 搜"奶水" | 七癌同源理论 |
 | 阴阳手诊 | modules/11_zhongjing_xinfa.md 搜"手诊" | 掌背额温差秒断阴阳 |
+| 经方剂量/用药规律 | modules/11_zhongjing_xinfa.md 搜"剂量" + 搜"用药规律" | 经方剂量核心规律 |
+| 手抖/SLE案例 | modules/11_zhongjing_xinfa.md 搜"手抖"或"SLE" | 当归四逆汤+桂枝芍药知母汤完整辨证 |
 
 ### 斯坦福演讲/经方入门
 | 关键词 | 搜索位置 | 说明 |
 |--------|----------|------|
 | 斯坦福演讲 | modules/12_stanford_jingfang.md | 从感冒一路治到癌症 |
+| 经方妙用讲座 | modules/12_stanford_jingfang.md 搜"经方的妙用" | 经方定义+特点+治癌思路+三步走 |
 | 经方入门 | modules/12_stanford_jingfang.md 搜"经方" | 经方定义/特点/三步走 |
 | 弟子经验 | modules/12_stanford_jingfang.md 搜"弟子" | 李宗恩/杨贞 |
 | 望诊/十问 | modules/12_stanford_jingfang.md 搜"望诊"或"十问" | 望诊总结+诊病十问 |
@@ -232,10 +343,12 @@ description: |
 ### 医案库（按疾病分类）
 | 关键词 | 文件 | 说明 |
 |--------|------|------|
+| 任意疾病/方剂（全量） | cases/00_merged_table.md | 1257 例全量结构化表（诊断/病机/方剂/针灸/疗程） |
 | 肝癌/乳癌/肺癌/脑瘤/血癌/淋巴癌/大肠癌/胰脏癌/骨癌/舌癌 | cases/01_cancer.md | 147个癌症医案 |
 | 心脏病/高血压/中风/动脉阻塞 | cases/02_cardiovascular.md | 22个心血管医案 |
 | 糖尿病/肾衰竭/腹水/肝硬化 | cases/03_metabolic.md | 12个代谢病医案 |
-| 类风湿/红斑狼疮 | cases/04_autoimmune.md | 2个自身免疫医案 |
+| 类风湿/帕金森/自身免疫 | cases/04_autoimmune.md | 2个自身免疫医案 |
+| 类风湿/红斑狼疮 | cases/01_cancer.md 搜"红斑狼疮"（### 3/18/20/51/83）或 modules/07_bimen_hantang.md 专题 | 红斑狼疮医案+闭门课专题 |
 | 癫痫/帕金森/忧郁 | cases/05_neurological.md | 3个神经精神医案 |
 | 痛经/鼻炎/不孕/皮肤病等 | cases/06_other.md | 59个其他医案 |
 
@@ -246,13 +359,16 @@ description: |
 |------|------|------|
 | modules/01_shanghan_sun.md | 伤寒论太阳病篇条文1-129 | 太阳表证/感冒发烧/方剂选择 |
 | modules/02_shanghan_other.md | 阳明/少阳/太阴/少阴/厥阴五篇总结 | 里证/半表半里证辨证 |
-| modules/03_yian.md | 849个医案精选 | 查找特定疾病治疗案例 |
+| modules/03_yian.md | 医案集（按日期） | 查找特定疾病治疗案例 |
 | modules/04_jingui.md | 金匮要略23篇完整解读 | 杂病辨证/金匮方剂查询 |
-| modules/05_huangdi_neijing.md | 黄帝内经71篇+上古天真论 | 中医基础理论/脏腑经络 |
+| modules/05_huangdi_neijing.md | 金匮第5/6/7篇（中风历节/血痹虚劳/肺痿肺痈） | 金匮杂病（中风/虚劳/肺病） |
 | modules/06_liangdong.md | 梁冬对话7期精华 | 饮食养生/现代话题观点 |
 | modules/07_bimen_hantang.md | 七大重病闭门课+汉唐文章 | 重病治疗方案 |
 | modules/08_huangdi_detail.md | 黄帝内经讲义461页完整版 | 深入内经理论 |
 | modules/09_zhenjiu_bencao.md | 针灸教程+本草经345种+倪师药性总义视频精萃+天纪 | 穴位查询/药物性味/药性理论/命理风水 |
+| modules/10_fuyang_luntan.md | 扶阳论坛演讲（经方阴阳+临床重案） | 扶阳/阴阳辨证/癌症病机 |
+| modules/11_zhongjing_xinfa.md | 仲景心法（剂量/风湿/消化/癌症/阴阳诊断） | 经方剂量/桂枝汤精义/风湿/消化/奶水月经 |
+| modules/12_stanford_jingfang.md | 斯坦福演讲+经方妙用+弟子经验+归纳总结 | 感冒到癌症/经方入门/弟子经验/望诊十问 |
 | SKILL.md「六经辨证诊断公式」节 | 8个诊断公式+快速流程图+脉舌速查+合病并病+真寒假热+七步走 | 临床快速辨证定位六经选方剂 |
 
 ---
@@ -260,19 +376,19 @@ description: |
 ## 常见问题速查（直接回答，无需加载模块）
 
 ### Q: 牛奶能不能喝？
-倪海厦明确反对喝牛奶。原因：①牛奶是给小牛喝的，不是给人喝的；②牛奶性寒，会伤阳气；③现代牛奶含激素、抗生素；④中医认为牛奶会导致痰湿。替代：豆浆、米浆。（详见第5244行区域）
+倪海厦明确反对喝牛奶。原因：①牛奶是给小牛喝的，不是给人喝的；②牛奶性寒，会伤阳气；③现代牛奶含激素、抗生素；④中医认为牛奶会导致痰湿。替代：豆浆、米浆。
 
 ### Q: 手脚出汗怎么办？
-分寒热：①手脚冷+出汗→四逆汤/当归四逆汤（少阴/厥阴）；②手脚温热+出汗+没有便秘→桂枝汤加龙骨牡蛎潜阳；③手脚温热+出汗+便秘→承气汤攻下。龙骨收外越之阳，牡蛎收失精。（详见第189行+第5723行）
+分寒热：①手脚冷+出汗→四逆汤/当归四逆汤（少阴/厥阴）；②手脚温热+出汗+没有便秘→桂枝汤加龙骨牡蛎潜阳；③手脚温热+出汗+便秘→承气汤攻下。龙骨收外越之阳，牡蛎收失精。
 
 ### Q: 失眠怎么治？
-看六经：①太阴脾虚→归脾汤；②少阴心肾阳虚→黄连阿胶汤；③厥阴寒热错杂→乌梅丸；④阳明胃不和→调胃承气汤。倪海厦六健康标准第一条：一觉到天亮。（详见第195行+第5788行）
+看六经：①太阴脾虚→归脾汤；②少阴热化→黄连阿胶汤；③厥阴寒热错杂→乌梅丸；④阳明胃不和→调胃承气汤。倪海厦六健康标准第一条：一觉到天亮。
 
 ### Q: 便秘怎么办？
-阳明病范畴。①热秘→承气汤（调胃/小/大承气汤）；②寒秘→大黄附子细辛汤；③虚秘→麻子仁丸。大便一天一次，成型不硬，色黄。（详见第5471行）
+阳明病范畴。①热秘→承气汤（调胃/小/大承气汤）；②寒秘→大黄附子细辛汤；③虚秘→麻子仁丸。大便一天一次，成型不硬，色黄。
 
 ### Q: 感冒发烧怎么治？
-先辨六经！①有汗+怕风→桂枝汤（太阳中风）；②无汗+怕冷→麻黄汤（太阳伤寒）；③忽冷忽热→小柴胡汤（少阳）；④但热不寒→白虎汤（阳明）。倪海厦：感冒不吃药，一个礼拜会好。（详见第233行）
+先辨六经！①有汗+怕风→桂枝汤（太阳中风）；②无汗+怕冷→麻黄汤（太阳伤寒）；③忽冷忽热→小柴胡汤（少阳）；④但热不寒→白虎汤（阳明）。倪海厦：感冒不吃药，一个礼拜会好。
 
 ### Q: 怎么判断一味药的药性？
 倪海厦"以意得之"五步法：①看颜色→定归经（青→肝，赤→心，黄→脾，白→肺，黑→肾）；②尝味道→定功能（酸收，苦泻燥坚，甘补和缓，辛散润行，咸下软坚）；③掂重量→定走向（质轻走上表，质重走下里）；④看形状→定部位（中空发表，内实攻里）；⑤看质地→定气血（枯燥入气分，润泽入血分）。"不要被名称锁住，用悟的方式去了解。"（详见modules/09_zhenjiu_bencao.md搜"药物选用总诀"）
@@ -345,7 +461,7 @@ description: |
 **知识库来源**（按优先级）：
 1. SKILL.md 核心内容（六经速查、方剂速查、决策启发式）
 2. modules/ 模块文件（条文、医案、金匮、内经、针灸、本草、天纪等）
-3. SKILL.full.md 完整版（需要深度内容时加载）
+3. modules/ 模块文件深读（按关键词索引定位，加载具体模块）
 
 **加载规则**：
 - 简单问题（饮食/养生/基础辨证/五味基础）→ 直接用 SKILL.md 速查表（五味速查/药性阴阳总诀）回答，不加载模块
@@ -357,9 +473,9 @@ description: |
   - 自身免疫 → cases/04_autoimmune.md（2案）
   - 神经精神 → cases/05_neurological.md（3案）
   - 其他 → cases/06_other.md（59案）
-  - 综合医案 → modules/03_yian.md（849案完整版）
+  - 综合医案 → modules/03_yian.md（医案集完整版）
 - 杂病/金匮 → 加载 modules/04_jingui.md
-- 内经理论 → 加载 modules/05_huangdi_neijing.md 或 08_huangdi_detail.md
+- 内经理论 → 加载 modules/08_huangdi_detail.md
 - 针灸/药物/药性理论 → 加载 modules/09_zhenjiu_bencao.md（药性详情搜"倪师药性总义"）
 - 梁冬对话 → 加载 modules/06_liangdong.md
 - 重病/汉唐 → 加载 modules/07_bimen_hantang.md
@@ -5555,22 +5671,18 @@ description: |
 |------|------|------|
 | `07-teaching-methodology.md` | 教学法+临床思维训练 | ✅ |
 | `08-clinical-cases.md` | 经典临床思路+辨证套路 | ✅ |
-| `09-shanghan-taiyang.md` | 《伤寒论》太阳病篇第1条完整解读 | ✅ |
-| `10-shanghan-taiyang-2to8.md` | 《伤寒论》太阳病篇条文2-8完整解读 | ✅ |
 
 **⚠️ 使用原则**：一手来源优先；二手来源仅作交叉验证，不得作为主要论据。
 
 **调研时间**：2026-04-09 初版 | 2026-04-10 深度蒸馏
 **素材路径**：
-- `D:\下载\hantang-nihaixia-follower-master\hantang-nihaixia-follower-master\倪海厦\`
+- 倪海厦教学资料原始合集（hantang-nihaixia-follower 系列，本地归档）
 - 梁冬对话倪海厦09年12月（7节完整录音稿，1017行，81224字符）✅ 已分析
 - 人纪-6-人纪班闭门课记录 ✅
 - 倪海厦汉唐中医经典文章医案集.pdf ✅
 - **新增深度蒸馏文件**：
   - `07-teaching-methodology.md` — 教学法+临床思维训练
   - `08-clinical-cases.md` — 经典临床思路+辨证套路
-  - `09-shanghan-taiyang.md` — 《伤寒论》太阳病篇第1条完整解读（2026-04-10）✅
-- `10-shanghan-taiyang-2to8.md` — 《伤寒论》太阳病篇条文2-8完整解读（2026-04-10）✅
 
 ### 研究资料索引（references/research/）
 
@@ -6252,7 +6364,7 @@ IF 脉浮 + 头项强痛 + 恶寒 → 太阳病
 
 **禁忌**：酒客不可用桂枝汤；脉浮紧无汗者不可用桂枝汤；有表证时**绝对不可攻里**
 
-> **详见**：modules/01_shanghan_sun.md 太阳病篇（第1-129条详解）；桂枝汤方义见第357-396行；麻黄汤见第207-209行
+> **详见**：modules/01_shanghan_sun.md 太阳病篇（第1-129条详解）；桂枝汤方义见第357-396行；麻黄汤见 modules/01 条文39（约1009行）
 
 ---
 
@@ -6612,7 +6724,7 @@ IF 脉细数 + 心烦不得卧 + 舌红少苔 → 少阴热化证
 
 **初学者掌握前三步即可应对70%的常见病**，熟练后再逐步补充后四步。
 
-> **详见**：modules/01_shanghan_sun.md 六经辨证总结；modules/05_huangdi_neijing.md 热论篇（六经源头）
+> **详见**：modules/01_shanghan_sun.md 六经辨证总结；modules/08_huangdi_detail.md 热论篇（六经源头）
 
 ---
 
@@ -6660,7 +6772,7 @@ IF 脉细数 + 心烦不得卧 + 舌红少苔 → 少阴热化证
 
 > 本模块收录倪海厦临床医案精华
 > 蒸馏时间：2026-04-14 14:02
-> **蒸馏索引**：`distilled_cases.md` 含849个医案的结构化索引（疾病/六经/方剂/疗效）
+> **蒸馏索引**：`distilled_cases.md` 为超长医案精炼清单（243 条，与 cases/ 前 189 条重复，仅作辅助对照）
 > **超长医案**：243个医案超过500字，已标记待进一步蒸馏
 
 ### 050324乳癌
@@ -11017,14 +11129,14 @@ IF 脉细数 + 心烦不得卧 + 舌红少苔 → 少阴热化证
 | `modules/02_shanghan_other.md` | 阳明/少阳/太阴/少阴/厥阴 | ~650 | 非太阳经的六经问题 |
 | `modules/03_yian.md` | 医案集 + 闭门课 | ~7900 | 查找医案/闭门课参考 |
 | `modules/04_jingui.md` | 金匮要略23篇 | ~11100 | 杂病/金匮问题 |
-| `modules/05_huangdi_neijing.md` | 黄帝内经（上古天真论+基础） | ~1950 | 内经理论基础 |
+| `modules/05_huangdi_neijing.md` | 金匮第5/6/7篇（中风历节/血痹虚劳/肺痿肺痈） | ~1950 | 金匮杂病（中风/虚劳/肺病） |
 | `modules/06_liangdong.md` | 梁冬对话7期 | ~1260 | 梁冬对话内容 |
 | `modules/07_bimen_hantang.md` | 闭门课·重病+弟子课+汉唐 | ~1000 | 重病专题/汉唐文章 |
 | `modules/08_huangdi_detail.md` | 黄帝内经讲义详细篇目 | ~2520 | 内经具体篇目问题 |
 | `modules/09_zhenjiu_bencao.md` | 针灸+本草+药性总义精萃+天纪+书目 | ~3300 | 针灸/药物/药性理论/命理 |
-| `modules/10_fuyang_luntan.md` | 扶阳论坛演讲（经方阴阳+临床重案） | ~200 | 扶阳/阴阳辨证/癌症病机 |
-| `modules/11_zhongjing_xinfa.md` | 仲景心法（剂量/风湿/消化/癌症/阴阳诊断） | ~250 | 经方剂量/桂枝汤精义/风湿/消化/奶水月经 |
-| `modules/12_stanford_jingfang.md` | 斯坦福演讲+经方妙用+弟子经验+归纳总结 | ~230 | 感冒到癌症/经方入门/弟子经验/望诊十问 |
+| `modules/10_fuyang_luntan.md` | 扶阳论坛演讲（经方阴阳+临床重案） | ~182 | 扶阳/阴阳辨证/癌症病机 |
+| `modules/11_zhongjing_xinfa.md` | 仲景心法（剂量/风湿/消化/癌症/阴阳诊断） | ~218 | 经方剂量/桂枝汤精义/风湿/消化/奶水月经 |
+| `modules/12_stanford_jingfang.md` | 斯坦福演讲+经方妙用+弟子经验+归纳总结 | ~185 | 感冒到癌症/经方入门/弟子经验/望诊十问 |
 
 ### 加载规则
 - **简单问题**（饮食/养生/基础辨证）→ 不加载模块，用速查表回答
