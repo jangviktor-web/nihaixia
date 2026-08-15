@@ -34,10 +34,11 @@
 ## 快速安装
 
 <details open>
-<summary><b> ClawHub（推荐）</b></summary>
+<summary><b> ClawHub（推荐）已更新至V2.3.0版本可复制下面文字到agent更新</b></summary>
 
 ```bash
 openclaw skills install @jangviktor-web/nihaixia
+npx skills add https://clawhub.ai/jangviktor-web/skills/nihaixia
 ```
 </details>
 
@@ -51,16 +52,13 @@ skillhub install nihaixia-pro
 </details>
 
 <details>
-<summary><b>OpenClaw / OpenClawMP / 手动安装</b></summary>
+<summary><b>手动安装</b></summary>
 
 ```bash
-# OpenClaw
-openclaw skills install @jangviktor-web/nihaixia
-
-
 # 手动
 git clone https://github.com/jangviktor-web/nihaixia.git
 cp -r nihaixia/ ~/.claude/skills/nihaixia/
+把github“https://github.com/jangviktor-web/nihaixia”项目安装到本地skill
 ```
 </details>
 
