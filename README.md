@@ -88,6 +88,23 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 
 </details>
 
+<details>
+<summary><b>历史版本下载</b></summary>
+
+#### v1.0.0  （更新日志：首个正式稳定版，基于开源项目二次开发，完整蒸馏倪海厦人纪系列核心内容。）
+下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive/refs/tags/v1.0.0.zip
+#### v1.1.0 （更新日志：神农本草经药性体系、伤寒论、金匮要略深度蒸馏 + 全模块检索链路修复）
+下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive/refs/tags/v1.1.0.zip   
+#### v2.0.1版本 （更新日志：更新245 例医案按疾病索引）
+下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive/refs/tags/v2.0.1.zip   
+#### v2.1.0版本 （更新日志：从知识库查询工具升级为具备六经辨证思维模式的临床诊断助手。）
+下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive/refs/tags/v2.1.0.zip
+#### v2.2.0版本  （更新日志：核心升级：新增结构化速查层与三场倪师重要演讲，SKILL.md 入口植入开阖枢图/原穴全表/五输穴公式等六大速查块，六十四卦从简洁列表升级为完整人事应用百科。）
+下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive/refs/tags/V2.2.0.zip
+#### V2.2.1版本  （更新日志：索引体系重构）
+下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive/refs/tags/V2.2.1.zip
+
+</details>
 
 ---
 
