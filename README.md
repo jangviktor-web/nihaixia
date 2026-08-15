@@ -174,14 +174,17 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 
 <div align="center">
 
-**六经辨证基础应用**
-<img width="729" alt="1" src="https://github.com/user-attachments/assets/5d874838-9339-40cd-ae47-70c153c9c57a" />
+# 六经辨证基础应用
+<img width="992" height="808" alt="图1_compressed" src="https://github.com/user-attachments/assets/791a3053-fc0e-4ea6-a4d5-a3d8a9f80b6e" />
 
-**六经传变规律**
-<img width="729"  alt="2" src="https://github.com/user-attachments/assets/79c5c8fc-2894-4ecf-8988-42fa0dd354d6" />
 
-**日常养生与饮食禁忌**
-<img width="729" alt="3" src="https://github.com/user-attachments/assets/70a37746-0d15-4839-aab4-f5fe0e37b8f6" />
+
+# 六经传变规律
+<img width="992" height="808" alt="图2_compressed" src="https://github.com/user-attachments/assets/314dabce-0554-4765-bf53-203e276d2813" />
+
+
+# 日常养生与饮食禁忌
+<img width="992" height="836" alt="图3_compressed" src="https://github.com/user-attachments/assets/e44968de-983e-458d-929f-6e90f63c6490" />
 
 </div>
 
