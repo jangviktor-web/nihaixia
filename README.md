@@ -196,6 +196,25 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 
 ## 相关项目
 
+
+<div align="center">
+
+### [中医思维蒸馏器 · TCM-Distiller](https://github.com/jangviktor-web/tcm-distiller)
+
+中医思维蒸馏器TCM-Distiller是开源中医AI蒸馏流水线，不堆砌中医典籍素材，而是搭建标准化体系，把胡希恕、黄元御、吴鞠通等医家的著作、讲稿、医案，提炼成可被AI调用、还原真人辨证思路的专属思维技能。
+
+[![Download APK](https://img.shields.io/badge/中医思维蒸馏器-red?style=for-the-badge&logo=Skill)](https://github.com/jangviktor-web/tcm-distiller)
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=for-the-badge)](https://github.com/jangviktor-web/tcm-distiller)
+
+| 人物 | 流派 | 成果 |
+|---|---|---|
+| 胡希恕 | 经方派 | 38 万字讲稿 → 完整技能（首发验证案例） |
+| 黄元御 | 气机升降派 | 3.5MB/38,266 行医书十一种 → V3 深度优化 |
+| 吴鞠通 | 温病派 | 4 著作 → V3.5 端到端 + 359 医案 + GitHub 发布 |
+| 倪海厦 | 经方派 | 258 方剂量全量勘误 + 表达还原度反超旧版 + 达尔文全流程优化（V4.5 七项经验反哺） |
+
+</div>
+
 <div align="center">
 
 ### [汉唐中医 · 安卓诊断 APP](https://github.com/jangviktor-web/nihaixia-app)
