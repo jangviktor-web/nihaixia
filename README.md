@@ -10,6 +10,7 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/jangviktor-web/nihaixia?style=for-the-badge&color=yellow&label=Stars)](https://github.com/jangviktor-web/nihaixia/stargazers)
 [![版本](https://img.shields.io/badge/版本-v2.1.0-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia/releases)
+[![中医思维蒸馏器](https://img.shields.io/badge/中医思维蒸馏器-v4.4.0-red?style=for-the-badge)](https://github.com/jangviktor-web/tcm-distiller)
 [![License](https://img.shields.io/badge/协议-MulanPSL--2.0-green?style=for-the-badge)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Ready-orange?style=for-the-badge&logo=anthropic&logoColor=white)]()
 [![平台](https://img.shields.io/badge/平台-5个-purple?style=for-the-badge)](#安装)
