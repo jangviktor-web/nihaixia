@@ -248,6 +248,8 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 | 倪海厦文集 | 139 页 | 234K | 8 则医案蒸馏 |
 | **合计** | **2,452 页** | **3.5M** | |
 
+
+
 </details>
 
 <details>
@@ -255,45 +257,45 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 
 ```
 nihaixia/
-├── SKILL.md                    # 主技能文件（852K，含开阖枢图/原穴全表等六大速查块）
-├── modules/                    # 12 个知识模块
+├── SKILL.md                    # 主技能文件（107KB/1,548行，含开阖枢图/原穴全表等六大速查块+角色规则+剂量体系）
+├── expression_style.md         # 倪海厦口语表达 DNA（嚎用法/反问互动/断言收束）
+├── distilled_cases.md          # 243 例分类叙事医案合并版
+├── index.html                  # 详情页
+├── logo.jpg                    # 项目 Logo
+├── modules/                    # 14 个知识模块
 │   ├── 01_shanghan_sun.md      # 伤寒论太阳病篇（条文1-129 逐条解读）
 │   ├── 02_shanghan_other.md    # 伤寒论阳明/少阳/太阴/少阴/厥阴
 │   ├── 03_yian.md              # 医案集（849 例）
 │   ├── 04_jingui.md            # 金匮要略 23 篇完整解读
-│   ├── 05_huangdi_neijing.md   # 黄帝内经 71 篇 + 上古天真论
+│   ├── 05_huangdi_neijing.md   # 黄帝内经 72 篇 + 上古天真论
 │   ├── 06_liangdong.md         # 梁冬对话全文
 │   ├── 07_bimen_hantang.md     # 闭门课 + 汉唐文章
 │   ├── 08_huangdi_detail.md    # 黄帝内经讲义详细篇目（461 页）
-│   ├── 09_zhenjiu_bencao.md    # 针灸教程 + 神农本草经 345 种 + 天纪 + 六十四卦全表
-│   ├── 🆕 10_fuyang_luntan.md  # 第三届扶阳论坛演讲（经方阴阳+癌症重案）
-│   ├── 🆕 11_zhongjing_xinfa.md # 仲景心法（剂量学+手诊+七癌同源）
-│   └── 🆕 12_stanford_jingfang.md # 斯坦福演讲+经方妙用+弟子经验
-├── cases/                      # 分类医案（245 例）
+│   ├── 09_zhenjiu_bencao.md    # 针灸教程 + 神农本草经 374 种 + 天纪 + 六十四卦全表
+│   ├── 10_fuyang_luntan.md     # 第三届扶阳论坛演讲（经方阴阳+癌症重案）
+│   ├── 11_zhongjing_xinfa.md   # 仲景心法（剂量学+手诊+七癌同源）
+│   ├── 12_stanford_jingfang.md # 斯坦福演讲+经方妙用+弟子经验
+│   ├── 13_shanghan_quebing.md  # 伤寒论条文补齐（太阳下篇+阳明篇）
+│   └── 14_yijinjing_bidu.md    # 易筋经 + 五脏逼毒法
+├── cases/                      # 医案库（1,500+ 条）
+│   ├── 00_merged_table.md      # 1,257 例全量结构化医案表（12列：诊断/病机/方剂/针灸/疗程/观点）
 │   ├── 01_cancer.md            # 147 个癌症医案
 │   ├── 02_cardiovascular.md    # 22 个心血管医案
 │   ├── 03_metabolic.md         # 12 个代谢病医案
 │   ├── 04_autoimmune.md        # 2 个自身免疫医案
 │   ├── 05_neurological.md      # 3 个神经精神医案
 │   └── 06_other.md             # 59 个其他医案
-├── 🆕 references/distilled/    # 蒸馏速查层（6 文件，232K）
-│   ├── 01-six-meridian-formulas.md # 六经辨证诊断公式（966 行）
-│   ├── 02-acupuncture-quick-ref.md # 针灸公式速查（621 行）
-│   ├── 03-clinical-experience.md   # 感冒六大经方 + 病机十九条（150 行）
-│   ├── 04-acupuncture-highlights.md # 针灸重点内容汇编（1,761 行）
-│   ├── README.md                   # 蒸馏目录说明
-│   └── audit-notes.md              # 教验报告
-└── references/research/        # 研究资料
-    ├── 01-writings.md          # 著作研究
-    ├── 02-conversations.md     # 对话分析
-    ├── 03-expression-dna.md    # 表达 DNA
-    ├── 04-external-views.md    # 外部评价
-    ├── 05-decisions.md         # 决策分析
-    ├── 06-timeline.md          # 生平时间线
-    ├── 07-teaching-methodology.md # 教学方法论
-    ├── 08-clinical-cases.md    # 临床案例分析
-    ├── combined_reference.md   # 综合参考资料
-    └── _distill_log.txt        # 蒸馏日志
+├── references/
+│   ├── distilled/              # 蒸馏速查层（6 文件）
+│   │   ├── 01-six-meridian-formulas.md # 六经辨证诊断公式（966 行）
+│   │   ├── 02-acupuncture-quick-ref.md # 针灸公式速查（621 行）
+│   │   ├── 03-clinical-experience.md   # 感冒六大经方 + 病机十九条（150 行）
+│   │   ├── 04-acupuncture-highlights.md # 针灸重点内容汇编（1,761 行）
+│   │   ├── README.md                   # 蒸馏目录说明
+│   │   └── audit-notes.md              # 教验报告
+│   ├── research/               # 研究资料（10 文件：著作/对话/表达DNA/外部评价/决策/时间线/教学法/临床案例/综合/蒸馏日志）
+│   ├── audit/                  # 方剂与针灸审计清单（fangji_112.txt / zhenjiu_164.txt）
+│   └── CHANGELOG.md            # 变更记录
 ```
 </details>
 
@@ -304,7 +306,7 @@ nihaixia/
 
 #### v2.3.0 (2026-08-15) — 剂量全量勘误 + 表达还原 + 经方卡片体系 + 辨证严谨优先
 
-核心升级：完成 258 方剂量全量勘误与三体系换算固化；修复新版输出学术化问题（倪师味还原）；上线经方条文卡片体系并前移到回答前必读区；新增辨证严谨优先铁律与卡片版本标注、中文编号防混机制。所有改动注册复查无回滚（skill id 7470400153877466）。
+核心升级：完成 258 方剂量全量勘误与三体系换算固化；修复新版输出学术化问题（倪师味还原）；上线经方条文卡片体系并前移到回答前必读区；新增辨证严谨优先铁律与卡片版本标注、中文编号防混机制。所有改动注册复查无回滚。
 
 改动内容：
 
