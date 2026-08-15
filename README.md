@@ -2,7 +2,7 @@
 
 <img width="120" src="logo.jpg" alt="倪海厦skill Logo">
 
-# 倪海厦skill · 经方中医AI
+# 倪海厦Skill · 经方中医AI
 
 **将经方大师倪海厦的完整中医思维体系注入 AI Agent**
 
