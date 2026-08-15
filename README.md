@@ -107,8 +107,17 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive/refs/tags/V2.2.0.zip
 #### V2.2.1版本  （更新日志：索引体系重构）
 下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive/refs/tags/V2.2.1.zip
+#### V2.2.2版本  （更新日志：完成伤寒金匮 258 方逐条剂量提取与两轮复核，修正通行本与倪师授课原版剂量偏差、模块硬错误、速查表错乱、源文件行号标注错误，整改勘误表自身误判漏判，提升方剂剂量原始数据准确率。）
+下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/V2.2.1/nihaixia_skill_20260813.V2.2.2tar.gz
+#### V2.2.3版本  （更新日志：方剂数据补全、遗方增补与版本口径统一：批量补齐多方剂缺失的古代原方剂量、倪师临床剂量与规范方行，增补差后劳复、金匮附方共计7类未收录方剂并标注史料来源边界，统一处理全书多处方剂古今版本分歧，固化桃花汤等方剂的倪师标准解读口径，规范版本差异备注规则，仅保留5处源文件无记载遗留项。）
+下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/V2.2.1/nihaixia_skill_20260813_v2.2.3.tar.gz
+#### V2.2.4版本  （更新日志：批量补齐缺失古方、临床剂量与方行文本，增补差后劳复、金匮附方遗方，统一多方剂版本分歧与解读口径；重构三套度量衡换算体系，固化倪师临床直换开方铁律，重写感冒经方速查表，厘清各换算体系使用边界，规避判定误判。）
+下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/V2.2.1/nihaixia_skill_20260813_v2.2.4.tar.gz
+#### V2.2.8d版本 （更新日志：完成 7 处核心改动与 R1‑R8 补修，将经方条文卡片触发规则前移置顶，新增方剂出卡对账校验实现首次出现即出卡，落实会话级断言短语去重与断言池轮换，同步修正范例矛盾、触发口径、失效编号引用等细节，解决漏卡与模板复用缺陷。）
+下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/V2.3.0/nihaixia_skill_20260815_v2.2.8d.tar.gz
 
 </details>
+
 
 ---
 
