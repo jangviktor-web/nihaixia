@@ -37,17 +37,20 @@
 <summary><b> ClawHub（推荐）已更新至V2.3.0版本可复制下面文字到agent更新</b></summary>
 
 ```bash
+
 openclaw skills install @jangviktor-web/nihaixia
 npx skills add https://clawhub.ai/jangviktor-web/skills/nihaixia
+
 ```
 </details>
 
 <details>
-<summary><b>SkillHub（腾讯云）</b></summary>
+<summary><b>SkillHub（腾讯云）已更新至V2.3.0版本可复制下面文字到agent更新</b></summary>
 
 ```bash
-curl -fsSL https://skillhub.cn/install/install.sh | bash -s -- --no-skills
-skillhub install nihaixia-pro
+
+请根据 https://skillhub.cn/install/skillhub.md，安装 @user_ff4d9420/nihaixia-pro。
+
 ```
 </details>
 
@@ -55,25 +58,34 @@ skillhub install nihaixia-pro
 <summary><b>手动安装</b></summary>
 
 ```bash
+
 # 手动
 git clone https://github.com/jangviktor-web/nihaixia.git
 cp -r nihaixia/ ~/.claude/skills/nihaixia/
 把github“https://github.com/jangviktor-web/nihaixia”项目安装到本地skill
+
 ```
 </details>
 
 <details>
-<summary><b>手机端（腾讯 IMA APP）</b></summary>
+<summary><b>手机端（腾讯 IMA APP）（V2.3.0版本平台暂无更新Skill的渠道，已联系平台跟进，可先复制腾讯SkillHub命令发给IMA Copilot更新，下面有更新教程）</b></summary>
 
-下载腾讯 IMA APP，扫描下面知识码，无需配置直接使用。
+### 直接在imaSkill商店下载旧版
 
-<img width="200"  alt="【倪海厦】知识码" src="https://github.com/user-attachments/assets/fb4fb05c-fc21-41fe-941e-c820ec16b750" />
+<img width="2200"  alt="03" src="https://github.com/user-attachments/assets/de39de98-60d2-40a5-ae1a-2a5ca55b693d" />
 
 倪海厦skill腾讯ima地址： https://ima.qq.com/skill?shareId=70e35c8a24ed4c01a0986f9e3c83f3d1&from=share
 
-调用方法：
-<img width="3085"  alt="1000013924" src="https://github.com/user-attachments/assets/79ac68b1-cf18-47fe-ab32-1f876c5394f9" />
-<img width="3085"  alt="1000013923" src="https://github.com/user-attachments/assets/9746a3b0-fd37-49e2-8a3a-0d72a06a765a" />
+### 调用方法：
+
+<img width="3000"  alt="1000013924" src="https://github.com/user-attachments/assets/79ac68b1-cf18-47fe-ab32-1f876c5394f9" />
+<img width="3000"  alt="1000013923" src="https://github.com/user-attachments/assets/9746a3b0-fd37-49e2-8a3a-0d72a06a765a" />
+
+### 腾讯ima更新到V2.3.0方法：
+
+<img width="2411" height="1339" alt="01" src="https://github.com/user-attachments/assets/43e5f9b6-2eda-476b-9752-212780f271a2" />
+<img width="1808" height="1339" alt="02" src="https://github.com/user-attachments/assets/74a2a813-2d68-40ba-a200-dee07d7cb661" />
+
 </details>
 
 
