@@ -203,7 +203,7 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 
 中医思维蒸馏器TCM-Distiller是开源中医AI蒸馏流水线，不堆砌中医典籍素材，而是搭建标准化体系，把胡希恕、黄元御、吴鞠通等医家的著作、讲稿、医案，提炼成可被AI调用、还原真人辨证思路的专属思维技能。
 
-[![Download APK](https://img.shields.io/badge/中医思维蒸馏器-red?style=for-the-badge&logo=Skill)](https://github.com/jangviktor-web/tcm-distiller)
+[![Download APK](https://img.shields.io/badge/中医思维蒸馏器-v4.4.0-red?style=for-the-badge&logo=Skill)](https://github.com/jangviktor-web/tcm-distiller)
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=for-the-badge)](https://github.com/jangviktor-web/tcm-distiller)
 
 | 人物 | 流派 | 成果 |
