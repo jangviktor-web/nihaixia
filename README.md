@@ -6,7 +6,7 @@
 
 **将经方大师倪海厦的完整中医思维体系注入 AI Agent**
 
-`129条伤寒论` · `23篇金匮` · `71篇黄帝内经` · `345种本草` · `849个医案` · `2,452页讲义` · `3.5M字精萃`
+`129条伤寒论` · `23篇金匮` · `72篇黄帝内经` · `374种本草（上137/中110/下127）` · `1257 例结构化医案 + 243 例叙事医案` · `2,452页讲义` · `3.5M字精萃`
 
 [![GitHub Stars](https://img.shields.io/github/stars/jangviktor-web/nihaixia?style=for-the-badge&color=yellow&label=Stars)](https://github.com/jangviktor-web/nihaixia/stargazers)
 [![版本](https://img.shields.io/badge/版本-v2.1.0-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia/releases)
