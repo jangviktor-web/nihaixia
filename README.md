@@ -68,7 +68,7 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 </details>
 
 <details>
-<summary><b>手机端（腾讯 IMA APP）（V2.3.0版本平台暂无更新Skill的渠道，已联系平台跟进，可先复制腾讯SkillHub命令发给IMA Copilot更新，下面有更新教程）</b></summary>
+<summary><b>手机端（腾讯 IMA APP）（平台商场已更新至V2.3.0，直接到IMA SKILL 商场更新即可)</b></summary>
 
 ### 第一步 直接在imaSkill商店下载旧版
 
