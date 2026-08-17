@@ -207,6 +207,20 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 
 ## 相关项目
 
+<div align="center">
+
+### [汉唐中医 · 安卓诊断 APP](https://github.com/jangviktor-web/nihaixia-app)
+
+同一个知识库，独立的安卓应用。离线可用，完全免费。
+
+[![Download APK](https://img.shields.io/badge/下载-APK-green?style=for-the-badge&logo=android)](https://github.com/jangviktor-web/nihaixia-app/releases/latest)
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia-app)
+
+| 六经辨证诊断 | 271首方剂速查 | 345味药物速查 | 子午流注取穴 |
+|:---:|:---:|:---:|:---:|
+| 智能问诊引导 | 搜索+六经筛选 | 性味归经分类 | 361穴时间推算 |
+
+</div>
 
 <div align="center">
 
@@ -226,20 +240,6 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 
 </div>
 
-<div align="center">
-
-### [汉唐中医 · 安卓诊断 APP](https://github.com/jangviktor-web/nihaixia-app)
-
-同一个知识库，独立的安卓应用。离线可用，完全免费。
-
-[![Download APK](https://img.shields.io/badge/下载-APK-green?style=for-the-badge&logo=android)](https://github.com/jangviktor-web/nihaixia-app/releases/latest)
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia-app)
-
-| 六经辨证诊断 | 271首方剂速查 | 345味药物速查 | 子午流注取穴 |
-|:---:|:---:|:---:|:---:|
-| 智能问诊引导 | 搜索+六经筛选 | 性味归经分类 | 361穴时间推算 |
-
-</div>
 
 <div align="center">
          
