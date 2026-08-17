@@ -115,6 +115,8 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/V2.2.1/nihaixia_skill_20260813_v2.2.4.tar.gz
 #### V2.2.8d版本 （更新日志：完成 7 处核心改动与 R1‑R8 补修，将经方条文卡片触发规则前移置顶，新增方剂出卡对账校验实现首次出现即出卡，落实会话级断言短语去重与断言池轮换，同步修正范例矛盾、触发口径、失效编号引用等细节，解决漏卡与模板复用缺陷。）
 下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/V2.3.0/nihaixia_skill_20260815_v2.2.8d.tar.gz
+#### 🆕V2.3.0版本🆕 （更新日志：完成 258 方剂量全量勘误与三体系换算固化；修复新版输出学术化问题（倪师味还原）；上线经方条文卡片体系并前移到回答前必读区；新增辨证严谨优先铁律与卡片版本标注、中文编号防混机制。）
+下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/V2.3.0/nihaixia_skill_20260815_v2.3.0.tar.gz
 
 </details>
 
