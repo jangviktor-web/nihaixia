@@ -228,6 +228,8 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 
 </div>
 
+---
+
 <div align="center">
 
 ### [中医思维蒸馏器 · TCM-Distiller](https://github.com/jangviktor-web/tcm-distiller)
@@ -246,6 +248,7 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 
 </div>
 
+---
 
 <div align="center">
          
@@ -264,6 +267,8 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 
 </div>
 
+---
+
 <div align="center">
 
 ### [胡希恕skill · 经方中医AI](https://github.com/jangviktor-web/huxishu)
@@ -278,6 +283,8 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 [![ClawHub](https://img.shields.io/badge/ClawHub-install%20huxishu-green?style=flat-square)](https://clawhub.ai/jangviktor-web/skills/huxishu)
 
 </div>
+
+---
 
 <div align="center">
 
