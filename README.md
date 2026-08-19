@@ -34,7 +34,7 @@
 ## 快速安装
 
 <details open>
-<summary><b> ClawHub（推荐）已更新至V2.3.0版本可复制下面文字到agent更新</b></summary>
+<summary><b> ClawHub（推荐）已更新至V2.3.1版本可复制下面文字到agent更新</b></summary>
 
 ```bash
 
@@ -45,7 +45,7 @@ npx skills add https://clawhub.ai/jangviktor-web/skills/nihaixia
 </details>
 
 <details>
-<summary><b>SkillHub（腾讯云）已更新至V2.3.0版本可复制下面文字到agent更新</b></summary>
+<summary><b>SkillHub（腾讯云）已更新至V2.3.1版本可复制下面文字到agent更新</b></summary>
 
 ```bash
 
@@ -68,7 +68,7 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 </details>
 
 <details>
-<summary><b>手机端（腾讯 IMA APP）（平台商场已更新至V2.3.0，直接到IMA SKILL 商场更新即可)</b></summary>
+<summary><b>手机端（腾讯 IMA APP）（平台商场已更新至V2.3.1，直接到IMA SKILL 商场更新即可)</b></summary>
 
 ### 第一步 直接在imaSkill商店下载旧版
 
@@ -373,7 +373,7 @@ nihaixia/
 ## 更新日志
 
 
-#### v2.3.1 (2026-08-19) — 输出格式折中优化：重点好找 + 倪师口吻兼得
+#### v2.3.1 (2026-08-19) — 输出格式优化版：重点好找 + 倪师口吻兼得
 
 核心升级：根据用户反馈（"输出整段文字重点难找，希望像 v2.1.0 那样有格式区分"），重构输出格式规则为"折中版"——**口语叙述为主体 + 表格/加粗标注重点**，既保留倪师口吻温度，又让辨证结论、鉴别、剂量、禁忌一眼可找。所有改动经 3 独立评审盲测验证，零败绩。
 
@@ -395,6 +395,9 @@ nihaixia/
 - README 运行时中立化：移除单一 runtime badge，改为 Agent Skills Standard + Multi-Runtime
 
 验证：40+ 道经方辨证题（本地 10 + 联网 30+）双版本盲测，折中版 **100+ 比 0 全胜**；judge 一致评"口语开场+鉴别清单+断言收束+条文卡片"为必胜模板。
+
+<details>
+<summary><b>点击展开完整更新日志</b></summary>
 
 #### v2.3.0 (2026-08-15) — 剂量全量勘误 + 表达还原 + 经方卡片体系 + 辨证严谨优先
 
@@ -446,8 +449,7 @@ nihaixia/
 | 中文编号防混   |    无   |       有（讲课编号原样保留）      |
 | 卡片版本标注   |    无   |    有（讲课版 / 金匮版 / 宋本）   |
 
-<details>
-<summary><b>点击展开完整更新日志</b></summary>
+
 
 #### v2.2.0 (2026-08-12) — 知识库蒸馏速查 + 倪师演讲三讲 + 易经六十四卦全量升级
 
