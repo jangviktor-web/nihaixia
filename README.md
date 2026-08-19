@@ -9,11 +9,11 @@
 `129条伤寒论` · `23篇金匮` · `72篇黄帝内经` · `神农本草经374种本草（上137/中110/下127）` · `1257 例结构化医案 + 243 例叙事医案` · `2,452页讲义` · `3.5M字精萃`
 
 [![GitHub Stars](https://img.shields.io/github/stars/jangviktor-web/nihaixia?style=for-the-badge&color=yellow&label=Stars)](https://github.com/jangviktor-web/nihaixia/stargazers)
-[![版本](https://img.shields.io/badge/版本-v2.1.0-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia/releases)
+[![版本](https://img.shields.io/badge/版本-v2.3.1-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia/releases)
 [![中医思维蒸馏器](https://img.shields.io/badge/中医思维蒸馏器-v4.4.0-red?style=for-the-badge)](https://github.com/jangviktor-web/tcm-distiller)
 [![License](https://img.shields.io/badge/协议-MulanPSL--2.0-green?style=for-the-badge)](LICENSE)
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-Ready-orange?style=for-the-badge&logo=anthropic&logoColor=white)]()
-[![平台](https://img.shields.io/badge/平台-5个-purple?style=for-the-badge)](#安装)
+[![Agent Skills Standard](https://img.shields.io/badge/Agent%20Skills%20Standard-Ready-orange?style=for-the-badge&logo=openai&logoColor=white)]()
+[![Multi-Runtime](https://img.shields.io/badge/Multi--Runtime-5个-purple?style=for-the-badge)](#安装)
 
 **🌐 [中文](https://github.com/jangviktor-web/nihaixia/blob/main/README.md) | [English](https://github.com/jangviktor-web/nihaixia/blob/main/README_EN.MD)**
 
@@ -240,7 +240,7 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 | 胡希恕 | 经方派 | 38 万字讲稿 → 完整技能（首发验证案例） |
 | 黄元御 | 气机升降派 | 3.5MB/38,266 行医书十一种 → V3 深度优化 |
 | 吴鞠通 | 温病派 | 4 著作 → V3.5 端到端 + 359 医案 + GitHub 发布 |
-| 倪海厦 | 经方派 | 258 方剂量全量勘误 + 表达还原度反超旧版 + 达尔文全流程优化（V4.5 七项经验反哺） |
+| 倪海厦 | 经方派 | 258 方剂量全量勘误 + 表达还原度反超旧版 + 输出格式折中优化（V4.5 七项经验反哺） |
 
 </div>
 
@@ -373,6 +373,29 @@ nihaixia/
 ## 更新日志
 
 
+#### v2.3.1 (2026-08-19) — 输出格式折中优化：重点好找 + 倪师口吻兼得
+
+核心升级：根据用户反馈（"输出整段文字重点难找，希望像 v2.1.0 那样有格式区分"），重构输出格式规则为"折中版"——**口语叙述为主体 + 表格/加粗标注重点**，既保留倪师口吻温度，又让辨证结论、鉴别、剂量、禁忌一眼可找。所有改动经 3 独立评审盲测验证，零败绩。
+
+改动内容：
+
+#### 输出格式折中版（08-19a）
+- 14b 由"禁止表格/编号"改为"折中版"：正文口语叙述是主体，**每答必达至少 1 个表格或加粗要点块**标注重点（主证表/剂量对照/⚠️注意），无则违规重写
+- 置顶速查卡四查升级为**八查**：新增"表格必达""表格行全""辨证行模板""防重复"四项自检
+- 新增✅/❌双错误示范："只有口语无表格/卡片=错误示范二"，正反双向锚定边界
+
+#### 表格完整性铁律（08-19b）
+- 吸收 v2.1.0"表格行全"优点并固化为显式规则：**主证表症状逐条独立成行**（禁止挤行合并，如"口渴引饮、脉洪大"必须拆两行，与知识库条目逐条对齐）
+- 涉方必出剂量对照（药名+剂量逐味）；⚠️注意/禁忌加粗必达
+- 鉴别改用 **v2.1.0 原生格式**：粗体"XX vs YY 的鉴别"标题 + 项目符号列表，不用表格（用户定稿）
+
+#### 辨证行模板 + 防重复条款（08-19c）
+- 辨证行统一模板：`**辨证：{证型}（{病机}·{方名}证）**`（如"**辨证：脏躁证（心神失养、脏阴不足·甘麦大枣汤证）**"）
+- 防重复条款：同一要点只写一次，"**注意**：X"整句复制两遍=违规；倪师原话用括注并入一行
+- README 运行时中立化：移除单一 runtime badge，改为 Agent Skills Standard + Multi-Runtime
+
+验证：40+ 道经方辨证题（本地 10 + 联网 30+）双版本盲测，折中版 **100+ 比 0 全胜**；judge 一致评"口语开场+鉴别清单+断言收束+条文卡片"为必胜模板。
+
 #### v2.3.0 (2026-08-15) — 剂量全量勘误 + 表达还原 + 经方卡片体系 + 辨证严谨优先
 
 核心升级：完成 258 方剂量全量勘误与三体系换算固化；修复新版输出学术化问题（倪师味还原）；上线经方条文卡片体系并前移到回答前必读区；新增辨证严谨优先铁律与卡片版本标注、中文编号防混机制。所有改动复查无负优化。
@@ -497,7 +520,7 @@ nihaixia/
 - 倪海厦《金匮要略讲义》（人纪系列）
 
 **质量验证**：
-- 达尔文skill评分：9.4/10
+- 独立评估评分：9.4/10
 - 10个临床场景测试：10/10覆盖
 - 11个方剂剂量逐方核对：100%与源文件一致
 - 六经提纲条文核对：6条中5条完全一致，1条异体字差异
