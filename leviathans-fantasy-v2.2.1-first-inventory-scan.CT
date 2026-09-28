@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="45">
+  <CheatEntries/>
+  <UserdefinedSymbols/>
+  <LuaScript><![CDATA[
+local PROCESS_NAME = "RoundTheClock-Win64-Shipping.exe"
+local scan = nil
+local results = nil
+local scanReady = false
+local maximumDisplayedResults = 200
+
+local form = createForm(false)
+form.Caption = "The Leviathan's Fantasy v2.2.1 - 背包數量掃描（第一版）"
+form.Width = 760
+form.Height = 610
+form.Position = poScreenCenter
+form.BorderStyle = bsSizeable
+
+local title = createLabel(form)
+title.Caption = "只掃描現有物品數量，不會自動改值或生成物品"
+title.Left = 16
+title.Top = 14
+title.Width = 720
+title.Height = 24
+
+local gameLabel = createLabel(form)
+gameLabel.Caption = "目標程序："
+gameLabel.Left = 16
+gameLabel.Top = 48
+gameLabel.Width = 100
+gameLabel.Height = 22
+
+local gameStatus = createLabel(form)
+gameStatus.Left = 116
+gameStatus.Top = 48
+gameStatus.Width = 610
+gameStatus.Height = 22
+
+local valueLabel = createLabel(form)
+valueLabel.Caption = "目前顯示的物品數量（整數）："
+valueLabel.Left = 16
+valueLabel.Top = 82
+valueLabel.Width = 250
+valueLabel.Height = 22
+
+local valueEdit = createEdit(form)
+valueEdit.Left = 270
+valueEdit.Top = 78
+valueEdit.Width = 130
+valueEdit.Height = 26
+valueEdit.Text = "1"
+
+local scanButton = createButton(form)
+scanButton.Caption = "第一次掃描"
+scanButton.Left = 416
+scanButton.Top = 76
+scanButton.Width = 145
+scanButton.Height = 30
+
+local nextButton = createButton(form)
+nextButton.Caption = "數量變動後篩選"
+nextButton.Left = 574
+nextButton.Top = 76
+nextButton.Width = 152
+nextButton.Height = 30
+nextButton.Enabled = false
+
+local status = createLabel(form)
+status.Caption = "請在遊戲中打開背包，選一個數量可觀察的現有物品。"
+status.Left = 16
+status.Top = 118
+status.Width = 710
+status.Height = 44
+
+local resultLabel = createLabel(form)
+resultLabel.Caption = "候選位址（序號從 1 起；請先繼續篩選，減少候選數）："
+resultLabel.Left = 16
+resultLabel.Top = 168
+resultLabel.Width = 710
+resultLabel.Height = 22
+
+local resultMemo = createMemo(form)
+resultMemo.Left = 16
+resultMemo.Top = 194
+resultMemo.Width = 710
+resultMemo.Height = 260
+resultMemo.ReadOnly = true
+resultMemo.ScrollBars = ssVertical
+resultMemo.WordWrap = false
+
+local indexLabel = createLabel(form)
+indexLabel.Caption = "加入第幾個候選位址："
+indexLabel.Left = 16
+indexLabel.Top = 470
+indexLabel.Width = 190
+indexLabel.Height = 22
+
+local indexEdit = createEdit(form)
+indexEdit.Left = 204
+indexEdit.Top = 466
+indexEdit.Width = 90
+indexEdit.Height = 26
+indexEdit.Text = "1"
+
+local addButton = createButton(form)
+addButton.Caption = "加入表格作為 4-byte 數量"
+addButton.Left = 312
+addButton.Top = 464
+addButton.Width = 220
+addButton.Height = 30
+addButton.Enabled = false
+
+local attachButton = createButton(form)
+attachButton.Caption = "重新連接遊戲"
+attachButton.Left = 546
+attachButton.Top = 464
+attachButton.Width = 180
+attachButton.Height = 30
+
+local notes = createLabel(form)
+notes.Caption = "注意：先備份存檔。數量必須在遊戲畫面上確實改變後再篩選。第一版只支援 4-byte 整數候選；"
+  .. "若結果很多，請反覆改變物品數量並篩選。地址可能隨讀檔／重啟改變；候選值尚未驗證前不要凍結或寫入。"
+notes.Left = 16
+notes.Top = 514
+notes.Width = 710
+notes.Height = 54
+notes.AutoSize = false
+notes.WordWrap = true
+
+local function getInteger(text)
+  local value = tonumber(text)
+  if value == nil or value < 0 or value > 2147483647 or value ~= math.floor(value) then
+    return nil
+  end
+  return value
+end
+
+local function connectGame()
+  local ok, err = pcall(function()
+    local pid = getProcessIDFromProcessName(PROCESS_NAME)
+    if pid == nil or pid == 0 then
+      error("找不到遊戲程序。請先啟動遊戲。")
+    end
+    if getOpenedProcessID() ~= pid then
+      openProcess(pid)
+    end
+  end)
+
+  if ok then
+    gameStatus.Caption = "已連接 PID " .. tostring(getOpenedProcessID())
+    status.Caption = "已連接遊戲。建議進入已載入的存檔和背包後再開始掃描。"
+  else
+    gameStatus.Caption = "尚未連接"
+    status.Caption = tostring(err)
+  end
+  return ok
+end
+
+local function refreshResults()
+  resultMemo.Lines.clear()
+  if results == nil then
+    status.Caption = "沒有掃描結果。"
+    addButton.Enabled = false
+    return
+  end
+
+  local count = results.Count
+  local displayCount = math.min(count, maximumDisplayedResults)
+  for i = 0, displayCount - 1 do
+    resultMemo.Lines.add(string.format("%d: %s", i + 1, results.Address[i]))
+  end
+
+  if count == 0 then
+    status.Caption = "沒有符合結果。請確認數量值，或重新開始掃描。"
+  elseif count > maximumDisplayedResults then
+    status.Caption = string.format(
+      "目前有 %d 個候選，只顯示前 %d 個。請繼續改變數量並篩選，不要直接加入大量結果。",
+      count,
+      maximumDisplayedResults
+    )
+  else
+    status.Caption = string.format("目前有 %d 個候選。先繼續篩選到少量結果，再逐一驗證。", count)
+  end
+  addButton.Enabled = count > 0
+end
+
+local function showScanError(err)
+  status.Caption = "掃描失敗：" .. tostring(err)
+  nextButton.Enabled = scanReady
+end
+
+scanButton.OnClick = function()
+  if not connectGame() then
+    return
+  end
+  local value = getInteger(valueEdit.Text)
+  if value == nil then
+    status.Caption = "請輸入 0 到 2147483647 之間的整數數量。"
+    return
+  end
+
+  scanReady = false
+  nextButton.Enabled = false
+  addButton.Enabled = false
+  resultMemo.Lines.clear()
+  status.Caption = "正在掃描可寫入的 4-byte 整數；大型遊戲可能需要一些時間……"
+
+  local ok, err = pcall(function()
+    scan = createMemScan()
+    scan.firstScan(
+      soExactValue,
+      vtDword,
+      rtRounded,
+      tostring(value),
+      "",
+      0,
+      0x7fffffffffff,
+      "+W-C",
+      fsmAligned,
+      "4",
+      false,
+      false,
+      false,
+      false
+    )
+    scan.waitTillDone()
+    results = createFoundList(scan)
+    results.initialize()
+  end)
+
+  if not ok then
+    showScanError(err)
+    return
+  end
+
+  scanReady = true
+  nextButton.Enabled = true
+  refreshResults()
+end
+
+nextButton.OnClick = function()
+  if not scanReady or scan == nil then
+    status.Caption = "請先完成第一次掃描。"
+    return
+  end
+  local value = getInteger(valueEdit.Text)
+  if value == nil then
+    status.Caption = "請輸入 0 到 2147483647 之間的整數數量。"
+    return
+  end
+
+  nextButton.Enabled = false
+  addButton.Enabled = false
+  status.Caption = "正在篩選新的數量值……"
+  local ok, err = pcall(function()
+    scan.nextScan(soExactValue, rtRounded, tostring(value), "", false, false, false, false)
+    scan.waitTillDone()
+    results.deinitialize()
+    results.initialize()
+  end)
+
+  if not ok then
+    showScanError(err)
+    return
+  end
+  nextButton.Enabled = true
+  refreshResults()
+end
+
+addButton.OnClick = function()
+  if results == nil or results.Count == 0 then
+    status.Caption = "目前沒有可加入的候選位址。"
+    return
+  end
+  local index = getInteger(indexEdit.Text)
+  if index == nil or index < 1 or index > results.Count or index > maximumDisplayedResults then
+    status.Caption = "請輸入目前列出的有效序號；只接受已顯示的前 200 個候選。"
+    return
+  end
+
+  local address = results.Address[index - 1]
+  local ok, err = pcall(function()
+    local record = getAddressList().createMemoryRecord()
+    record.Description = "未驗證物品數量候選 #" .. tostring(index)
+    record.Address = address
+    record.Type = vtDword
+    record.ShowAsHex = false
+  end)
+
+  if ok then
+    status.Caption = "已將候選加入 Cheat Engine 地址清單。請在遊戲中改變該物品數量，確認此值同步變動後才考慮使用。"
+  else
+    status.Caption = "加入地址清單失敗：" .. tostring(err)
+  end
+end
+
+attachButton.OnClick = function()
+  connectGame()
+end
+
+connectGame()
+form.show()
+  ]]></LuaScript>
+</CheatTable>
