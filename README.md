@@ -442,21 +442,21 @@ nihaixia/
 </details>
 ---
 
-## 相关项目 · 同源蒸馏
+## 相关项目 · 同源蒸馏更多.skill
 
 以下角色包都出自同一条流水线 [`中医思维蒸馏器`](https://github.com/jangviktor-web/tcm-distiller)（Pipeline A）。**选包看辨证坐标系，不看人名**——同样是中医，六经、卫气营血、三焦、气机升降是四套不同的定位法。
 
 | 项目 | 领域 · 坐标系 | 内核 | 正典规模 | 入口 |
 |:---|:---|:---|:---|:---|
-| **nihaixia**（本库） | 经方 · 六经辨证 | 六经八纲 + 258 方剂量全量勘误 + 倪师口吻还原 | 1,500+ 案 · 3.5M 字 · 2,452 页讲义 | [GitHub](https://github.com/jangviktor-web/nihaixia) · [SkillHub](https://skillhub.cn/skills/user_ff4d9420/nihaixia-pro) |
-| [huxishu](https://github.com/jangviktor-web/huxishu) | 经方 · 六经来自八纲 | "六经来自八纲"——对《伤寒论》辨证体系最清晰的解读，方证对应 | 38 万字讲稿 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/huxisu) |
-| [huangyuanyu](https://github.com/jangviktor-web/huangyuanyu) | 气机升降派 | 黄元御六气主客、彭子益圆运动 | 医书十一种 3.5 MB · 38,266 行 | — |
-| [likeskill](https://github.com/jangviktor-web/likeskill) | 扶阳 · 急危重症 | 破格救心汤，附子 30–750g；25 种假证识别 | 395 案 · 170+ 方 · 92 症状路由 | — |
-| [ye-tianshi](https://github.com/jangviktor-web/ye-tianshi-skill) | 温病 · **卫气营血** | 四层深浅 + 养胃阴 + 阳化内风 + 久病入络 + 奇经八脉 | 四部原著 10,338 行 · 215 案 · 158 条病名映射 | [GitHub](https://github.com/jangviktor-web/ye-tianshi-skill) · [SkillHub](https://skillhub.cn/skills/user_ff4d9420/yetianshi) · [说明页](https://jangviktor-web.github.io/ye-tianshi-skill/) |
-| [wujutong](https://github.com/jangviktor-web/wujutong) | 温病 · 三焦辨证 | 三焦分部 + 津液存亡，自称"羽翼伤寒" | 4 部著作 · 359 案 45 病证 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/wujutong) |
-| [libai](https://github.com/jangviktor-web/libai-skill) | 文学 · 创作六步法 | 气→象→体→夸→断→尽；引诗 grep 可核，拟作必标非原作 | 25 卷 1,010 首 · 58 篇赏析 · 16 意象 | [GitHub](https://github.com/jangviktor-web/libai-skill) · [SkillHub](https://skillhub.cn/skills/user_ff4d9420/libai) · [说明页](https://jangviktor-web.github.io/libai-skill/) |
-| [zeng-shiqiang](https://github.com/jangviktor-web/zeng-shiqiang) | 管理 · 易学 | 修己 · 安人 · 圆通 · 持经 · 达变 · 合理 · 和谐（曾氏七标准） | 中国式管理 + 易经义理 + 道德经 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/zengshiqiang) |
-| [nihaixia-app](https://github.com/jangviktor-web/nihaixia-app) | 安卓 APP | 同一知识库离线版，完全免费；智能问诊引导 + 六经筛选 | 322 方 · 448 药 · 408 穴 · 257 方+31 透针 · 紫微/64 卦/命卦 | [下载 APK](https://github.com/jangviktor-web/nihaixia-app/releases/latest) |
+| **倪海厦**（本库） | 经方 · 六经辨证 | 六经八纲 + 258 方剂量全量勘误 + 倪师口吻还原 | 1,500+ 案 · 3.5M 字 · 2,452 页讲义 | [GitHub](https://github.com/jangviktor-web/nihaixia) · [SkillHub](https://skillhub.cn/skills/user_ff4d9420/nihaixia-pro) |
+| [胡希恕·中医思维Skill](https://github.com/jangviktor-web/huxishu) | 经方 · 六经来自八纲 | "六经来自八纲"——对《伤寒论》辨证体系最清晰的解读，方证对应 | 38 万字讲稿 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/huxisu) |
+| [黄元御·中医思维Skill](https://github.com/jangviktor-web/huangyuanyu) | 气机升降派 | 黄元御六气主客、彭子益圆运动 | 医书十一种 3.5 MB · 38,266 行 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/huangyuanyu)  |
+| [李可·中医思维Skill](https://github.com/jangviktor-web/likeskill) | 扶阳 · 急危重症 | 破格救心汤，附子 30–750g；25 种假证识别 | 395 案 · 170+ 方 · 92 症状路由 | [GitHub](https://github.com/jangviktor-web/likeskill)  |
+| [叶天士·中医思维Skill](https://github.com/jangviktor-web/ye-tianshi-skill) | 温病 · **卫气营血** | 四层深浅 + 养胃阴 + 阳化内风 + 久病入络 + 奇经八脉 | 四部原著 10,338 行 · 215 案 · 158 条病名映射 | [GitHub](https://github.com/jangviktor-web/ye-tianshi-skill) · [SkillHub](https://skillhub.cn/skills/user_ff4d9420/yetianshi) · [说明页](https://jangviktor-web.github.io/ye-tianshi-skill/) |
+| [吴鞠通·中医思维Skill](https://github.com/jangviktor-web/wujutong) | 温病 · 三焦辨证 | 三焦分部 + 津液存亡，自称"羽翼伤寒" | 4 部著作 · 359 案 45 病证 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/wujutong) |
+| [李白·诗作家思维Skill](https://github.com/jangviktor-web/libai-skill) | 文学 · 创作六步法 | 气→象→体→夸→断→尽；引诗 grep 可核，拟作必标非原作 | 25 卷 1,010 首 · 58 篇赏析 · 16 意象 | [GitHub](https://github.com/jangviktor-web/libai-skill) · [SkillHub](https://skillhub.cn/skills/user_ff4d9420/libai) · [说明页](https://jangviktor-web.github.io/libai-skill/) |
+| [曾仕强·传统国学思维Skill](https://github.com/jangviktor-web/zeng-shiqiang) | 管理 · 易学 | 修己 · 安人 · 圆通 · 持经 · 达变 · 合理 · 和谐（曾氏七标准） | 中国式管理 + 易经义理 + 道德经 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/zengshiqiang) |
+| [汉唐中医 · 安卓APP](https://github.com/jangviktor-web/nihaixia-app) | 安卓 APP | 同一知识库离线版，完全免费；智能问诊引导 + 六经筛选 | 322 方 · 448 药 · 408 穴 · 257 方+31 透针 · 紫微/64 卦/命卦 | [下载 APK](https://github.com/jangviktor-web/nihaixia-app/releases/latest) |
 
 ### 外感病三派怎么选
 
