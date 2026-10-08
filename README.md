@@ -442,129 +442,49 @@ nihaixia/
 </details>
 ---
 
-<div align="center">
-         
-## 相关项目
+## 相关项目 · 同源蒸馏
 
-<div align="center">
+以下角色包都出自同一条流水线 [`中医思维蒸馏器`](https://github.com/jangviktor-web/tcm-distiller)（Pipeline A）。**选包看辨证坐标系，不看人名**——同样是中医，六经、卫气营血、三焦、气机升降是四套不同的定位法。
 
-### [汉唐中医 · 安卓中医诊断命理玄学 APP](https://github.com/jangviktor-web/nihaixia-app)
+| 项目 | 领域 · 坐标系 | 内核 | 正典规模 | 入口 |
+|:---|:---|:---|:---|:---|
+| **nihaixia**（本库） | 经方 · 六经辨证 | 六经八纲 + 258 方剂量全量勘误 + 倪师口吻还原 | 1,500+ 案 · 3.5M 字 · 2,452 页讲义 | [GitHub](https://github.com/jangviktor-web/nihaixia) · [SkillHub](https://skillhub.cn/skills/user_ff4d9420/nihaixia-pro) |
+| [huxishu](https://github.com/jangviktor-web/huxishu) | 经方 · 六经来自八纲 | "六经来自八纲"——对《伤寒论》辨证体系最清晰的解读，方证对应 | 38 万字讲稿 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/huxisu) |
+| [huangyuanyu](https://github.com/jangviktor-web/huangyuanyu) | 气机升降派 | 黄元御六气主客、彭子益圆运动 | 医书十一种 3.5 MB · 38,266 行 | — |
+| [likeskill](https://github.com/jangviktor-web/likeskill) | 扶阳 · 急危重症 | 破格救心汤，附子 30–750g；25 种假证识别 | 395 案 · 170+ 方 · 92 症状路由 | — |
+| [ye-tianshi](https://github.com/jangviktor-web/ye-tianshi-skill) | 温病 · **卫气营血** | 四层深浅 + 养胃阴 + 阳化内风 + 久病入络 + 奇经八脉 | 四部原著 10,338 行 · 215 案 · 158 条病名映射 | [GitHub](https://github.com/jangviktor-web/ye-tianshi-skill) · [SkillHub](https://skillhub.cn/skills/user_ff4d9420/yetianshi) · [说明页](https://jangviktor-web.github.io/ye-tianshi-skill/) |
+| [wujutong](https://github.com/jangviktor-web/wujutong) | 温病 · 三焦辨证 | 三焦分部 + 津液存亡，自称"羽翼伤寒" | 4 部著作 · 359 案 45 病证 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/wujutong) |
+| [libai](https://github.com/jangviktor-web/libai-skill) | 文学 · 创作六步法 | 气→象→体→夸→断→尽；引诗 grep 可核，拟作必标非原作 | 25 卷 1,010 首 · 58 篇赏析 · 16 意象 | [GitHub](https://github.com/jangviktor-web/libai-skill) · [SkillHub](https://skillhub.cn/skills/user_ff4d9420/libai) · [说明页](https://jangviktor-web.github.io/libai-skill/) |
+| [zeng-shiqiang](https://github.com/jangviktor-web/zeng-shiqiang) | 管理 · 易学 | 修己 · 安人 · 圆通 · 持经 · 达变 · 合理 · 和谐（曾氏七标准） | 中国式管理 + 易经义理 + 道德经 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/zengshiqiang) |
+| [nihaixia-app](https://github.com/jangviktor-web/nihaixia-app) | 安卓 APP | 同一知识库离线版，完全免费；智能问诊引导 + 六经筛选 | 322 方 · 448 药 · 408 穴 · 257 方+31 透针 · 紫微/64 卦/命卦 | [下载 APK](https://github.com/jangviktor-web/nihaixia-app/releases/latest) |
 
-同一个知识库，独立的安卓应用。离线可用，完全免费。
+### 外感病三派怎么选
 
-[![Download APK](https://img.shields.io/badge/下载-APK-green?style=for-the-badge&logo=android)](https://github.com/jangviktor-web/nihaixia-app/releases/latest)
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia-app)
+急性期从温病、缓解期从经方——**一纵一横，合观乃得中医外感病全貌**。倪海厦修水龙头（温阳化湿治本），叶吴扫积水（清湿护津治标）。
 
-| 六经辨证诊断 | 322 首方剂速查 | 448 味药物速查 | 408 穴针灸速查 |
-|:---:|:---:|:---:|:---:|
-| 智能问诊引导 | 搜索 + 六经筛选 | 性味归经分类 | 穴位 ↔ 处方互链 |
+| 维度 | 经方派（倪 / 胡） | 叶天士（卫气营血） | 吴鞠通（三焦） |
+|:---|:---|:---|:---|
+| 坐标系 | 六经 · 看深浅 | 卫气营血 · 看深浅（四段） | 三焦 · 看部位（上中下） |
+| 治法核心 | 驱邪外出 | 透热转气 · 存津液 | 分消三焦 · 存津液 |
+| 汗法 | 该汗则汗 | 温病忌汗，宜辛凉轻剂 | 温病禁汗，忌升提 |
+| 方剂风格 | 药少力专（麻黄 / 附子 / 乌头） | 轻灵甘寒，**银翘散·桑菊饮系吴方，非叶方** | 成套方（银翘散 / 白虎 / 复脉） |
+| 医案规模 | 849 案全科 | 215 案 | 359 案 45 病证 |
 
-| 紫微斗数排盘 | 易经六十四卦 | 四柱命卦 | 穴位处方 · 透针 |
-|:---:|:---:|:---:|:---:|
-| 十二宫 / 四化 / 大限 | 起卦 + 64 卦讲义 | 先天 / 后天卦推算 | 257 方 + 31 透针 |
+### 流水线本身
 
-</div>
-
----
-
-### [中医思维蒸馏器 · TCM-Distiller](https://github.com/jangviktor-web/tcm-distiller)
-
-中医思维蒸馏器TCM-Distiller是开源中医AI蒸馏流水线，不堆砌中医典籍素材，而是搭建标准化体系，把胡希恕、黄元御、吴鞠通等医家的著作、讲稿、医案，提炼成可被AI调用、还原真人辨证思路的专属思维技能。
-
-[![Download APK](https://img.shields.io/badge/中医思维蒸馏器-v4.4.0-red?style=for-the-badge&logo=Skill)](https://github.com/jangviktor-web/tcm-distiller)
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=for-the-badge)](https://github.com/jangviktor-web/tcm-distiller)
-[![ClawHub](https://img.shields.io/badge/腾讯云skillhub-中医思维蒸馏器SKILL-green?style=flat-square)](https://skillhub.cn/skills/user_ff4d9420/tcm-distiller)
+[`中医思维蒸馏器`](https://github.com/jangviktor-web/tcm-distiller) 不堆素材，而是把著作、讲稿、医案提炼成可被 AI 调用、还原真人辨证思路的技能。已验证案例：
 
 | 人物 | 流派 | 成果 |
-|---|---|---|
+|:---|:---|:---|
 | 胡希恕 | 经方派 | 38 万字讲稿 → 完整技能（首发验证案例） |
-| 黄元御 | 气机升降派 | 3.5MB/38,266 行医书十一种 → V3 深度优化 |
-| 吴鞠通 | 温病派 | 4 著作 → V3.5 端到端 + 359 医案 + GitHub 发布 |
+| 黄元御 | 气机升降派 | 医书十一种 3.5 MB / 38,266 行 → V3 深度优化 |
+| 吴鞠通 | 温病派 | 4 部著作 → V3.5 端到端 + 359 医案 + GitHub 发布 |
 | 倪海厦 | 经方派 | 258 方剂量全量勘误 + 表达还原度反超旧版 + 输出格式折中优化（V4.5 七项经验反哺） |
+| 叶天士 | 温病派 | 四部原著 → 7 段式角色规则 + 158 条病名映射 + 两轮盲评（4.27 → 4.49） |
+| 李白 | 文学家 14 维 | 方法论跨领域迁移：诗全集编码损坏修复 + 1,010 首正典 + 58 篇赏析 |
 
-</div>
-
----
-
-<div align="center">
-         
-### [李可skill · 急危重症中医AI](https://github.com/jangviktor-web/likeskill)
-
-李可老中医（1930-2013）急危重症思维操作系统。395个医案、170+首方剂、92种症状路由、25种假证识别。
-
-与倪海厦skill互补：倪海厦覆盖全科教学（849医案），李可专注急危重症实战（附子最大750g）。
-
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=flat-square&logo=github)](https://github.com/jangviktor-web/likeskill)
-
-| 破格救心汤 | 假证识别25种 | 圆运动理论 | 经方剂量体系 |
-|:---:|:---:|:---:|:---:|
-| 附子30-750g | 假阳证24+假阴证1 | 彭子益完整蒸馏 | 汉代一两=15.625g |
-
-</div>
-
----
-
-<div align="center">
-
-### [胡希恕skill · 经方中医AI](https://github.com/jangviktor-web/huxishu)
-
-将胡希恕（1898-1984）的经方临床思维、六经八纲辨证体系、方证对应心法蒸馏为可激活的 Agent Skill，使 AI 能以胡希恕的视角进行六经辨证、方证鉴别、临床选方。
-
-胡希恕被誉为"经方传道第一人"，其"六经来自八纲"的创见是对《伤寒论》辨证体系最清晰的解读，直接影响了冯世纶等当代经方名家。
-
-与倪海厦skill互补：倪海厦覆盖全科教学（849医案），胡希恕是经方传道第一人，是对《伤寒论》辨证体系最清晰的解读。
-
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=flat-square&logo=github)](https://github.com/jangviktor-web/huxishu)
-[![ClawHub](https://img.shields.io/badge/腾讯云skillhub-安装胡希恕SKILL-green?style=flat-square)](https://skillhub.cn/skills/user_ff4d9420/huxisu)
-
-</div>
-
----
-
-<div align="center">
-
-### [温病派吴鞠通skill · 温病派中医AI](https://github.com/jangviktor-web/wujutong)
-**吴鞠通**（1758-1836）——温病学派集大成者，三焦辨证 + 卫气营血，359 医案 45 病证，自称"羽翼伤寒"，以"津液的存亡"为核心，温病禁汗、甘寒存津，护阴第一。
-
-| 维度 | 倪海厦（经方） | 吴鞠通（温病派） |
-|------|--------------|--------------|
-| **辨证** | 六经（看深浅） | 三焦（看部位） |
-| **治法核心** | 驱邪外出 | 存津液 |
-| **汗法** | 该汗则汗 | 温病禁汗 |
-| **方剂** | 药少力专（麻黄/附子/乌头） | 药多面广（银翘/白虎/复脉） |
-| **医案** | 849 案全科 | 359 案温病+杂病 |
-
-**互补关系**：倪海厦修水龙头（温阳化湿治本），吴鞠通扫积水（清湿护津治标）——一纵一横，急性期从吴、缓解期从倪，合观乃得中医外感病全貌。
-
-
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=flat-square&logo=github)](https://github.com/jangviktor-web/wujutong)
-[![ClawHub](https://img.shields.io/badge/腾讯云skillhub-install%20吴鞠通SKILL-green?style=flat-square)](https://skillhub.cn/skills/user_ff4d9420/wujutong)
-
-</div>
-
----
-
-<div align="center">
-
-### [曾仕强 AI Agent Skill · 传统文化AI](https://github.com/jangviktor-web/zeng-shiqiang)
-将**曾仕强**（1934–2018）的中国式管理、易经义理、道德经智慧、人际相处、领导之道，蒸馏为可激活的 Agent Skill，使 AI 能以曾仕强的视角回应管理、处世、解读易理、修身齐家。
-### 曾氏管理修身七标准
-
-**修己**：先把自己管好，再管别人
-**安人**：让别人安心、放心、安身
-**圆通**：持经达变，圆通不是圆滑
-**持经**：守根本原则，不随波逐流
-**达变**：因时因地因人，灵活变通
-**合理**：追求合理，不是追求完美
-**和谐**：合理则和谐，不是和稀泥
-
-
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=flat-square&logo=github)](https://github.com/jangviktor-web/zeng-shiqiang)
-[![ClawHub](https://img.shields.io/badge/腾讯云skillhub-install%20曾仕强SKILL-green?style=flat-square)](https://skillhub.cn/skills/user_ff4d9420/zengshiqiang)
-
-</div>
-
-
+[![中医思维蒸馏器](https://img.shields.io/badge/中医思维蒸馏器-V4.6.0-red?style=flat-square)](https://github.com/jangviktor-web/tcm-distiller)
+[![SkillHub](https://img.shields.io/badge/腾讯云skillhub-蒸馏器SKILL-green?style=flat-square)](https://skillhub.cn/skills/user_ff4d9420/tcm-distiller)
 ---
 
 ## 致谢
