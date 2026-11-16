@@ -157,16 +157,16 @@ def load_acupoints():
         items = _json("acupoints.json")["acupoints"]
         # 正名带「穴」（足三里穴），提问与医案多写短名（足三里）→ 两形态都要进候选。
         # ponytail: 未复刻 App 的 kShortNameLinkForm 避撞表；撞普通词最多多给一条穴位资料。
-        by_name, names = {}, set()
+        by_name, names = {}, []
         for p in items:
             full = p["name"]
             by_name[full] = p
-            names.add(full)
+            names.append(full)
             short = full.replace("穴", "")
             if len(short) >= 2:
                 by_name.setdefault(short, p)
-                names.add(short)
-        _CACHE["acu"] = (items, by_name, sorted(names, key=len, reverse=True))
+                names.append(short)
+        _CACHE["acu"] = (items, by_name, ordered_by_len(names))
     return _CACHE["acu"]
 
 
@@ -223,6 +223,17 @@ def load_t2s():
     return _CACHE["t2s"]
 
 
+def ordered_by_len(items):
+    """保序去重后按长度降序。
+
+    ⛔ 不能用 sorted(set(...))：set 的迭代顺序受 str hash 随机化影响，**等长元素
+    跨进程顺序会变**。实测「四逆汤和理中汤」两个 3 字方名一次排出 四逆→理中、
+    下一次排 理中→四逆，前 8 条命中结果完全不同 —— 确定性检索的前提就没
+    了。dict.fromkeys 保序 + sorted 稳定排序，等长时保留原始顺序。
+    """
+    return sorted(dict.fromkeys(items), key=lambda s: -len(s))
+
+
 def normalize(text):
     """繁体 → 简体。索引正文构建期已统一简体，只归一问句。"""
     if not text:
@@ -263,7 +274,7 @@ def extract_names(text, candidates):
     norm = normalize(text).lower()
     used = [False] * len(norm)
     out = []
-    for name in sorted(set(candidates), key=len, reverse=True):
+    for name in ordered_by_len(candidates):
         if len(name) < 2:
             continue
         n = normalize(name).lower()
@@ -793,6 +804,10 @@ def build_context(r, question):
 
 def _selftest():
     """非平凡逻辑的最小可运行检查。"""
+    # 确定性：等长元素必须保持输入顺序（否则 set 顺序漂移会让同一问题两次结果不同）
+    assert ordered_by_len(["ab", "cd", "e"]) == ["ab", "cd", "e"], "等长元素须保持原序"
+    assert ordered_by_len(["e", "ab", "cd", "ab"]) == ["ab", "cd", "e"], "须保序去重"
+
     assert keywords_for("桂枝汤证的辨证要点是什么")[0].startswith("桂枝"), "长词必须优先"
     assert "方剂" not in keywords_for("有哪些方剂"), "领域泛词必须被过滤"
     assert "中焦" in keywords_for("中焦虚寒"), "功能字不得切碎中焦/心下/上气"
