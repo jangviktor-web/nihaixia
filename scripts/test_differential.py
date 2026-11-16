@@ -83,6 +83,13 @@ CASES = [
     # J 边界
     dict(kind="J 边界", q="桂枝汤", want=["桂枝汤"], formula="桂枝汤"),
     dict(kind="J 边界", q="中医怎么看待疫苗", want=["疫苗", "疫"]),
+
+    # K 多症状：口语堆叠六症，每个症状都要有代表（P0-2 验收项）。
+    # 语料里没有一条同时讲六症的条文（全库共现仅 19 条），所以判据不是
+    # 「命中某条」，而是 cov 里每个症状都能在前 8 条的标题+片段里找到。
+    dict(kind="K 多症", q="头晕乏力失眠口苦大便干小便黄",
+         want=["头晕", "乏力", "口苦", "大便", "小便"],
+         cov=["头晕", "乏力", "失眠", "口苦", "大便", "小便"]),
 ]
 
 
@@ -118,9 +125,19 @@ def run(verbose=False):
         if c.get("stats"):
             stats_ok = "【本地统计" in n.build_context(r, c["q"])
 
+        # cov：多症状用例，要求每个症状在前 8 条里各有代表
+        cov_ok, cov_miss = None, []
+        if c.get("cov"):
+            blob = " ".join(titles)
+            cov_miss = [w for w in c["cov"] if w not in blob]
+            cov_ok = not cov_miss
+
         rows.append(dict(c=c, rank=rank, seen=seen, ok=ok, second=second_ok,
                          formula=formula_ok, acu=acu_ok, stats=stats_ok,
-                         n_hits=len(r["classics"]), top=titles[:3]))
+                         cov=cov_ok, cov_miss=cov_miss,
+                         n_hits=len(r["classics"]), top=titles[:3],
+                         formulas=r["formulas"],
+                         acupoints=[p["name"] for p in r["acupoints"]]))
         if verbose:
             flag = "✓" if ok else "✗"
             print(f"{flag} [{c['kind']}] {c['q'][:22]:24s} rank={rank} hit={seen}")
@@ -128,6 +145,51 @@ def run(verbose=False):
                 for t in titles[:3]:
                     print("      ", t[:58])
     return rows
+
+
+def write_snapshot(rows, path):
+    import json
+    data = [dict(
+        kind=r["c"]["kind"], q=r["c"]["q"], want=r["c"]["want"],
+        rank=r["rank"], ok=r["ok"], second=r["second"],
+        formula=r["formula"], acu=r["acu"], stats=r["stats"],
+        top=r["top"], formulas=r["formulas"], acupoints=r["acupoints"],
+    ) for r in rows]
+    Path(path).write_text(json.dumps(data, ensure_ascii=False, indent=1), encoding="utf-8")
+    print(f"snapshot → {path}（{len(data)} 条）")
+
+
+def diff_snapshot(base_path, rows):
+    import json
+    base = {d["q"]: d for d in json.loads(Path(base_path).read_text(encoding="utf-8"))}
+    print(f"\n{'='*66}\n逐项 diff（基线 {base_path}）")
+    moved = 0
+    for r in rows:
+        q = r["c"]["q"]
+        b = base.get(q)
+        if not b:
+            print(f"[新增] {q}")
+            continue
+        deltas = []
+        if b["rank"] != r["rank"]:
+            deltas.append(f"rank {b['rank']}→{r['rank']}")
+        if b["ok"] != r["ok"]:
+            deltas.append(f"{'命中' if b['ok'] else '未命中'}→{'命中' if r['ok'] else '未命中'}")
+        if b["second"] != r["second"]:
+            deltas.append(f"second {b['second']}→{r['second']}")
+        if b["formula"] != r["formula"]:
+            deltas.append(f"formula {b['formula']}→{r['formula']}")
+        if b["acu"] != r["acu"]:
+            deltas.append(f"acu {b['acu']}→{r['acu']}")
+        if b["top"][:1] != r["top"][:1]:
+            moved += 1
+            deltas.append(f"首条变更: {b['top'][0][:26]!r} → {r['top'][0][:26]!r}")
+        if deltas:
+            print(f"[{'!' if b['ok'] and not r['ok'] else ' '}] {r['c']['kind']} {q[:20]}")
+            for d in deltas:
+                print(f"      {d}")
+    print(f"\n首条变更的用例数: {moved}/{len(rows)}")
+
 
 
 def report(rows):
@@ -150,6 +212,12 @@ def report(rows):
     if ac:
         a_ok = sum(1 for r in ac if r["acu"])
         print(f"穴位块给出相关穴: {a_ok}/{len(ac)}")
+    cv = [r for r in rows if r["cov"] is not None]
+    for r in cv:
+        n_cov = len(r["c"]["cov"]) - len(r["cov_miss"])
+        flag = "✓" if r["cov"] else "✗"
+        print(f"多症状覆盖 {flag} {r['c']['q']}: {n_cov}/{len(r['c']['cov'])}"
+              + (f"  缺={r['cov_miss']}" if r["cov_miss"] else ""))
 
     print("\n--- 未命中明细 ---")
     for r in rows:
@@ -175,4 +243,10 @@ def report(rows):
 
 
 if __name__ == "__main__":
-    report(run("-v" in sys.argv))
+    args = sys.argv[1:]
+    rows = run("-v" in args)
+    if "--snapshot" in args:
+        write_snapshot(rows, args[args.index("--snapshot") + 1])
+    if "--diff" in args:
+        diff_snapshot(args[args.index("--diff") + 1], rows)
+    report(rows)

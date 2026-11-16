@@ -26,6 +26,9 @@ DATA = ROOT / "data"
 
 # ---- 预算常量（llm_service.dart:106-135）----
 MAX_HITS = 8
+# 关键词「自由率」下限：低于此值判为滑窗拼接的假词，不进意图槽位。
+# 实测分界很宽（真词 .64–.95，拼接词 .00–.22），.5 落在空档中间。
+FREE_MIN = 0.5
 SNIPPET_SPAN = 200
 MAX_SNIPPET_CHARS = 520
 MAX_CONTEXT_CHARS = 3600
@@ -79,6 +82,19 @@ SOURCE_LABELS = {
 }
 GUJI_BOOKS = {"lingshu": "黄帝内经·灵枢", "zhenjiudacheng": "针灸大成"}
 
+# 经名 → 提纲条标题片段。用户问「太阳病」，而讲义标题写的是
+# 「一、「太阳」之为病，脉浮，头项强痛而恶寒。」—— 「太阳病」不是它的子串
+# （多了书名号和一个「之」），所以 77 条命中里一条提纲都没有（实测）。
+# 命中经名时强制注入对应提纲。dict 保序，遍历稳定，不依赖 set。
+SUTRA_OUTLINE = {
+    "太阳病": "「太阳」之为病",
+    "阳明病": "「阳明」之为病",
+    "少阳病": "「少阳」之为病",
+    "太阴病": "「太阴」之为病",
+    "少阴病": "「少阴」之为病",
+    "厥阴病": "「厥阴」之为病",
+}
+
 # 口语症状 → 古病名（讲稿原词）。这是 **skill 侧** 的补充层，不改 App 的
 # disease_alias_index.json —— App 那套有 build + verify 门禁、绑发版流程，
 # 不该为了 skill 多命中一条条文去回灌。词表进 priority 槽位，与「已知术语」同义。
@@ -102,6 +118,26 @@ SYMPTOM_ALIAS = {
     "想睡觉": ["但欲寐"],
     "胸闷": ["胸胁苦满"],
     "胃胀": ["心下痞"],
+    # 「遂漏不止」是二〇条桂枝加附子汤的标准证；不映射则被「发汗太多」带到
+    # 一七五条（风湿相搏），首条从正解退化（实测）。
+    "汗止不住": ["遂漏不止"],
+    "出汗不止": ["遂漏不止"],
+    "汗流不止": ["遂漏不止"],
+    # 丑时（1–3 点）醒 → 虚劳虚烦不得眠，酸枣仁汤；不映射则「四点」这种
+    # 数字巧合词抢走首条（实测落到「第四章·任脉经穴」）。
+    "半夜醒来": ["虚烦不得眠"],
+    "半夜醒": ["虚烦不得眠"],
+    "凌晨醒来": ["虚烦不得眠"],
+    "凌晨醒": ["虚烦不得眠"],
+    "三四点醒": ["虚烦不得眠"],
+    "早醒": ["虚烦不得眠"],
+    "醒了就睡不着": ["虚烦不得眠"],
+    "醒来就睡不着": ["虚烦不得眠"],
+    # 口语「一阵冷一阵热」= 往来寒热；不映射则滑窗切出的「冷一阵热」把
+    # 一〇四条挡在 8 条之外（实测）。
+    "一阵冷一阵热": ["往来寒热"],
+    "忽冷忽热": ["往来寒热"],
+    "时冷时热": ["往来寒热"],
 }
 
 _CACHE = {}
@@ -255,15 +291,21 @@ def is_content_word(w):
 
 
 def keywords_for(q):
-    """2–4 字连续片段，功能字过滤，长词优先，上限 32（llm_service.dart:199-209）。"""
-    clean = re.sub(r"[^\u4e00-\u9fffA-Za-z0-9]", "", q)
+    """2–4 字连续片段，功能字过滤，长词优先，上限 32（llm_service.dart:199-209）。
+
+    ⛔ 滑窗不得跨标点：删标点后拼成连续串再滑窗，会把相邻两个症状缝成假词
+    （「头晕乏力失眠口苦」产出「晕乏力失」「眠口苦大」），实测 32 个槽位里 23 个
+    是这种垃圾，真词被挤到 24 位之后。先按非汉字边界分段，段内再滑窗。
+    """
+    segments = [s for s in re.split(r"[^\u4e00-\u9fffA-Za-z0-9]+", q) if s]
     words, seen = [], set()
     for ln in range(4, 1, -1):
-        for i in range(len(clean) - ln + 1):
-            w = clean[i:i + ln]
-            if w not in seen and is_content_word(w):
-                seen.add(w)
-                words.append(w)
+        for seg in segments:
+            for i in range(len(seg) - ln + 1):
+                w = seg[i:i + ln]
+                if w not in seen and is_content_word(w):
+                    seen.add(w)
+                    words.append(w)
     return words[:32]
 
 
@@ -359,8 +401,118 @@ def _key(h):
     return "{}|{}".format(h["source"], h["title"])
 
 
+_PUNCT = set("，。；、：！？「」『』（）《》【】…—·,.!?;:\"'()[]{}<>\n\r\t ")
+
+
+def free_ratio(needle, sample=30):
+    """词在语料里「自由」出现的比例（两侧是标点或条目边界即算自由）。
+
+    用来分开真词与滑窗切出来的拼接 n-gram —— 后者在语料里永远黏在前后字上
+    （「左边腹痛扎右脚」的「痛扎」、「寒热往来就…」的「来就」），自由率≈0；
+    真词（「身疼，腰痛，骨节」）两侧多是标点。实测：腰痛 .71 / 痛扎 .00，
+    睡不着 .64 / 来就 .01，失眠 .67 / 三四 .15，但欲寐 .95。
+
+    只采样前 sample 次出现，够判阈值即可；全量扫会拖到 30ms/词。
+    """
+    n = normalize(needle).lower()
+    if not n:
+        return 0.0
+    free = total = 0
+    ln = len(n)
+    for e in load_index():
+        x = e["xl"]
+        i = x.find(n)
+        while i >= 0:
+            total += 1
+            if ((i == 0 or x[i - 1] in _PUNCT)
+                    or (i + ln >= len(x) or x[i + ln] in _PUNCT)):
+                free += 1
+            i = x.find(n, i + 1)
+        if total >= sample:
+            break
+    return (free / total) if total else 0.0
+
+
+def outline_hits(q):
+    """命中经名时取出对应提纲条（P1-1）。按 dict 插入顺序返回，稳定。"""
+    text = normalize(q)
+    out = []
+    for name, frag in SUTRA_OUTLINE.items():
+        if name not in text:
+            continue
+        for e in load_index():
+            if e["s"] == "shanghan" and frag in e["t"]:
+                out.append({
+                    "source": e["s"],
+                    "label": label_of(e["s"], e["b"]),
+                    "title": e["t"],
+                    "asset": e["a"],
+                    "snippet": _snippet(e["x"], -1, len(q), SNIPPET_SPAN),
+                })
+                break
+    return out
+
+
+def _fill_rounds(pool, priority_terms, keyword_terms, cap, span):
+    """多意图分配：priority 词无条件优先，普通关键词按稀有度进 round 轮流。
+
+    为什么不用纯贪心：priority 里有两个方名时（「四逆汤和理中汤怎么分」），
+    第一方会吃满全部槽位、第二方 0 条，问鉴别只答一半；多症状同理，首个
+    碰巧命中的症状词独吞 8 条（「头晕乏力失眠口苦…」只答了头晕）。
+
+    为什么不用纯 round：切词认不出无标点句里的症状边界（「头晕乏力失眠」
+    切出「晕乏力失」）。这类假词必须先筛掉，否则无论正序还是稀有度序都会
+    排错：按稀有度，total=3 的「痛扎」抢第 1 名（「腰痛扎哪个穴」→ 麻黄升麻
+    汤条）；按词序，total=320 的「来就」抢前面。筛据是 free_ratio —— 拼接词
+    在语料里永远黏在邻字上，自由率≈0。三条门槛：total ≥ 3、free_ratio ≥ .5、
+    priority 词（已知方名 / 古病名 / 症状古名）不受限，它们本身即精准术语。
+
+    同档内按 total 升序（越专有越先占第 1 轮），list.sort 稳定，跨进程一致；
+    单词场景退化为「取该词前 cap 条」，与原贪心一致不退化。
+    """
+    groups, best = [], 0
+
+    def collect(terms, tier, min_total):
+        nonlocal best
+        for w in terms:
+            if not (w or "").strip():
+                continue
+            total, hits = search(w, span, cap)
+            if total > best:
+                best = total
+            if not hits or total < min_total:
+                continue
+            # priority 档是真术语，不做自由率筛查（「遂漏不止」这类短语够长够专）
+            if tier and free_ratio(w) < FREE_MIN:
+                continue
+            groups.append((tier, total, hits))
+
+    collect(priority_terms, 0, 1)
+    collect(keyword_terms, 1, 3)
+    groups.sort(key=lambda g: (g[0], g[1]))
+
+    rnd = 0
+    while len(pool) < cap:
+        added = False
+        for _, _, hits in groups:
+            if len(pool) >= cap:
+                break
+            if rnd >= len(hits):
+                continue
+            h = hits[rnd]
+            k = _key(h)
+            if k in pool:
+                continue
+            pool[k] = h
+            added = True
+        if not added:
+            break
+        rnd += 1
+    return best
+
+
 def retrieve_result(q, priority=(), extra=(), seed=(), cap=MAX_HITS):
-    """三阶检索（llm_service.dart:222-296）。"""
+    """seed 强制落位 → priority+原关键词 round 轮流 → extra 回填。"""
     total, direct = search(q, SNIPPET_SPAN, cap)
     if direct and not priority and not extra and not seed:
         return {"total": total, "hits": direct}
@@ -372,45 +524,20 @@ def retrieve_result(q, priority=(), extra=(), seed=(), cap=MAX_HITS):
         pool.setdefault(_key(h), h)
     best_total = total
 
-    def sweep(w, cap_, per_word=0):
-        nonlocal best_total
-        r_total, hits = search(w, SNIPPET_SPAN, per_word if per_word > 0 else cap_)
-        if r_total == 0:
-            return
-        if r_total > best_total:
-            best_total = r_total
-        take = 0
-        for h in hits:
-            if len(pool) >= cap:
-                break
-            if per_word > 0 and take >= per_word:
-                break
-            before = len(pool)
-            pool.setdefault(_key(h), h)
-            if len(pool) > before:
-                take += 1
-
-    # ① 已知术语（古病名 / 方名）优先，留 2 条给用户原话
-    if priority:
-        pcap = max(1, min(cap - 2, cap))
-        for w in priority:
-            if len(pool) >= pcap:
-                break
-            sweep(w, pcap)
-    # ② 首个命中的词才允许填满，其后每词最多 2 条
-    first_hit = True
-    for w in keywords_for(q):
-        if len(pool) >= cap:
-            break
-        before = len(pool)
-        sweep(w, cap, 0 if first_hit else 2)
-        if len(pool) > before:
-            first_hit = False
-    # ③ 病名对照的补充叫法，一律每词 2 条
+    # ① priority（古病名 / 方名 / 症状古名）与 ② 原关键词**合并**分配。
+    #    分档而非两次独立填池：两档共用 8 个槽位，先跑的那档必然吃满。
+    best_total = max(best_total, _fill_rounds(
+        pool, list(priority), keywords_for(q), cap, SNIPPET_SPAN))
+    # ③ 病名对照的补充叫法：优先级最低，只在剩余槽位回填
     for w in extra:
         if len(pool) >= cap:
             break
-        sweep(w, cap, 2)
+        r_total, hits = search(w, SNIPPET_SPAN, cap)
+        best_total = max(best_total, r_total)
+        for h in hits:
+            if len(pool) >= cap:
+                break
+            pool.setdefault(_key(h), h)
     return {"total": best_total, "hits": list(pool.values())}
 
 
@@ -673,10 +800,13 @@ def prepare(q):
             if f not in case_formulas:
                 case_formulas.append(f)
 
-    # 二跳必须预留槽位，否则第一轮填满 8 条，二跳永远轮不上
-    reserve = MAX_CASE_FORMULAS if case_formulas else 0
+    # 二跳必须预留槽位，否则第一轮填满 8 条，二跳永远轮不上。
+    # 按「每个方剂 1 条」预留，不是固定 3 条：只有 1 个方剂时固定留 3 会
+    # 白白砍掉两个意图槽位（实测六症状查询的第 6 个症状被挤掉）。
+    reserve = min(len(case_formulas), MAX_CASE_FORMULAS)
     res = retrieve_result(q, priority=priority, extra=expand_terms(aliases),
-                          seed=acu_hits, cap=MAX_HITS - reserve)
+                          seed=outline_hits(q) + list(acu_hits),
+                          cap=MAX_HITS - reserve)
     if case_formulas:
         res = extend_by_formulas(res, case_formulas)
 
@@ -837,7 +967,24 @@ def _selftest():
     assert "太阴" in r3["classics"][0]["title"], \
         "大便不成形应命中太阴提纲，实际：{}".format(r3["classics"][0]["title"][:30])
 
-    print("selftest OK：切词/检索/医案/穴位/二跳 全部通过")
+    # 自由率：真词两侧多是标点，滑窗拼接词永远黏在邻字上
+    assert free_ratio("腰痛") > 0.6, "腰痛应判为自由词"
+    assert free_ratio("痛扎") < 0.1, "痛扎是「腹痛扎右脚」的拼接，必须判假"
+    assert free_ratio("来就") < 0.1, "来就是最常见拼接 bigram，必须判假"
+
+    # 拼接词不得进意图槽位：「腰痛扎哪个穴」首条必须是含腰痛的条辨，
+    # 不能是「痛扎」撞上的麻黄升麻汤条（总=12，稀有度序会把它排第一）。
+    r4 = prepare("腰痛扎哪个穴")
+    assert "腰痛" in r4["classics"][0]["title"], \
+        "首条须含腰痛，实际：{}".format(r4["classics"][0]["title"][:30])
+
+    # 多意图：六症状各留一个代表，不能被稀有度最高的那一个吃满槽位
+    r5 = prepare("头晕乏力失眠口苦大便干小便黄")
+    blob = " ".join(h["title"] + h["snippet"] for h in r5["classics"])
+    for w in ["头晕", "乏力", "失眠", "口苦", "大便", "小便"]:
+        assert w in blob, "多症状查询缺代表：{}".format(w)
+
+    print("selftest OK：切词/检索/医案/穴位/二跳/自由率/多意图 全部通过")
 
 
 def main(argv):

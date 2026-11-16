@@ -4,3 +4,4 @@ __pycache__/
 *.pyc
 _sync_bak_*/
 .git_abort_*/
+.snapshots/
