@@ -1,0 +1,4 @@
+*.bak.*
+_sync_bak_*/
+__pycache__/
+*.pyc
