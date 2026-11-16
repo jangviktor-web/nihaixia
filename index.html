@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>倪海厦skill · 经方中医AI</title>
+<meta name="description" content="将经方大师倪海厦的完整中医思维体系注入 AI Agent。六经辨证、经方选药、849个临床医案——一个命令激活两千年中医智慧。">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f7f5f0;--bg-card:#fff;--bg-elevated:#faf8f2;
+  --red:#c0392b;--red-glow:rgba(192,57,43,.08);
+  --jade:#2d8a4e;--jade-glow:rgba(45,138,78,.1);
+  --amber:#b8860b;--amber-light:#d4a017;
+  --text:#2c2c2c;--text-dim:#666;--text-muted:#999;
+  --border:#e5e0d8;--white:#fff;
+}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Inter","Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--text);background:var(--bg);line-height:1.7;overflow-x:hidden}
+a{color:var(--amber-light);text-decoration:none;transition:color .2s}
+a:hover{color:var(--white)}
+
+/* Nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;display:flex;justify-content:space-between;align-items:center;background:rgba(247,245,240,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.nav-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;color:var(--text)}
+.nav-logo img{width:28px;height:28px;border-radius:6px}
+.nav-links{display:flex;gap:24px;font-size:.85rem}
+.nav-links a{color:var(--text-dim)}
+.nav-links a:hover{color:var(--text)}
+
+/* Hero */
+.hero{padding:140px 20px 100px;text-align:center;position:relative;background:linear-gradient(180deg,#f0ece2 0%,var(--bg) 100%)}
+.hero::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,var(--red-glow) 0%,transparent 70%);pointer-events:none}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--white);border:1px solid var(--border);border-radius:24px;padding:6px 16px;font-size:.8rem;color:var(--text-dim);margin-bottom:32px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--jade);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:clamp(2.2rem,5.5vw,4rem);font-weight:800;margin-bottom:20px;letter-spacing:-1px;line-height:1.2}
+.hero h1 .highlight{background:linear-gradient(135deg,var(--red),var(--amber));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .subtitle{font-size:1.15rem;color:var(--text-dim);max-width:600px;margin:0 auto 40px;line-height:1.8}
+.hero-cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:10px;font-weight:600;font-size:.95rem;transition:all .2s;cursor:pointer;border:none}
+.btn-primary{background:var(--red);color:#fff}
+.btn-primary:hover{background:#c93520;transform:translateY(-1px);box-shadow:0 8px 24px rgba(226,61,40,.3)}
+.btn-ghost{background:transparent;border:1px solid var(--border);color:var(--text)}
+.btn-ghost:hover{border-color:var(--text-dim);background:var(--bg-card)}
+
+/* Counters */
+.counters{display:flex;justify-content:center;gap:48px;margin-top:60px;flex-wrap:wrap}
+.counter{text-align:center}
+.counter .num{font-size:2.5rem;font-weight:800;font-variant-numeric:tabular-nums;color:var(--red);display:block}
+.counter .label{font-size:.8rem;color:var(--text-muted);margin-top:4px}
+
+/* Section Number */
+.sec{padding:100px 20px;position:relative}
+.sec-num{font-size:.75rem;font-weight:700;color:var(--text-muted);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px;font-family:"SF Mono","Fira Code",monospace}
+.sec-title{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:800;margin-bottom:12px;letter-spacing:-0.5px}
+.sec-subtitle{color:var(--text-dim);font-size:1.05rem;max-width:560px;margin-bottom:48px}
+.sec-center{text-align:center}
+.sec-center .sec-subtitle{margin-left:auto;margin-right:auto}
+
+/* Container */
+.container{max-width:1100px;margin:0 auto}
+
+/* Terminal Demo */
+.terminal-section{background:var(--bg-elevated)}
+.terminal{background:#1a1a2e;border:1px solid #2a2a3e;border-radius:12px;overflow:hidden;max-width:720px;margin:0 auto;font-family:"SF Mono","Fira Code","Consolas",monospace;font-size:.85rem;color:#e8e8e8}
+.terminal-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#12121f;border-bottom:1px solid #2a2a3e}
+.terminal-dot{width:10px;height:10px;border-radius:50%}
+.terminal-dot.r{background:#ff5f57}.terminal-dot.y{background:#febc2e}.terminal-dot.g{background:#28c840}
+.terminal-title{margin-left:8px;font-size:.75rem;color:var(--text-muted)}
+.terminal-body{padding:20px;line-height:1.8}
+.terminal-body .prompt{color:var(--jade)}
+.terminal-body .cmd{color:var(--white)}
+.terminal-body .output{color:var(--text-dim)}
+.terminal-body .highlight{color:var(--amber-light)}
+.terminal-body .red{color:var(--red)}
+
+/* How It Works */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;counter-reset:step}
+.step{position:relative;padding:32px;background:var(--white);border:1px solid var(--border);border-radius:16px;transition:border-color .3s;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.step:hover{border-color:var(--text-muted)}
+.step::before{counter-increment:step;content:"0" counter(step);font-size:3rem;font-weight:800;color:var(--border);position:absolute;top:20px;right:24px;font-family:"SF Mono",monospace}
+.step h3{font-size:1.1rem;font-weight:700;margin-bottom:8px;color:var(--text)}
+.step p{color:var(--text-dim);font-size:.9rem;line-height:1.7}
+.step .step-icon{font-size:1.6rem;margin-bottom:16px;display:block}
+
+/* Features Grid */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.feat-card{padding:28px;background:var(--white);border:1px solid var(--border);border-radius:14px;transition:all .3s;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.feat-card:hover{border-color:var(--text-muted);transform:translateY(-2px)}
+.feat-card .feat-icon{font-size:1.5rem;margin-bottom:12px;display:block}
+.feat-card h4{font-size:1rem;font-weight:700;color:var(--text);margin-bottom:6px}
+.feat-card p{color:var(--text-dim);font-size:.88rem;line-height:1.7}
+.feat-card .feat-tag{display:inline-block;margin-top:12px;padding:3px 10px;border-radius:6px;font-size:.75rem;font-weight:600;background:var(--jade-glow);color:var(--jade)}
+
+/* Quote */
+.quote-section{text-align:center;padding:100px 20px;position:relative}
+.quote-section::before{content:"\201C";font-size:8rem;color:var(--border);position:absolute;top:40px;left:50%;transform:translateX(-50%);font-family:Georgia,serif;line-height:1}
+.quote-section{background:var(--bg)}
+.quote-text{font-size:clamp(1.2rem,2.5vw,1.6rem);font-weight:500;max-width:640px;margin:0 auto 24px;line-height:1.8;color:var(--text);position:relative;z-index:1}
+.quote-author{color:var(--text-muted);font-size:.9rem}
+.quote-author strong{color:var(--text-dim)}
+
+/* Knowledge */
+.know-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.know-item{padding:20px;background:var(--white);border:1px solid var(--border);border-radius:12px;text-align:center;transition:border-color .3s;box-shadow:0 2px 8px rgba(0,0,0,.03)}
+.know-item:hover{border-color:var(--text-muted)}
+.know-item .k-num{font-size:1.6rem;font-weight:800;color:var(--red);display:block;margin-bottom:4px}
+.know-item h4{font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:2px}
+.know-item p{font-size:.72rem;color:var(--text-muted)}
+
+/* Install */
+.install-section{background:var(--bg-elevated)}
+.install-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.install-card{padding:24px;background:var(--white);border:1px solid var(--border);border-radius:14px;transition:border-color .3s;box-shadow:0 2px 8px rgba(0,0,0,.03)}
+.install-card:hover{border-color:var(--text-muted)}
+.install-card h4{font-size:.95rem;font-weight:700;color:var(--text);margin-bottom:12px}
+.install-card h4 .badge{display:inline-block;background:var(--red);color:#fff;font-size:.65rem;padding:2px 8px;border-radius:4px;margin-left:6px;vertical-align:middle}
+.install-card pre{background:#1a1a2e;border:1px solid #2a2a3e;border-radius:8px;padding:14px;font-size:.8rem;overflow-x:auto;font-family:"SF Mono",monospace;color:#c8c8d8;line-height:1.7;margin:0}
+
+/* App Promo */
+.app-section{background:linear-gradient(135deg,#f0ece2,#f7f5f0)}
+.app-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.app-features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0}
+.app-feat{padding:14px;background:var(--white);border:1px solid var(--border);border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.app-feat h5{font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:2px}
+.app-feat p{font-size:.75rem;color:var(--text-muted)}
+.app-mock{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:40px 20px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.06)}
+.app-mock .phone-icon{font-size:4rem;margin-bottom:16px;display:block}
+.app-mock .mock-title{font-size:1.1rem;font-weight:700;color:var(--text);margin-bottom:8px}
+.app-mock .mock-desc{font-size:.85rem;color:var(--text-dim);line-height:1.7}
+
+/* Footer */
+.footer{border-top:1px solid var(--border);padding:40px 20px;text-align:center;background:var(--bg)}
+.footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:16px;flex-wrap:wrap}
+.footer-links a{color:var(--text-dim);font-size:.85rem;transition:color .2s}
+.footer-links a:hover{color:var(--text)}
+.footer p{color:var(--text-muted);font-size:.8rem}
+.footer .disclaimer{margin-top:12px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.6}
+
+/* Responsive */
+@media(max-width:768px){
+  .steps{grid-template-columns:1fr}
+  .know-grid{grid-template-columns:repeat(2,1fr)}
+  .app-grid{grid-template-columns:1fr}
+  .counters{gap:28px}
+  .counter .num{font-size:1.8rem}
+  .nav-links{display:none}
+  .hero{padding:120px 16px 60px}
+  .sec{padding:60px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-logo">
+    <img src="logo.jpg" alt="Logo">
+    倪海厦skill
+  </div>
+  <div class="nav-links">
+    <a href="#how">工作原理</a>
+    <a href="#features">功能</a>
+    <a href="#knowledge">知识库</a>
+    <a href="#install">安装</a>
+    <a href="https://github.com/jangviktor-web/nihaixia">GitHub</a>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">
+    <span class="dot"></span>
+    Claude Code · OpenClaw · SkillHub
+  </div>
+  <h1>两千年中医智慧<br><span class="highlight">一个命令激活</span></h1>
+  <p class="subtitle">将经方大师倪海厦的完整中医思维体系注入 AI Agent。<br>六经辨证、经方选药、849 个临床医案——像倪师一样思考。</p>
+  <div class="hero-cta">
+    <a href="#install" class="btn btn-primary">立即安装</a>
+    <a href="https://github.com/jangviktor-web/nihaixia" class="btn btn-ghost">GitHub</a>
+  </div>
+  <div class="counters">
+    <div class="counter"><span class="num" data-target="2452">0</span><span class="label">页原始讲义</span></div>
+    <div class="counter"><span class="num" data-target="849">0</span><span class="label">个临床医案</span></div>
+    <div class="counter"><span class="num" data-target="345">0</span><span class="label">种本草药物</span></div>
+    <div class="counter"><span class="num" data-target="129">0</span><span class="label">条伤寒论</span></div>
+  </div>
+</section>
+
+<!-- Terminal Demo -->
+<section class="sec terminal-section">
+  <div class="container sec-center">
+    <div class="sec-num">001 / 实际效果</div>
+    <h2 class="sec-title">看看它怎么回答</h2>
+    <p class="sec-subtitle">在 Claude Code 中说「倪海厦」即可激活，像这样提问：</p>
+    <div class="terminal">
+      <div class="terminal-bar">
+        <span class="terminal-dot r"></span>
+        <span class="terminal-dot y"></span>
+        <span class="terminal-dot g"></span>
+        <span class="terminal-title">Claude Code — 倪海厦skill</span>
+      </div>
+      <div class="terminal-body">
+        <div><span class="prompt">❯</span> <span class="cmd">我感冒了，怕冷，没有汗，脖子后面疼</span></div>
+        <br>
+        <div><span class="highlight">辨证</span>：太阳伤寒，麻黄汤证</div>
+        <div><span class="output">无汗恶寒、体痛——寒束于表，毛孔闭塞。</span></div>
+        <div><span class="output">麻黄开毛孔，桂枝解肌，杏仁降气，炙甘草调和。</span></div>
+        <div><span class="output">一剂汗出即愈。记住：有汗用桂枝，无汗用麻黄。</span></div>
+        <br>
+        <div><span class="prompt">❯</span> <span class="cmd">牛奶能不能喝？</span></div>
+        <br>
+        <div><span class="red">倪海厦明确反对。</span></div>
+        <div><span class="output">牛奶性寒伤阳气，是给小牛喝的不是给人喝的。</span></div>
+        <div><span class="output">现代牛奶含激素抗生素，导致痰湿。替代：豆浆、米浆。</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="sec" id="how">
+  <div class="container sec-center">
+    <div class="sec-num">002 / 工作原理</div>
+    <h2 class="sec-title">三步激活</h2>
+    <p class="sec-subtitle">安装 → 对话 → 辨证。就这么简单。</p>
+    <div class="steps">
+      <div class="step">
+        <span class="step-icon">📦</span>
+        <h3>安装 Skill</h3>
+        <p>一行命令安装到你的 Agent 环境。支持 ClawHub、SkillHub、OpenClaw 等 5 个平台。</p>
+      </div>
+      <div class="step">
+        <span class="step-icon">💬</span>
+        <h3>对话触发</h3>
+        <p>在对话中说「倪海厦」或直接描述症状，AI 自动切换到经方思维模式。</p>
+      </div>
+      <div class="step">
+        <span class="step-icon">🔍</span>
+        <h3>六经辨证</h3>
+        <p>AI 用六经框架分析症状，给出经方建议、药物组成、剂量用法。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="sec" id="features" style="background:var(--bg-card)">
+  <div class="container sec-center">
+    <div class="sec-num">003 / 核心能力</div>
+    <h2 class="sec-title">不只是知识库，而是思维方式</h2>
+    <p class="sec-subtitle">覆盖倪海厦人纪+天纪完整体系，10 大能力模块。</p>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <span class="feat-icon">🔍</span>
+        <h4>六经辨证分析</h4>
+        <p>输入症状，自动判断太阳/阳明/少阳/太阴/少阴/厥阴，给出对应经方。</p>
+        <span class="feat-tag">核心</span>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">📋</span>
+        <h4>经方速查</h4>
+        <p>伤寒论 129 条 + 金匮 23 篇，每个方剂含组成、剂量、煎服法、禁忌。</p>
+        <span class="feat-tag">152篇</span>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">💊</span>
+        <h4>药物性味</h4>
+        <p>神农本草经 345 种药物的性味归经、炮制方法、临床禁忌。</p>
+        <span class="feat-tag">345种</span>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🏥</span>
+        <h4>临床医案</h4>
+        <p>849 个倪海厦亲自诊治的医案，按癌症/心血管/代谢病等 6 类分类。</p>
+        <span class="feat-tag">849例</span>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🪡</span>
+        <h4>针灸穴位</h4>
+        <p>十二经络 + 井荣俞经合 + 任督要穴 + 中风急救穴位。</p>
+        <span class="feat-tag">完整</span>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🏛️</span>
+        <h4>黄帝内经</h4>
+        <p>71 篇完整蒸馏，中医基础理论核心，脏腑经络一站式查询。</p>
+        <span class="feat-tag">71篇</span>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🔮</span>
+        <h4>天纪命理</h4>
+        <p>紫微斗数 + 易经六十四卦 + 阳宅风水，倪海厦天纪体系完整收录。</p>
+        <span class="feat-tag">三才</span>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🎤</span>
+        <h4>梁冬对话</h4>
+        <p>2009 年 7 期完整录音蒸馏，现代饮食、西医、养生话题观点。</p>
+        <span class="feat-tag">7期</span>
+      </div>
+      <div class="feat-card">
+        <span class="feat-icon">🔒</span>
+        <h4>闭门课精华</h4>
+        <p>7 大重病专题 + 7 堂弟子课，血癌/乳癌/脑瘤等深度治疗方案。</p>
+        <span class="feat-tag">14课</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quote -->
+<section class="quote-section">
+  <div class="container">
+    <div class="quote-text">「天、人、地各占三分之一，人事上绝佳的医学技术再加上地理优越的位置，占了三分之二，就大于天命了。这就是人与天争。」</div>
+    <div class="quote-author">—— <strong>倪海厦</strong>（1954-2012）</div>
+  </div>
+</section>
+
+<!-- Knowledge Base -->
+<section class="sec" id="knowledge" style="background:var(--bg-card)">
+  <div class="container sec-center">
+    <div class="sec-num">004 / 知识库全景</div>
+    <h2 class="sec-title">2,452 页原始讲义，3.5M 字精萃</h2>
+    <p class="sec-subtitle">基于一手素材蒸馏，10 份讲义全量覆盖。</p>
+    <div class="know-grid">
+      <div class="know-item"><span class="k-num">129</span><h4>伤寒论</h4><p>全六经条文</p></div>
+      <div class="know-item"><span class="k-num">23</span><h4>金匮要略</h4><p>杂病辨证</p></div>
+      <div class="know-item"><span class="k-num">71</span><h4>黄帝内经</h4><p>基础理论</p></div>
+      <div class="know-item"><span class="k-num">345</span><h4>神农本草经</h4><p>药物性味</p></div>
+      <div class="know-item"><span class="k-num">849</span><h4>医案集</h4><p>真实临床</p></div>
+      <div class="know-item"><span class="k-num">245</span><h4>分类医案</h4><p>按病分类</p></div>
+      <div class="know-item"><span class="k-num">7</span><h4>梁冬对话</h4><p>现代话题</p></div>
+      <div class="know-item"><span class="k-num">14</span><h4>闭门课</h4><p>重病专题</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- Install -->
+<section class="sec install-section" id="install">
+  <div class="container sec-center">
+    <div class="sec-num">005 / 安装</div>
+    <h2 class="sec-title">选择你的平台</h2>
+    <p class="sec-subtitle">5 种安装方式，覆盖主流 Agent 平台。</p>
+    <div class="install-grid">
+      <div class="install-card">
+        <h4>ClawHub <span class="badge">推荐</span></h4>
+        <pre>npm install -g clawhub && clawhub login
+clawhub install nihaixia</pre>
+      </div>
+      <div class="install-card">
+        <h4>SkillHub（腾讯云）</h4>
+        <pre>curl -fsSL https://skillhub.cn/install/install.sh \
+  | bash -s -- --no-skills
+skillhub install nihaixia-pro</pre>
+      </div>
+      <div class="install-card">
+        <h4>OpenClaw</h4>
+        <pre>npm install -g openclaw
+openclaw skills install nihaixia</pre>
+      </div>
+      <div class="install-card">
+        <h4>OpenClawMP</h4>
+        <pre>npm install -g openclawmp
+openclawmp install skill/c03b361cb99d4b4ebc6cd17f361741ba</pre>
+      </div>
+      <div class="install-card">
+        <h4>手动安装</h4>
+        <pre>git clone https://github.com/jangviktor-web/nihaixia.git
+cp -r nihaixia/ ~/.claude/skills/nihaixia/</pre>
+      </div>
+      <div class="install-card">
+        <h4>手机端 IMA APP</h4>
+        <pre>下载腾讯 IMA APP
+搜索「倪海厦」导入知识码</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- App Promo -->
+<section class="sec app-section">
+  <div class="container">
+    <div class="app-grid">
+      <div>
+        <div class="sec-num">006 / Android APP</div>
+        <h2 class="sec-title">汉唐中医 · 安卓诊断</h2>
+        <p style="color:var(--text-dim);margin-bottom:24px;line-height:1.8">同一个知识库，独立的安卓应用。<br>离线可用，完全免费。</p>
+        <div class="app-features">
+          <div class="app-feat"><h5>六经辨证</h5><p>智能问诊引导</p></div>
+          <div class="app-feat"><h5>271 首方剂</h5><p>搜索+筛选</p></div>
+          <div class="app-feat"><h5>345 味药物</h5><p>性味归经</p></div>
+          <div class="app-feat"><h5>子午流注</h5><p>361穴推算</p></div>
+        </div>
+        <div style="display:flex;gap:12px">
+          <a href="https://github.com/jangviktor-web/nihaixia-app/releases/latest" class="btn btn-primary">下载 APK</a>
+          <a href="https://github.com/jangviktor-web/nihaixia-app" class="btn btn-ghost">GitHub</a>
+        </div>
+      </div>
+      <div class="app-mock">
+        <span class="phone-icon">📱</span>
+        <div class="mock-title">AI Skill + Android APP</div>
+        <div class="mock-desc">桌面端用 Skill 激活 AI Agent<br>移动端用 APP 独立诊断<br>同一套知识体系，两种使用方式</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-links">
+    <a href="https://github.com/jangviktor-web/nihaixia">GitHub</a>
+    <a href="https://clawhub.ai/skills/nihaixia">ClawHub</a>
+    <a href="https://skillhub.cloud.tencent.com/skills/nihaixia-pro">SkillHub</a>
+    <a href="https://github.com/jangviktor-web/nihaixia-app">Android APP</a>
+    <a href="https://github.com/jangviktor-web/nihaixia/blob/main/LICENSE">MulanPSL-2.0</a>
+  </div>
+  <p>基于 <a href="https://github.com/huoyalong/nihaisha-skill">nihaisha-skill</a> 二次开发</p>
+  <p class="disclaimer">本项目内容仅供中医学习与研究，不替代专业医疗诊断。所有诊疗请务必咨询执业医师。</p>
+</footer>
+
+<!-- Star History -->
+<section style="padding:40px 20px;text-align:center;background:var(--bg)">
+  <a href="https://star-history.com/#jangviktor-web/nihaixia&Date">
+    <img src="https://api.star-history.com/svg?repos=jangviktor-web/nihaixia&type=Date" alt="Star History Chart" style="max-width:100%;height:auto;opacity:.85">
+  </a>
+</section>
+
+<script>
+// Animated counters
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})
+},{threshold:.3})
+document.querySelectorAll('.counter').forEach(c=>observer.observe(c))
+
+// Counter animation
+function animateCounters(){
+  document.querySelectorAll('.counter .num').forEach(el=>{
+    const target=+el.dataset.target
+    const duration=2000
+    const start=performance.now()
+    function tick(now){
+      const progress=Math.min((now-start)/duration,1)
+      const eased=1-Math.pow(1-progress,3)
+      el.textContent=Math.floor(eased*target).toLocaleString()
+      if(progress<1)requestAnimationFrame(tick)
+      else el.textContent=target.toLocaleString()
+    }
+    requestAnimationFrame(tick)
+  })
+}
+const heroObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){animateCounters();heroObserver.unobserve(e.target)}})
+},{threshold:.3})
+heroObserver.observe(document.querySelector('.counters'))
+</script>
+</body>
+</html>
