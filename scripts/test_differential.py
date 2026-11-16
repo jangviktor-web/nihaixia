@@ -36,7 +36,12 @@ CASES = [
     dict(kind="B 方证", q="心中烦，不得卧", want=["不得卧", "心中烦"], formula="黄连阿胶汤"),
     dict(kind="B 方证", q="干呕发热而咳，心下有水气", want=["心下有水气"], formula="小青龙汤"),
 
-    # C 鉴别类：两方都要拿到，否则只能答一半
+    # C 鉴别类：两方都要拿到，否则只能答一半。
+    # 判据（2026-11-16 定）：**两方均在前 3 即可，不要求 want 指定的那一方在第 1**。
+    # 原因：_fill_rounds 在 priority 档内按 total 升序排，稀有方先占首槽，所以
+    # 「常见方 vs 少用方」的鉴别题里常见方稳定落第 2（桂枝汤/麻黄汤即如此）。
+    # 这是有意的设计（先暴露较稀有的那一方，避免常见方吃满槽位），不是回退；
+    # 实测 7 组鉴别对双向、前 8 条序列逐字一致，与提问里的方名顺序无关。
     dict(kind="C 鉴别", q="桂枝汤和麻黄汤有什么区别",
          want=["桂枝汤"], second="麻黄", formula="桂枝汤"),
     dict(kind="C 鉴别", q="四逆汤和理中汤怎么分",
@@ -84,13 +89,50 @@ CASES = [
     dict(kind="J 边界", q="桂枝汤", want=["桂枝汤"], formula="桂枝汤"),
     dict(kind="J 边界", q="中医怎么看待疫苗", want=["疫苗", "疫"]),
 
-    # K 多症状：口语堆叠六症，每个症状都要有代表（P0-2 验收项）。
-    # 语料里没有一条同时讲六症的条文（全库共现仅 19 条），所以判据不是
-    # 「命中某条」，而是 cov 里每个症状都能在前 8 条的标题+片段里找到。
+    # K 多症状：口语堆叠六症。判据（2026-11-16 由产品侧裁定，方案 A）：
+    # **cov 里每个症状在前 8 条各有一条代表**，不要求 top3 里出现「一条同时讲
+    # 多症状」的条文。另加独立断言「首条必须命中主诉」（见 complaint_alts）。
+    #
+    # 语料事实（复现查询：对 load_index() 1728 条取 body=标题+正文，数每组同义词
+    # 命中几个症状组）：
+    #
+    #   口径                    ≥2    ≥3    ≥4    ≥5   6 全中
+    #   口语原文（原字面）        18     4     2     1      0
+    #   古名同义（宽，含「冒」）   142    52    19     9      2
+    #   古名同义（收紧，去「冒」） 109    47    17     9      2
+    #
+    # 收紧口径按来源拆（关键结论）：
+    #   含 ≥6：2 条   {zhenjiu:1, guji:1}        ← 都是「足太阳膀胱经」章级条目
+    #   含 ≥5：9 条   {neijing:1, zhenjiu:5, guji:3}
+    #   含 ≥4：17 条  {neijing:2, zhenjiu:8, guji:7}   ← 伤寒 0 条 / 金匮 0 条
+    #   含 ≥3：47 条  {shanghan:4, jingui:4, neijing:10, zhenjiu:13, bencao:3, guji:13}
+    #
+    # 为什么 ≥4 的 17 条不能当「多症状条文」用——条目粒度不同：
+    #   伤寒论讲稿 394 条 / 正文中位 567 字；金匮要略讲稿 433 条 / 821 字（条级）
+    #   内经讲稿    73 条 / 8373 字；针灸讲稿 72 条 / 最长 56559 字（整篇整章一条）
+    # 即：整章「提到过」六个症状对辨证没有信息量。条级的伤寒/金匮里，覆盖 4 个
+    # 及以上症状的条文是 0 条，覆盖 3 个的只有 8 条。
+    #
+    # 被否掉的方案 B1（top3 内必须出现一条覆盖 ≥3 症状的条文）：实测那 8 条候选
+    # 全部进不了前 8，需要二阶段「按症状覆盖数 rerank」+ 症状归一，且实测覆盖率
+    # 加权排序会让单症状场景退化（「大便不成形」滑到「第四章·任脉经穴」）。
+    # ⚠️ 若将来内经/针灸改为条级切分，≥4 的候选池会变大，届时可重新评估 B1。
     dict(kind="K 多症", q="头晕乏力失眠口苦大便干小便黄",
          want=["头晕", "乏力", "口苦", "大便", "小便"],
-         cov=["头晕", "乏力", "失眠", "口苦", "大便", "小便"]),
+         cov=["头晕", "乏力", "失眠", "口苦", "大便", "小便"],
+         # 主诉=提问中位置最靠前的真词，本例为「头晕」；断言允许同义写法
+         complaint_alts={"头晕": ["头晕", "眩", "晕"]}),
 ]
+
+
+def complaint_of(q):
+    """主诉 = 提问中位置最靠前的真词（先过 total≥3 与 free_ratio≥FREE_MIN 两道筛）。"""
+    terms = []
+    for w in n.keywords_for(q):
+        total, _ = n.search(w, n.SNIPPET_SPAN, n.MAX_HITS)
+        if total >= 3 and n.free_ratio(w) >= n.FREE_MIN:
+            terms.append(w)
+    return n.main_complaint(q, terms)
 
 
 def run(verbose=False):
@@ -132,9 +174,18 @@ def run(verbose=False):
             cov_miss = [w for w in c["cov"] if w not in blob]
             cov_ok = not cov_miss
 
+        # 首条主诉：独立断言，防止「8 条各沾一个症状、没有一条落在主诉上」
+        mc, mc_ok = None, None
+        if c.get("cov"):
+            mc = complaint_of(c["q"])
+            alts = (c.get("complaint_alts") or {}).get(mc, [mc]) if mc else []
+            head = titles[0] if titles else ""
+            mc_ok = bool(alts) and any(a in head for a in alts)
+
         rows.append(dict(c=c, rank=rank, seen=seen, ok=ok, second=second_ok,
                          formula=formula_ok, acu=acu_ok, stats=stats_ok,
                          cov=cov_ok, cov_miss=cov_miss,
+                         complaint=mc, complaint_ok=mc_ok,
                          n_hits=len(r["classics"]), top=titles[:3],
                          formulas=r["formulas"],
                          acupoints=[p["name"] for p in r["acupoints"]]))
@@ -218,6 +269,8 @@ def report(rows):
         flag = "✓" if r["cov"] else "✗"
         print(f"多症状覆盖 {flag} {r['c']['q']}: {n_cov}/{len(r['c']['cov'])}"
               + (f"  缺={r['cov_miss']}" if r["cov_miss"] else ""))
+        print(f"首条主诉 {'✓' if r['complaint_ok'] else '✗'} 主诉={r['complaint']}"
+              f" | 首条={r['top'][0][:44] if r['top'] else '（空）'}")
 
     print("\n--- 未命中明细 ---")
     for r in rows:
@@ -250,3 +303,8 @@ if __name__ == "__main__":
     if "--diff" in args:
         diff_snapshot(args[args.index("--diff") + 1], rows)
     report(rows)
+    # 硬门禁：多症状用例的首条必须落在主诉上（回填 1 断言）
+    gate = [r for r in rows if r["complaint_ok"] is False]
+    if gate:
+        print(f"\n❌ 首条未命中主诉：{[r['c']['q'] for r in gate]}")
+        sys.exit(1)
