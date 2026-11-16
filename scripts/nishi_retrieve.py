@@ -79,6 +79,31 @@ SOURCE_LABELS = {
 }
 GUJI_BOOKS = {"lingshu": "黄帝内经·灵枢", "zhenjiudacheng": "针灸大成"}
 
+# 口语症状 → 古病名（讲稿原词）。这是 **skill 侧** 的补充层，不改 App 的
+# disease_alias_index.json —— App 那套有 build + verify 门禁、绑发版流程，
+# 不该为了 skill 多命中一条条文去回灌。词表进 priority 槽位，与「已知术语」同义。
+# ⚠️ 扩展词必须**专有**：用「自利」这种短词会命中「小便自利」「不大便」，
+# 语义正好相反（实测加入后比不加更差）。宁用长短语，不用宽泛词。
+SYMPTOM_ALIAS = {
+    "大便不成形": ["自利益甚", "下利清谷"],
+    "大便不成型": ["自利益甚", "下利清谷"],
+    "大便稀": ["自利益甚", "下利清谷"],
+    "拉稀": ["下利清谷", "自利益甚"],
+    "腹泻": ["下利清谷", "自利益甚"],
+    "手脚出汗": ["手足濈然汗出", "手足汗出"],
+    "手脚出冷汗": ["手足濈然汗出", "四肢厥逆"],
+    "手心出汗": ["手足濈然汗出"],
+    "手脚冰凉": ["四肢厥逆"],
+    "手脚冰冷": ["四肢厥逆"],
+    "怕冷": ["手足濈然汗出", "四肢厥逆"],
+    "畏寒": ["四肢厥逆"],
+    "疲劳": ["但欲寐"],
+    "提不起劲": ["但欲寐"],
+    "想睡觉": ["但欲寐"],
+    "胸闷": ["胸胁苦满"],
+    "胃胀": ["心下痞"],
+}
+
 _CACHE = {}
 
 
@@ -538,6 +563,19 @@ def expand_terms(aliases):
     return out
 
 
+def symptom_terms(q):
+    """口语症状 → 古病名。进 priority 槽位：原词（大便）命中的多是便秘条文，
+    真答案在「自利益甚」那条里，不让它优先就只能拿一堆无关条辨。"""
+    text = normalize(q)
+    out = []
+    for k, vs in SYMPTOM_ALIAS.items():
+        if k in text:
+            for v in vs:
+                if v not in out:
+                    out.append(v)
+    return out
+
+
 def disease_brief(aliases):
     if not aliases:
         return ""
@@ -612,7 +650,9 @@ def prepare(q):
                 acupoints.append(p)
 
     aliases = match_aliases(q)
-    priority = [e["a"] for e in aliases if e.get("k") == "gujin"] + extract_formula_names(q)
+    priority = ([e["a"] for e in aliases if e.get("k") == "gujin"]
+                + extract_formula_names(q)
+                + symptom_terms(q))
 
     case_formulas = []
     for c in cases:
@@ -776,6 +816,11 @@ def _selftest():
     r2 = prepare("足三里主治什么")
     assert r2["acupoints"] and r2["acupoints"][0]["name"].startswith("足三里"), "穴位点名必须命中"
     assert is_acupuncture_query("足三里主治什么"), "无针/灸字也须判为针灸提问"
+
+    # 口语症状 → 古病名：「大便不成形」在讲义里写作「自利益甚」，不对照则只能命中便秘条文
+    r3 = prepare("大便不成形")
+    assert "太阴" in r3["classics"][0]["title"], \
+        "大便不成形应命中太阴提纲，实际：{}".format(r3["classics"][0]["title"][:30])
 
     print("selftest OK：切词/检索/医案/穴位/二跳 全部通过")
 
