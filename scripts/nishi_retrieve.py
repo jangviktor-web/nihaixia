@@ -504,24 +504,7 @@ def outline_hits(q):
     return out
 
 
-def main_complaint(q, terms):
-    """主诉 = 提问中位置最靠前的真词（terms 必须是已过两道筛的）。
-
-    只用于排首槽，不参与过滤判定。同起点时取更长的那个。
-    """
-    text = normalize(q)
-    best = None
-    for w in terms:
-        i = text.find(w)
-        if i < 0:
-            continue
-        key = (i, -len(w))
-        if best is None or key < best[0]:
-            best = (key, w)
-    return best[1] if best else None
-
-
-def _fill_rounds(pool, priority_terms, keyword_terms, cap, span, q=""):
+def _fill_rounds(pool, priority_terms, keyword_terms, cap, span):
     """多意图分配：priority 词无条件优先，普通关键词按稀有度进 round 轮流。
 
     为什么不用纯贪心：priority 里有两个方名时（「四逆汤和理中汤怎么分」），
@@ -537,18 +520,6 @@ def _fill_rounds(pool, priority_terms, keyword_terms, cap, span, q=""):
 
     同档内按 total 升序（越专有越先占第 1 轮），list.sort 稳定，跨进程一致；
     单词场景退化为「取该词前 cap 条」，与原贪心一致不退化。
-
-    ⚠️ 首槽例外：keyword 档里**主诉词**（提问中位置最靠前的真词）固定占第 1 轮
-    第一个位置，其余仍按稀有度。纯稀有度序会把「大便干」(total 6) 排在
-    「头晕」(total 22) 前面，于是「头晕乏力失眠口苦…」的首条是腹胀满条——
-    首条是模型第一眼读到的条文，必须落在主诉上。priority 档（方名/古病名）
-    不受影响，鉴别题仍按稀有度暴露较稀有的那一方。
-
-    设计决策：priority 档内「稀有方先占首槽」，即鉴别题优先暴露少用的那一方。
-    代价两条：① 常见方在鉴别题里稳定落第 2（桂枝汤/麻黄汤恒为麻黄汤在前）；
-    ② 口语症状一旦配上别名就升进 priority 档，会压过纯 keyword 症状的主诉
-    （「腰酸腿软」首条变成「脚挛急」条）。两处都已由测试注释记录在案，
-    不改 tie-break —— 改它要动本函数的排序主干，风险大于收益。
     """
     groups, best = [], 0
 
@@ -565,17 +536,16 @@ def _fill_rounds(pool, priority_terms, keyword_terms, cap, span, q=""):
             # priority 档是真术语，不做自由率筛查（「遂漏不止」这类短语够长够专）
             if tier and free_ratio(w) < FREE_MIN:
                 continue
-            groups.append((tier, total, hits, w))
+            groups.append((tier, total, hits))
 
     collect(priority_terms, 0, 1)
     collect(keyword_terms, 1, 3)
-    primary = main_complaint(q, [g[3] for g in groups if g[0] == 1]) if q else None
-    groups.sort(key=lambda g: (g[0], 0 if (g[0] == 1 and g[3] == primary) else 1, g[1]))
+    groups.sort(key=lambda g: (g[0], g[1]))
 
     rnd = 0
     while len(pool) < cap:
         added = False
-        for _, _, hits, _w in groups:
+        for _, _, hits in groups:
             if len(pool) >= cap:
                 break
             if rnd >= len(hits):
@@ -608,7 +578,7 @@ def retrieve_result(q, priority=(), extra=(), seed=(), cap=MAX_HITS):
     # ① priority（古病名 / 方名 / 症状古名）与 ② 原关键词**合并**分配。
     #    分档而非两次独立填池：两档共用 8 个槽位，先跑的那档必然吃满。
     best_total = max(best_total, _fill_rounds(
-        pool, list(priority), keywords_for(q), cap, SNIPPET_SPAN, q))
+        pool, list(priority), keywords_for(q), cap, SNIPPET_SPAN))
     # ③ 病名对照的补充叫法：优先级最低，只在剩余槽位回填
     for w in extra:
         if len(pool) >= cap:
