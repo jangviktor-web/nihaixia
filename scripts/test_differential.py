@@ -91,7 +91,9 @@ CASES = [
 
     # K 多症状：口语堆叠六症。判据（2026-11-16 由产品侧裁定，方案 A）：
     # **cov 里每个症状在前 8 条各有一条代表**，不要求 top3 里出现「一条同时讲
-    # 多症状」的条文。另加独立断言「首条必须命中主诉」（见 complaint_alts）。
+    # 多症状」的条文，也不加「首条必须命中主诉」的断言——2026-11-16 回滚：
+    # D 类 9 条里 5 条主诉词是切片噪音（成形/四点/一阵热/手脚发/吃完），
+    # 断言没有立足点；且主诉优先解决不了 priority/keyword 跨档冲突。
     #
     # 语料事实（复现查询：对 load_index() 1728 条取 body=标题+正文，数每组同义词
     # 命中几个症状组）：
@@ -119,20 +121,8 @@ CASES = [
     # ⚠️ 若将来内经/针灸改为条级切分，≥4 的候选池会变大，届时可重新评估 B1。
     dict(kind="K 多症", q="头晕乏力失眠口苦大便干小便黄",
          want=["头晕", "乏力", "口苦", "大便", "小便"],
-         cov=["头晕", "乏力", "失眠", "口苦", "大便", "小便"],
-         # 主诉=提问中位置最靠前的真词，本例为「头晕」；断言允许同义写法
-         complaint_alts={"头晕": ["头晕", "眩", "晕"]}),
+         cov=["头晕", "乏力", "失眠", "口苦", "大便", "小便"]),
 ]
-
-
-def complaint_of(q):
-    """主诉 = 提问中位置最靠前的真词（先过 total≥3 与 free_ratio≥FREE_MIN 两道筛）。"""
-    terms = []
-    for w in n.keywords_for(q):
-        total, _ = n.search(w, n.SNIPPET_SPAN, n.MAX_HITS)
-        if total >= 3 and n.free_ratio(w) >= n.FREE_MIN:
-            terms.append(w)
-    return n.main_complaint(q, terms)
 
 
 def run(verbose=False):
@@ -174,18 +164,9 @@ def run(verbose=False):
             cov_miss = [w for w in c["cov"] if w not in blob]
             cov_ok = not cov_miss
 
-        # 首条主诉：独立断言，防止「8 条各沾一个症状、没有一条落在主诉上」
-        mc, mc_ok = None, None
-        if c.get("cov"):
-            mc = complaint_of(c["q"])
-            alts = (c.get("complaint_alts") or {}).get(mc, [mc]) if mc else []
-            head = titles[0] if titles else ""
-            mc_ok = bool(alts) and any(a in head for a in alts)
-
         rows.append(dict(c=c, rank=rank, seen=seen, ok=ok, second=second_ok,
                          formula=formula_ok, acu=acu_ok, stats=stats_ok,
                          cov=cov_ok, cov_miss=cov_miss,
-                         complaint=mc, complaint_ok=mc_ok,
                          n_hits=len(r["classics"]), top=titles[:3],
                          formulas=r["formulas"],
                          acupoints=[p["name"] for p in r["acupoints"]]))
@@ -269,8 +250,6 @@ def report(rows):
         flag = "✓" if r["cov"] else "✗"
         print(f"多症状覆盖 {flag} {r['c']['q']}: {n_cov}/{len(r['c']['cov'])}"
               + (f"  缺={r['cov_miss']}" if r["cov_miss"] else ""))
-        print(f"首条主诉 {'✓' if r['complaint_ok'] else '✗'} 主诉={r['complaint']}"
-              f" | 首条={r['top'][0][:44] if r['top'] else '（空）'}")
 
     print("\n--- 未命中明细 ---")
     for r in rows:
@@ -303,8 +282,3 @@ if __name__ == "__main__":
     if "--diff" in args:
         diff_snapshot(args[args.index("--diff") + 1], rows)
     report(rows)
-    # 硬门禁：多症状用例的首条必须落在主诉上（回填 1 断言）
-    gate = [r for r in rows if r["complaint_ok"] is False]
-    if gate:
-        print(f"\n❌ 首条未命中主诉：{[r['c']['q'] for r in gate]}")
-        sys.exit(1)

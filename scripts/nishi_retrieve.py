@@ -520,6 +520,15 @@ def _fill_rounds(pool, priority_terms, keyword_terms, cap, span):
 
     同档内按 total 升序（越专有越先占第 1 轮），list.sort 稳定，跨进程一致；
     单词场景退化为「取该词前 cap 条」，与原贪心一致不退化。
+
+    设计决策：priority 档内「稀有方先占首槽」，即鉴别题优先暴露少用的那一方。
+    代价：常见方在鉴别题里稳定落第 2（桂枝汤/麻黄汤恒为麻黄汤在前），已由
+    test_differential.py 的 C 类注释记录。不改 tie-break —— 改它要动本函数的
+    排序主干，风险大于收益。
+
+    ⛔ 2026-11-16 回滚记录：曾加过「keyword 档主诉词固定占第 1 轮首槽」
+    （main_complaint），因把「下利清谷，手足厥冷，脉微欲绝」的逐字正解
+    三一七条换成九一条而被回滚。若再提同类方案，必须先证明它不替换正解首条。
     """
     groups, best = [], 0
 
