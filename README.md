@@ -152,13 +152,13 @@ cp -r nihaixia/ ~/.openclaw/skills/nihaixia/
 <div align="center">
 
 **同一个问题，两种答法：条文号能不能拿宋本对上**
-<img width="900" alt="v2.3.3 可考据性对比" src="docs/images/v233_verifiability.png" />
+<img width="900" alt="v2.3.3 可考据性对比" src="docs/images/v233_verifiability.webp" />
 
 **溯源标记：每个出处都能落地**
-<img width="900" alt="溯源标记特写" src="docs/images/v233_provenance_chain.png" />
+<img width="900" alt="溯源标记特写" src="docs/images/v233_provenance_chain.webp" />
 
 **检索器回归：四套全绿**
-<img width="880" alt="检索器回归仪表" src="docs/images/v233_regression_dashboard.png" />
+<img width="880" alt="检索器回归仪表" src="docs/images/v233_regression_dashboard.webp" />
 
 </div>
 

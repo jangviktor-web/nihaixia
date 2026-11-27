@@ -112,13 +112,13 @@ cp -r nihaixia ~/.openclaw/skills/
 <div align="center">
 
 **同じ問い、二つの答え：条文番号は宋本で照合できるか**
-<img width="900" alt="v2.3.3 検証可能性の比較" src="docs/images/v233_verifiability.png" />
+<img width="900" alt="v2.3.3 検証可能性の比較" src="docs/images/v233_verifiability.webp" />
 
 **出典マーカー：すべての引用に出所がある**
-<img width="900" alt="出典マーカーの拡大" src="docs/images/v233_provenance_chain.png" />
+<img width="900" alt="出典マーカーの拡大" src="docs/images/v233_provenance_chain.webp" />
 
 **検索器の回帰：四系統すべてグリーン**
-<img width="880" alt="検索器の回帰ダッシュボード" src="docs/images/v233_regression_dashboard.png" />
+<img width="880" alt="検索器の回帰ダッシュボード" src="docs/images/v233_regression_dashboard.webp" />
 
 </div>
 

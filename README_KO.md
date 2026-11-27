@@ -112,13 +112,13 @@ cp -r nihaixia ~/.openclaw/skills/
 <div align="center">
 
 **같은 질문, 두 가지 답: 조문 번호를 송본으로 대조할 수 있는가**
-<img width="900" alt="v2.3.3 검증 가능성 비교" src="docs/images/v233_verifiability.png" />
+<img width="900" alt="v2.3.3 검증 가능성 비교" src="docs/images/v233_verifiability.webp" />
 
 **출처 표식: 모든 인용에 근거가 있다**
-<img width="900" alt="출처 표식 확대" src="docs/images/v233_provenance_chain.png" />
+<img width="900" alt="출처 표식 확대" src="docs/images/v233_provenance_chain.webp" />
 
 **검색기 회귀: 네 계열 모두 통과**
-<img width="880" alt="검색기 회귀 대시보드" src="docs/images/v233_regression_dashboard.png" />
+<img width="880" alt="검색기 회귀 대시보드" src="docs/images/v233_regression_dashboard.webp" />
 
 </div>
 
