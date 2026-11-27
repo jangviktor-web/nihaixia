@@ -219,16 +219,21 @@ cp -r nihaixia/ ~/.openclaw/skills/nihaixia/
 
 <div align="center">
 
+<img src="docs/assets/related/app.webp" width="120" alt="汉唐中医 · 安卓诊断 APP">
+
 ### [汉唐中医 · 安卓诊断 APP](https://github.com/jangviktor-web/nihaixia-app)
 
-同一个知识库，独立的安卓应用。离线可用，完全免费。
+**把整套经方知识库装进口袋 —— 完全离线、完全免费，无广告、无内购**
+
+这是同一个知识库的安卓原生版。手机上没有网络也能查方、辨证、取穴；数据与倪海厦skill 同源，但按触屏重做了交互——智能问诊一步步问清主症，再落到六经归类，最后给出方剂、剂量、煎服法与禁忌。适合在诊间、药店、家里随手查，也适合刚入门、需要一个「随时能问」的随身参考的人。
+
+| 六经辨证诊断 | 271 首方剂速查 | 345 味药物速查 | 子午流注取穴 |
+|:---:|:---:|:---:|:---:|
+| 智能问诊引导 | 搜索 + 六经筛选 | 性味归经分类 | 361 穴时间推算 |
+| 针灸处方 257 方 + 31 透针 | 紫微斗数 / 64 卦 / 命卦 | 全程离线 | 完全免费 |
 
 [![Download APK](https://img.shields.io/badge/下载-APK-green?style=for-the-badge&logo=android)](https://github.com/jangviktor-web/nihaixia-app/releases/latest)
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia-app)
-
-| 六经辨证诊断 | 271首方剂速查 | 345味药物速查 | 子午流注取穴 |
-|:---:|:---:|:---:|:---:|
-| 智能问诊引导 | 搜索+六经筛选 | 性味归经分类 | 361穴时间推算 |
 
 </div>
 

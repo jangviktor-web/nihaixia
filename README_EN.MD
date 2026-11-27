@@ -213,16 +213,21 @@ Taiyin (spleen cold) → Shaoyin (heart-kidney yang deficiency) → Jueyin (yin-
 
 <div align="center">
 
+<img src="docs/assets/related/app.webp" width="120" alt="Han Tang TCM Android App">
+
 ### [Han Tang Chinese Medicine · Android Diagnostic App](https://github.com/jangviktor-web/nihaixia-app)
 
-Same knowledge base, a standalone Android app. Works offline, completely free.
+**The whole classical-formula knowledge base in your pocket — fully offline, completely free, no ads, no in-app purchases**
 
-[![Download APK](https://img.shields.io/badge/download-APK-green?style=for-the-badge&logo=android)](https://github.com/jangviktor-web/nihaixia-app/releases/latest)
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia-app)
+This is the native Android build of the same knowledge base. With no network at all you can still look up formulas, differentiate patterns and select points; the data comes from the same source as the Ni Haixia skill, but the interaction was rebuilt for touch — a guided consultation asks through the chief complaints step by step, maps them to the six meridians, and lands on formula, dosage, decoction method and contraindications. Made for looking things up at the clinic, in a pharmacy or at home, and for beginners who want a reference they can always ask.
 
 | Six-Meridian Diagnosis | 271-Formula Quick Reference | 345-Herb Quick Reference | Midnight-Noon Ebb-Flow Point Selection |
 |:---:|:---:|:---:|:---:|
 | Intelligent Consultation Guidance | Search + Six-Meridian Filter | Flavor/Meridian Classification | 361-Point Time Calculation |
+| Acupuncture: 257 formulas + 31 penetrating needling | Zi Wei Dou Shu / 64 Hexagrams / Ming Gua | Fully offline | Completely free |
+
+[![Download APK](https://img.shields.io/badge/download-APK-green?style=for-the-badge&logo=android)](https://github.com/jangviktor-web/nihaixia-app/releases/latest)
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia-app)
 
 </div>
 

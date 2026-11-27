@@ -237,7 +237,28 @@ cp -r nihaixia ~/.openclaw/skills/
 
 ## 관련 프로젝트
 
-- [漢唐中醫 · Android 진단 앱](https://github.com/jangviktor-web/nihaixia-app) — 동일한 지식 체계를 탑재한 Android 앱
+<div align="center">
+
+<img src="docs/assets/related/app.webp" width="120" alt="漢唐中醫 · Android 진단 앱">
+
+### [漢唐中醫 · Android 진단 앱](https://github.com/jangviktor-web/nihaixia-app)
+
+**경방 지식베이스를 통째로 주머니에 — 완전 오프라인, 완전 무료, 광고 없음, 인앱 결제 없음**
+
+같은 지식 체계의 Android 네이티브 버전입니다. 네트워크가 전혀 없어도 방제를 찾고, 변증하고, 혈위를 고를 수 있습니다. 데이터는 倪海厦 스킬과 같은 원천이지만 조작은 터치용으로 다시 만들었습니다 — 문진 가이드가 주소를 하나씩 확인하고 육경으로 분류한 뒤 방제·용량·전탕법·금기까지 제시합니다. 진료실에서도 약국에서도 집에서도 바로 찾아볼 수 있고, 이제 막 입문해 「언제든 물어볼 수 있는」 손안의 참고서가 필요한 사람에게도 맞습니다.
+
+| 육경변증 진단 | 방제 271수 속람 | 본초 345미 속람 | 자오유주 취혈 |
+|:---:|:---:|:---:|:---:|
+| 문진 가이드 | 검색 + 육경 필터 | 성미귀경 분류 | 361혈 시간 산출 |
+| 침구 처방 257방 + 투침 31 | 자미두수／육십사괘／명괘 | 완전 오프라인 | 완전 무료 |
+
+[![Download APK](https://img.shields.io/badge/APK-다운로드-green?style=for-the-badge&logo=android)](https://github.com/jangviktor-web/nihaixia-app/releases/latest)
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia-app)
+
+</div>
+
+### 그 밖의 동일 파이프라인 프로젝트
+
 - [리커 스킬 · 중증 응급 중의학 AI](https://github.com/jangviktor-web/likeskill)
 - [호희서 스킬 · 경방 중의학 AI](https://github.com/jangviktor-web/huxishu)
 - [온병파 오국통 스킬 · 온병파 중의학 AI](https://github.com/jangviktor-web/wujutong)

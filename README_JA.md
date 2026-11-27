@@ -237,7 +237,28 @@ cp -r nihaixia ~/.openclaw/skills/
 
 ## 関連プロジェクト
 
-- [漢唐中医 · Android 診断アプリ](https://github.com/jangviktor-web/nihaixia-app) — 同じ知識体系を組み込んだ Android アプリ
+<div align="center">
+
+<img src="docs/assets/related/app.webp" width="120" alt="漢唐中医 · Android 診断アプリ">
+
+### [漢唐中医 · Android 診断アプリ](https://github.com/jangviktor-web/nihaixia-app)
+
+**経方の知識ベースを丸ごとポケットに —— 完全オフライン、完全無料、広告なし、課金なし**
+
+同じ知識体系の Android ネイティブ版です。通信が一切なくても方剤を調べ、弁証し、経穴を選べます。データは倪海厦スキルと同源ですが、操作はタッチ用に作り直しました——問診ガイドが主訴を一つずつ確認し、六経に分類し、最後に方剤・用量・煎じ方・禁忌まで示します。診察室でも薬局でも自宅でもすぐ引け、入門したばかりで「いつでも聞ける」手元の参考書が欲しい人にも向いています。
+
+| 六経弁証診断 | 方剤271首の早見 | 生薬345味の早見 | 子午流注の取穴 |
+|:---:|:---:|:---:|:---:|
+| 問診ガイド | 検索＋六経フィルタ | 性味帰経の分類 | 361穴の時間推算 |
+| 鍼灸処方 257方＋透針31 | 紫微斗数／六十四卦／命卦 | 完全オフライン | 完全無料 |
+
+[![Download APK](https://img.shields.io/badge/APK-ダウンロード-green?style=for-the-badge&logo=android)](https://github.com/jangviktor-web/nihaixia-app/releases/latest)
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia-app)
+
+</div>
+
+### その他の同源プロジェクト
+
 - [李可スキル · 急危重症中医AI](https://github.com/jangviktor-web/likeskill)
 - [胡希恕スキル · 経方中医AI](https://github.com/jangviktor-web/huxishu)
 - [温病派・呉鞠通スキル · 温病派中医AI](https://github.com/jangviktor-web/wujutong)
