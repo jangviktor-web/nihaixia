@@ -238,7 +238,7 @@ cp -r nihaixia/ ~/.openclaw/skills/nihaixia/
 
 李可老中医（1930-2013）急危重症思维操作系统。395个医案、170+首方剂、92种症状路由、25种假证识别。
 
-与倪海厦skill互补：倪海厦覆盖全科教学（849医案），李可专注急危重症实战（附子最大750g）。
+与倪海厦skill互补：倪海厦覆盖全科教学（1,257 医案），李可专注急危重症实战（附子最大750g）。
 
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=flat-square&logo=github)](https://github.com/jangviktor-web/likeskill)
 [![ClawHub](https://img.shields.io/badge/ClawHub-install%20like-green?style=flat-square)](https://clawhub.ai/jangviktor-web/skills/like)
@@ -257,7 +257,7 @@ cp -r nihaixia/ ~/.openclaw/skills/nihaixia/
 
 胡希恕被誉为"经方传道第一人"，其"六经来自八纲"的创见是对《伤寒论》辨证体系最清晰的解读，直接影响了冯世纶等当代经方名家。
 
-与倪海厦skill互补：倪海厦覆盖全科教学（849医案），胡希恕是经方传道第一人，是对《伤寒论》辨证体系最清晰的解读。
+与倪海厦skill互补：倪海厦覆盖全科教学（1,257 医案），胡希恕是经方传道第一人，是对《伤寒论》辨证体系最清晰的解读。
 
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=flat-square&logo=github)](https://github.com/jangviktor-web/huxishu)
 [![ClawHub](https://img.shields.io/badge/ClawHub-install%20huxishu-green?style=flat-square)](https://clawhub.ai/jangviktor-web/skills/huxishu)
@@ -275,7 +275,7 @@ cp -r nihaixia/ ~/.openclaw/skills/nihaixia/
 | **治法核心** | 驱邪外出 | 存津液 |
 | **汗法** | 该汗则汗 | 温病禁汗 |
 | **方剂** | 药少力专（麻黄/附子/乌头） | 药多面广（银翘/白虎/复脉） |
-| **医案** | 849 案全科 | 359 案温病+杂病 |
+| **医案** | 1,257 案全科 | 359 案温病+杂病 |
 
 **互补关系**：倪海厦修水龙头（温阳化湿治本），吴鞠通扫积水（清湿护津治标）——一纵一横，急性期从吴、缓解期从倪，合观乃得中医外感病全貌。
 
@@ -365,7 +365,7 @@ nihaixia/
 ├── modules/                    # 14 个知识模块
 │   ├── 01_shanghan_sun.md      # 伤寒论太阳病篇（条文1-129 逐条解读）
 │   ├── 02_shanghan_other.md    # 伤寒论阳明/少阳/太阴/少阴/厥阴
-│   ├── 03_yian.md              # 医案集（849 例）
+│   ├── 03_yian.md              # 医案集（410 例）
 │   ├── 04_jingui.md            # 金匮要略 23 篇完整解读
 │   ├── 05_huangdi_neijing.md   # 黄帝内经 72 篇 + 上古天真论
 │   ├── 06_liangdong.md         # 梁冬对话全文
