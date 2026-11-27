@@ -20,10 +20,21 @@ LATER_CONCEPTS = (
 )
 # 归属表述：把概念挂到伤寒论或倪师原话上
 ATTRIBUTION = ("伤寒论", "伤寒", "倪师讲", "倪师说", "原文说", "讲稿里")
-# 显式标后世来源，或明确否认归属 → 合规
-EXEMPT = ("温病条辨", "后世", "吴鞠通", "叶天士", "不是伤寒", "非伤寒", "不同于伤寒")
+# 显式标后世来源 → 合规
+EXEMPT = ("温病条辨", "后世", "吴鞠通", "叶天士")
+# 否定式辨析：明确否认归属 → 合规。用短语不用裸「非」（会误伤「非常/非得」）。
+NEGATION = (
+    "不是", "并非", "不同于", "不属于", "不可当", "不能当", "不能安到",
+    "不在讲稿", "没有", "从未", "勿当", "别当", "非倪师", "非《伤寒",
+    # 反问/质疑：引述概念只为追问出处，不构成归属断言。
+    # ⚠ 只列「哪一条/是不是…吗」这种追问出处的结构，不收窄到裸「吗/是不是」——
+    #    那会放过「四大症是《伤寒论》的吗？」这类肯定式归属。
+    "哪一条", "哪条", "讲的是", "问的是",
+)
 
 _SENT = re.compile(r"[。！？\n；;]")
+# 归一化：真实回答里「不是《伤寒论》」带书名号，不剥离就匹配不到「不是伤寒论」
+_STRIP = str.maketrans("", "", "《》「」『』\"'‘’ \t")
 
 
 def check(answer):
@@ -33,9 +44,11 @@ def check(answer):
         s = sent.strip()
         if not s:
             continue
-        if (any(c in s for c in LATER_CONCEPTS)
-                and any(a in s for a in ATTRIBUTION)
-                and not any(e in s for e in EXEMPT)):
+        norm = s.translate(_STRIP)
+        if (any(c in norm for c in LATER_CONCEPTS)
+                and any(a in norm for a in ATTRIBUTION)
+                and not any(e in norm for e in EXEMPT)
+                and not any(n in norm for n in NEGATION)):
             bad.append(s)
     return bad
 
@@ -62,6 +75,15 @@ CASES = [
          answer=" 《温病条辨》讲卫气营血辨证，《伤寒论》讲六经，这是两套体系。"),
     dict(name="混合·双重错配", expect_bad=True,
          answer=" 倪师讲白虎四大症，又讲卫气营血辨证，都是《伤寒论》的精髓。"),
+    # 2026-11-27 真实 paired 评测中新版回答被误报的三句，回归防复发
+    dict(name="否定式·不是伤寒论白纸黑字", expect_bad=False,
+         answer=" 方剂库摘要里写白虎汤四大证，这是整理的人归纳的，不是倪师原话，更不是《伤寒论》白纸黑字。"),
+    dict(name="否定式·不可当伤寒原文引", expect_bad=False,
+         answer=" **注意**：四大症不在讲稿里，是方剂库摘要的本地整理；《温病条辨》的四大症须标书名，不可当《伤寒论》原文引。"),
+    dict(name="否定式·从头到尾没有", expect_bad=False,
+         answer=" 你翻〔伤寒论讲稿·二九〕，倪师讲的是去杖汤、其脚即伸，从头到尾没有酸甘化阴这个话。"),
+    dict(name="边界·非常并非否定", expect_bad=True,
+         answer=" 《伤寒论》白虎汤证的四大症非常重要，是辨证要点。"),
 ]
 
 
