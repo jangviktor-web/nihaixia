@@ -279,6 +279,50 @@ Complements the Ni Haixia skill: Ni Haixia covers full-scope teaching (1,257 cas
 </div>
 
 
+
+### All skills from the same distillery
+
+Every role pack below comes from one pipeline, [`TCM Mind Distiller`](https://github.com/jangviktor-web/tcm-distiller). **Choose by diagnostic coordinate system, not by name** — six meridians, wei-qi-ying-xue, triple burner and qi-ascending-descending are four different ways to locate a pattern.
+
+| Project | Domain · Coordinate system | Core | Canon size | Entry |
+|:---|:---|:---|:---|:---|
+| **Ni Haixia** (this repo) | Classical formulas · six meridians | Six meridians + eight principles + 314-formula dosage audit + Ni's voice restored | 1,257 cases · 3.5M chars · 2,452 pages | [GitHub](https://github.com/jangviktor-web/nihaixia) · [SkillHub](https://skillhub.cn/skills/user_ff4d9420/nihaixia-pro) |
+| [Hu Xishu](https://github.com/jangviktor-web/huxishu) | Classical formulas · six meridians from eight principles | "Six meridians arise from the eight principles" — the clearest reading of the Shang Han Lun system, formula-pattern correspondence | 380k-character lecture transcripts | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/huxisu) |
+| [Huang Yuanyu](https://github.com/jangviktor-web/huangyuanyu) | Qi ascending-descending school | Six qi host-guest; Peng Ziyi's circular motion | 11 medical books · 3.5 MB · 38,266 lines | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/huangyuanyu) |
+| [Li Ke](https://github.com/jangviktor-web/likeskill) | Supporting yang · critical illness | Po-ge Jiu-xin Tang, aconite 30–750 g; 25 false-pattern recognitions | 395 cases · 170+ formulas · 92 symptom routes | [GitHub](https://github.com/jangviktor-web/likeskill) |
+| [Ye Tianshi](https://github.com/jangviktor-web/ye-tianshi-skill) | Warm disease · wei-qi-ying-xue | Four-level depth + stomach-yin support + yang-transformed internal wind + chronic disease entering the luo + eight extraordinary vessels | 4 original works · 10,338 lines · 215 cases · 158 disease-name mappings | [GitHub](https://github.com/jangviktor-web/ye-tianshi-skill) |
+| [Wu Jutong](https://github.com/jangviktor-web/wujutong) | Warm disease · triple burner | Triple-burner division + fluid preservation; self-described as "a wing to the Shang Han Lun" | 4 works · 359 cases · 45 patterns | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/wujutong) |
+| [Li Bai](https://github.com/jangviktor-web/libai-skill) | Literature · six-step composition | Qi → image → form → hyperbole → closure → exhaustion; every quoted poem grep-verifiable, pastiche always marked | 25 volumes · 1,010 poems · 58 appreciations | [GitHub](https://github.com/jangviktor-web/libai-skill) |
+| [Zeng Shiqiang](https://github.com/jangviktor-web/zeng-shiqiang) | Management · I Ching | Self-cultivation · settling others · flexibility · holding the classic · adaptability · reasonableness · harmony | Chinese-style management + I Ching + Dao De Jing | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/zengshiqiang) |
+| [Han Tang TCM · Android app](https://github.com/jangviktor-web/nihaixia-app) | Android app | Offline edition of the same knowledge base, free; guided consultation + six-meridian filter | Formulas · herbs · points · acupuncture prescriptions | [Download APK](https://github.com/jangviktor-web/nihaixia-app/releases/latest) |
+
+### Choosing among the three exterior-syndrome schools
+
+Warm disease in the acute phase, classical formulas in the recovery phase — **one vertical, one horizontal; only together do they give the full picture**. Ni Haixia fixes the leaking pipe (warm yang, drain dampness, treat the root); Ye and Wu mop up the standing water (clear dampness, protect fluids, treat the branch).
+
+| Dimension | Classical school (Ni / Hu) | Ye Tianshi (wei-qi-ying-xue) | Wu Jutong (triple burner) |
+|:---|:---|:---|:---|
+| Coordinate system | Six meridians · depth | Wei-qi-ying-xue · depth (four stages) | Triple burner · location (upper/middle/lower) |
+| Core strategy | Drive the pathogen out | Transmit heat outward · preserve fluids | Separate and disperse the three burners · preserve fluids |
+| Sweating | Sweat when indicated | Warm disease avoids sweating; use light pungent-cool | Sweating contraindicated in warm disease; avoid elevating |
+| Formula style | Few herbs, strong action (ephedra / aconite / wild aconite) | Light and sweet-cold — **Yin Qiao San and Sang Ju Yin are Wu's, not Ye's** | Complete formula sets (Yin Qiao San / Baihu / Fumai) |
+| Case volume | 1,257 cases, all specialties | 215 cases | 359 cases · 45 patterns |
+
+### The pipeline itself
+
+[`TCM Mind Distiller`](https://github.com/jangviktor-web/tcm-distiller) does not pile up raw material; it distils books, lecture transcripts and case records into skills an AI can actually call, reproducing a real practitioner's reasoning. Verified cases:
+
+| Person | School | Outcome |
+|:---|:---|:---|
+| Hu Xishu | Classical | 380k-character transcripts → complete skill (first validation case) |
+| Huang Yuanyu | Qi ascending-descending | 11 books, 3.5 MB / 38,266 lines → V3 deep optimisation |
+| Wu Jutong | Warm disease | 4 works → V3.5 end-to-end + 359 cases + GitHub release |
+| Ni Haixia | Classical | 314-formula dosage audit + voice restoration + v2.3.3 source discipline |
+| Ye Tianshi | Warm disease | 4 originals → 7-segment role rules + 158 disease mappings + two blind reviews (4.27 → 4.49) |
+| Li Bai | Literature, 14 dimensions | Method transfer across domains: corrupted-corpus repair + 1,010 canonical poems + 58 appreciations |
+
+[![TCM Mind Distiller](https://img.shields.io/badge/TCM_Mind_Distiller-V4.6.0-red?style=flat-square)](https://github.com/jangviktor-web/tcm-distiller)
+
 ## Data Sources
 
 <details>

@@ -163,6 +163,50 @@ cp -r nihaixia ~/.openclaw/skills/
 
 ---
 
+
+### 同源の蒸留プロジェクト一覧
+
+以下のロールパックはすべて同じパイプライン [`中医思維蒸留器`](https://github.com/jangviktor-web/tcm-distiller) の産物です。**選ぶ基準は人名ではなく弁証の座標系**——六経・衛気営血・三焦・気機昇降は、いずれも証の位置を定める異なる方法です。
+
+| プロジェクト | 領域 · 座標系 | 中核 | 正典規模 | 入口 |
+|:---|:---|:---|:---|:---|
+| **倪海廈**（本リポジトリ） | 経方 · 六経弁証 | 六経八綱 + 314 方の用量全量校正 + 倪師の口調再現 | 1,257 案 · 350 万字 · 2,452 ページ | [GitHub](https://github.com/jangviktor-web/nihaixia) · [SkillHub](https://skillhub.cn/skills/user_ff4d9420/nihaixia-pro) |
+| [胡希恕](https://github.com/jangviktor-web/huxishu) | 経方 · 六経は八綱より | 「六経は八綱より出づ」——『傷寒論』弁証体系の最も明快な解読、方証対応 | 38 万字の講稿 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/huxisu) |
+| [黄元御](https://github.com/jangviktor-web/huangyuanyu) | 気機昇降派 | 六気の主客、彭子益の円運動 | 医書十一種 3.5 MB · 38,266 行 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/huangyuanyu) |
+| [李可](https://github.com/jangviktor-web/likeskill) | 扶陽 · 急危重症 | 破格救心湯、附子 30–750g、25 種の仮証識別 | 395 案 · 170+ 方 · 92 症状ルート | [GitHub](https://github.com/jangviktor-web/likeskill) |
+| [葉天士](https://github.com/jangviktor-web/ye-tianshi-skill) | 温病 · 衛気営血 | 四層の深浅 + 胃陰を養う + 陽化内風 + 久病入絡 + 奇経八脈 | 原著四部 10,338 行 · 215 案 · 158 病名対応 | [GitHub](https://github.com/jangviktor-web/ye-tianshi-skill) |
+| [呉鞠通](https://github.com/jangviktor-web/wujutong) | 温病 · 三焦弁証 | 三焦分部 + 津液の存亡、自ら「傷寒の羽翼」と称す | 4 著作 · 359 案 45 病証 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/wujutong) |
+| [李白](https://github.com/jangviktor-web/libai-skill) | 文学 · 創作六歩法 | 気→象→体→誇→断→尽。引用詩は grep で照合可能、擬作は必ず非原作と明記 | 25 巻 1,010 首 · 58 篇鑑賞 | [GitHub](https://github.com/jangviktor-web/libai-skill) |
+| [曾仕強](https://github.com/jangviktor-web/zeng-shiqiang) | 管理 · 易学 | 修己・安人・円通・持経・達変・合理・和諧（曾氏七標準） | 中国式管理 + 易経義理 + 道徳経 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/zengshiqiang) |
+| [漢唐中医 · Android](https://github.com/jangviktor-web/nihaixia-app) | Android アプリ | 同一知識体系のオフライン版、完全無料。問診ガイド + 六経フィルタ | 方 · 薬 · 穴 · 鍼灸処方 | [APK をダウンロード](https://github.com/jangviktor-web/nihaixia-app/releases/latest) |
+
+### 外感病三派の選び方
+
+急性期は温病から、回復期は経方から——**一縦一横、合わせて観てはじめて外感病の全体像が見える**。倪海廈は水道管を直し（温陽化湿で本を治す）、葉・呉は溜まった水を掃く（湿を清め津を護り標を治す）。
+
+| 次元 | 経方派（倪／胡） | 葉天士（衛気営血） | 呉鞠通（三焦） |
+|:---|:---|:---|:---|
+| 座標系 | 六経 · 深浅を見る | 衛気営血 · 深浅（四段） | 三焦 · 部位（上中下） |
+| 治法の中核 | 邪を駆けて外へ | 透熱転気 · 津液を存す | 三焦を分消 · 津液を存す |
+| 汗法 | 汗すべきときは汗す | 温病は汗を忌み、辛涼軽剤 | 温病は汗を禁じ、昇提を忌む |
+| 方剤の性格 | 薬少なく力専（麻黄／附子／烏頭） | 軽霊甘寒。**銀翹散・桑菊飲は呉の方であり葉の方ではない** | セット方（銀翹散／白虎／復脈） |
+| 医案規模 | 1,257 案・全科 | 215 案 | 359 案 45 病証 |
+
+### パイプラインそのもの
+
+[`中医思維蒸留器`](https://github.com/jangviktor-web/tcm-distiller) は素材を積むのではなく、著作・講稿・医案を AI が呼び出せる技能へと蒸留し、実在の医師の弁証思考を再現します。検証済みの事例：
+
+| 人物 | 流派 | 成果 |
+|:---|:---|:---|
+| 胡希恕 | 経方派 | 38 万字の講稿 → 完全な技能（最初の検証事例） |
+| 黄元御 | 気機昇降派 | 医書十一種 3.5 MB / 38,266 行 → V3 深層最適化 |
+| 呉鞠通 | 温病派 | 4 著作 → V3.5 エンドツーエンド + 359 医案 + GitHub 公開 |
+| 倪海廈 | 経方派 | 314 方の用量全量校正 + 口調再現 + v2.3.3 出典規律 |
+| 葉天士 | 温病派 | 原著四部 → 7 段式ロール規則 + 158 病名対応 + 二回の盲評（4.27 → 4.49） |
+| 李白 | 文学 14 次元 | 方法論の領域横断移転：詩全集の破損修復 + 1,010 首の正典 + 58 篇鑑賞 |
+
+[![中医思維蒸留器](https://img.shields.io/badge/中医思维蒸馏器-V4.6.0-red?style=flat-square)](https://github.com/jangviktor-web/tcm-distiller)
+
 ## データ出典
 
 - 「人紀」シリーズ講義：傷寒論・金匱要略・黄帝内経・神農本草経・鍼灸大成

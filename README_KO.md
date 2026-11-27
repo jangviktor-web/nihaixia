@@ -163,6 +163,50 @@ cp -r nihaixia ~/.openclaw/skills/
 
 ---
 
+
+### 동일 파이프라인 프로젝트 전체
+
+아래 역할 팩은 모두 같은 파이프라인 [`中医思维蒸馏器`](https://github.com/jangviktor-web/tcm-distiller)의 산출물입니다. **고르는 기준은 인명이 아니라 변증 좌표계** — 육경·위기영혈·삼초·기기승강은 각각 증을 위치시키는 서로 다른 방법입니다.
+
+| 프로젝트 | 영역 · 좌표계 | 핵심 | 정전 규모 | 입구 |
+|:---|:---|:---|:---|:---|
+| **倪海廈**(본 저장소) | 경방 · 육경변증 | 육경팔강 + 314방 용량 전수 교정 + 니사 어투 재현 | 1,257례 · 350만 자 · 2,452쪽 | [GitHub](https://github.com/jangviktor-web/nihaixia) · [SkillHub](https://skillhub.cn/skills/user_ff4d9420/nihaixia-pro) |
+| [호희서](https://github.com/jangviktor-web/huxishu) | 경방 · 육경은 팔강에서 | 「육경은 팔강에서 나온다」——『상한론』 변증 체계의 가장 명료한 해석, 방증 대응 | 38만 자 강고 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/huxisu) |
+| [황원어](https://github.com/jangviktor-web/huangyuanyu) | 기기승강파 | 육기 주객, 팽자익 원운동 | 의서 11종 3.5MB · 38,266행 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/huangyuanyu) |
+| [리커](https://github.com/jangviktor-web/likeskill) | 부양 · 중증 응급 | 파격구심탕, 부자 30–750g, 25종 가증 식별 | 395례 · 170+방 · 92증상 경로 | [GitHub](https://github.com/jangviktor-web/likeskill) |
+| [엽천사](https://github.com/jangviktor-web/ye-tianshi-skill) | 온병 · 위기영혈 | 사층 심천 + 위음 양성 + 양화내풍 + 구병입락 + 기경팔맥 | 원저 4부 10,338행 · 215례 · 158병명 대응 | [GitHub](https://github.com/jangviktor-web/ye-tianshi-skill) |
+| [오국통](https://github.com/jangviktor-web/wujutong) | 온병 · 삼초변증 | 삼초 분부 + 진액 존망, 스스로 「상한의 우익」이라 칭함 | 4저작 · 359례 45병증 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/wujutong) |
+| [이백](https://github.com/jangviktor-web/libai-skill) | 문학 · 창작 육보법 | 기→상→체→과→단→진. 인용시는 grep 대조 가능, 의작은 반드시 비원작 표기 | 25권 1,010수 · 58편 감상 | [GitHub](https://github.com/jangviktor-web/libai-skill) |
+| [증사강](https://github.com/jangviktor-web/zeng-shiqiang) | 관리 · 역학 | 수기·안인·원통·지경·달변·합리·화해(증씨 칠표준) | 중국식 관리 + 역경 의리 + 도덕경 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/zengshiqiang) |
+| [漢唐中醫 · Android](https://github.com/jangviktor-web/nihaixia-app) | Android 앱 | 동일 지식 체계 오프라인판, 완전 무료. 문진 가이드 + 육경 필터 | 방 · 약 · 혈 · 침구 처방 | [APK 다운로드](https://github.com/jangviktor-web/nihaixia-app/releases/latest) |
+
+### 외감병 삼파 선택법
+
+급성기는 온병에서, 회복기는 경방에서 — **일종일횡, 함께 보아야 외감병의 전체상이 보인다**. 倪海廈는 수도관을 고치고(온양화습으로 근본을 치료), 엽·오는 고인 물을 쓸어낸다(습을 청하고 진을 보호해 말단을 치료).
+
+| 차원 | 경방파(니／호) | 엽천사(위기영혈) | 오국통(삼초) |
+|:---|:---|:---|:---|
+| 좌표계 | 육경 · 심천을 봄 | 위기영혈 · 심천(사단) | 삼초 · 부위(상중하) |
+| 치법 핵심 | 사기를 몰아 밖으로 | 투열전기 · 진액 보존 | 삼초 분소 · 진액 보존 |
+| 발한법 | 마땅히 땀낼 때 땀낸다 | 온병은 발한을 꺼리고 신량경제 | 온병은 발한 금지, 승제 기피 |
+| 방제 성격 | 약소력전(마황／부자／오두) | 경령감한. **은교산·상국음은 오씨 방이지 엽씨 방이 아니다** | 세트방(은교산／백호／복맥) |
+| 의안 규모 | 1,257례 전과 | 215례 | 359례 45병증 |
+
+### 파이프라인 자체
+
+[`中医思维蒸馏器`](https://github.com/jangviktor-web/tcm-distiller)는 소재를 쌓지 않고, 저작·강고·의안을 AI가 호출할 수 있는 기능으로 증류하여 실제 의사의 변증 사고를 재현합니다. 검증된 사례:
+
+| 인물 | 유파 | 성과 |
+|:---|:---|:---|
+| 호희서 | 경방파 | 38만 자 강고 → 완전한 기능(최초 검증 사례) |
+| 황원어 | 기기승강파 | 의서 11종 3.5MB / 38,266행 → V3 심층 최적화 |
+| 오국통 | 온병파 | 4저작 → V3.5 엔드투엔드 + 359 의안 + GitHub 공개 |
+| 倪海厦 | 경방파 | 314방 용량 전수 교정 + 어투 재현 + v2.3.3 출처 규율 |
+| 엽천사 | 온병파 | 원저 4부 → 7단식 역할 규칙 + 158병명 대응 + 2회 블라인드 평가(4.27 → 4.49) |
+| 이백 | 문학 14차원 | 방법론 영역 횡단 이전: 시 전집 손상 복구 + 1,010수 정전 + 58편 감상 |
+
+[![中医思维蒸馏器](https://img.shields.io/badge/中医思维蒸馏器-V4.6.0-red?style=flat-square)](https://github.com/jangviktor-web/tcm-distiller)
+
 ## 데이터 출처
 
 - 「人紀」 시리즈 강의: 상한론·금궤요략·황제내경·신농본초경·침구대성
