@@ -116,7 +116,7 @@ Download: https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive
 | **Six-Meridian Diagnostic Formulas** | ✅ | **8 diagnostic formulas + rapid-diagnosis flowchart + pulse/tongue quick-reference + seven-step thinking model (added in v2.1.0)** |
 | Classical Formula Selection | ✅ | 129 articles of Shang Han Lun + 23 chapters of Jin Gui, including composition/dosage/decoction method/contraindications |
 | Herb Properties | ✅ | 374 herbs from Shen Nong's Materia Medica, three-grade classification + five flavors and meridian tropism + processing essentials |
-| Clinical Cases | ✅ | 1,257 structured cases + 243 categorized narrative cases, grouped into cancer / cardiovascular / metabolic disease and 7 categories |
+| Clinical Cases | ✅ | 1,257 structured cases + 243 categorized narrative cases, grouped into cancer / cardiovascular / metabolic disease and 6 categories |
 | Acupuncture Points | ✅ | Twelve meridians + Jing-Rong-Yu-Jing-He (Well-Spring-Transport-Channel-Sea) + key Ren and Du points + stroke first aid |
 | Huang Di Nei Jing | ✅ | 72 chapters fully distilled, the core of TCM basic theory |
 | Tian Ji Destiny Studies | ✅ | Zi Wei Dou Shu (Purple Star Astrology) + I Ching Sixty-Four Hexagrams + Yang House Feng Shui |
@@ -232,7 +232,7 @@ Same knowledge base, a standalone Android app. Works offline, completely free.
 
 The thinking operating system of Master Li Ke (1930–2013) for acute and critical illnesses. 395 medical cases, 170+ formulas, 92 symptom-routing rules, 25 false-syndrome identifications.
 
-Complements the Ni Haixia skill: Ni Haixia covers full-scope teaching (849 cases), while Li Ke focuses on acute/critical real-world combat (aconite up to 750g max).
+Complements the Ni Haixia skill: Ni Haixia covers full-scope teaching (1,257 cases), while Li Ke focuses on acute/critical real-world combat (aconite up to 750g max).
 
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=flat-square&logo=github)](https://github.com/jangviktor-web/likeskill)
 [![ClawHub](https://img.shields.io/badge/ClawHub-install%20like-green?style=flat-square)](https://clawhub.ai/jangviktor-web/skills/like)
@@ -251,7 +251,7 @@ Distilling Hu Xishu's (1898–1984) clinical classical-formula thinking, the Six
 
 Hu Xishu is hailed as "the foremost transmitter of the classical formulas." His insight that "the Six Meridians arise from the Eight Principles" is the clearest interpretation of the Shang Han Lun differentiation system, directly influencing contemporary classical-formula masters such as Feng Shilun.
 
-Complements the Ni Haixia skill: Ni Haixia covers full-scope teaching (849 cases), while Hu Xishu is the foremost transmitter of the classical formulas and offers the clearest interpretation of the Shang Han Lun differentiation system.
+Complements the Ni Haixia skill: Ni Haixia covers full-scope teaching (1,257 cases), while Hu Xishu is the foremost transmitter of the classical formulas and offers the clearest interpretation of the Shang Han Lun differentiation system.
 
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=flat-square&logo=github)](https://github.com/jangviktor-web/huxishu)
 [![ClawHub](https://img.shields.io/badge/ClawHub-install%20huxishu-green?style=flat-square)](https://clawhub.ai/jangviktor-web/skills/huxishu)
@@ -269,7 +269,7 @@ Complements the Ni Haixia skill: Ni Haixia covers full-scope teaching (849 cases
 | **Core Treatment** | Expel the pathogen outward | Preserve body fluids |
 | **Sweating Method** | Sweat when appropriate | Sweating forbidden in warm disease |
 | **Formulas** | Few herbs, focused power (Ma Huang / Fu Zi / Wu Tou) | Many herbs, broad coverage (Yin Qiao / Bai Hu / Fu Mai) |
-| **Cases** | 849 cases, full scope | 359 cases, warm disease + miscellaneous |
+| **Cases** | 1,257 cases, full scope | 359 cases, warm disease + miscellaneous |
 
 **Complementary relationship**: Ni Haixia fixes the faucet (warms yang, transforms dampness, treats the root); Wu Jutong clears the standing water (clears dampness, protects fluids, treats the branch) — one vertical, one horizontal. Use Wu in the acute phase, Ni in the remission phase; together they reveal the full picture of external-contraction disease in TCM.
 
@@ -313,7 +313,7 @@ nihaixia/
 ├── modules/                    # 14 knowledge modules
 │   ├── 01_shanghan_sun.md      # Shang Han Lun Taiyang disease chapter (articles 1–129, line-by-line commentary)
 │   ├── 02_shanghan_other.md    # Shang Han Lun Yangming / Shaoyang / Taiyin / Shaoyin / Jueyin
-│   ├── 03_yian.md              # Case collection (849 cases)
+│   ├── 03_yian.md              # Case collection (1,257 cases)
 │   ├── 04_jingui.md            # Jin Gui Yao Lue, 23 chapters fully commented
 │   ├── 05_huangdi_neijing.md   # Huang Di Nei Jing 72 chapters + Shang Gu Tian Zhen Lun
 │   ├── 06_liangdong.md         # Full Liang Dong dialogue
