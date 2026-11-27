@@ -451,6 +451,22 @@ def extract_formula_names(text):
     return extract_names(text, load_formulas()[2])
 
 
+def unverified_formulas(answer, r):
+    """回答里出现、但本次检索块未支撑的方名（llm_service.dart:951-963 直译）。
+    只挑出不改写、不拦截回答；天花板＝只认方剂库里有的方名，漏报但不误报。
+    支撑面 = 命中方剂清单 ∪ 医案用方 ∪ 讲义片段正文里的方名。
+    """
+    cited = extract_formula_names(answer)
+    if not cited:
+        return []
+    supported = set(r["formulas"])
+    for c in r["cases"]:
+        supported.update(extract_formula_names(c["formula"]))
+    for h in r["classics"]:
+        supported.update(extract_formula_names(h["snippet"]))
+    return [f for f in cited if f not in supported]
+
+
 def extract_disease_names(text):
     cands = []
     for e in load_aliases():
@@ -1120,7 +1136,13 @@ def _selftest():
     for w in ["头晕", "乏力", "失眠", "口苦", "大便", "小便"]:
         assert w in blob, "多症状查询缺代表：{}".format(w)
 
-    print("selftest OK：切词/检索/医案/穴位/二跳/自由率/多意图 全部通过")
+    # 出处审计：检索块内的方名不报，块外的方名要挑出
+    ra = prepare("白虎汤证")
+    assert "白虎汤" in ra["formulas"], "审计样本须含白虎汤"
+    assert "白虎汤" not in unverified_formulas("用白虎汤即可", ra), "有据方名不得误报"
+    assert "一物瓜蒂汤" in unverified_formulas("再用一物瓜蒂汤", ra), "无据方名须挑出"
+
+    print("selftest OK：切词/检索/医案/穴位/二跳/自由率/多意图/审计 全部通过")
 
 
 def main(argv):
