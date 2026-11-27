@@ -181,6 +181,12 @@ Taiyin (spleen cold) → Shaoyin (heart-kidney yang deficiency) → Jueyin (yin-
 **Same question, two answers: can the article number be checked against the Song edition?**
 <img width="900" alt="v2.3.3 verifiability comparison" src="docs/images/v233_verifiability.png" />
 
+**Provenance markers: every citation lands somewhere**
+<img width="900" alt="Provenance marker close-up" src="docs/images/v233_provenance_chain.png" />
+
+**Retriever regression: all four suites green**
+<img width="880" alt="Retriever regression dashboard" src="docs/images/v233_regression_dashboard.png" />
+
 </div>
 
 ### Classic differentiation
