@@ -1,0 +1,505 @@
+{
+  "_meta": {
+    "source": "App assets/data/ear_points.json",
+    "filter": "保留 indication 非空条目；国标定位保留，主治为App自有整理",
+    "kept": 50,
+    "dropped": 43
+  },
+  "standard": "GB/T 13734-2008",
+  "standardName": "耳穴名称与定位",
+  "source": "中华人民共和国国家质量监督检验检疫总局、中国国家标准化管理委员会 发布（2008-04-23 发布，2008-07-01 实施）；归口：中国针灸学会。定位依据此国标，主治为 app 自有内容（erxue_jiangjie.md）整理，仅供参考。",
+  "regions": [
+    {
+      "code": "HX",
+      "name": "耳轮"
+    },
+    {
+      "code": "SF",
+      "name": "耳舟"
+    },
+    {
+      "code": "AH",
+      "name": "对耳轮"
+    },
+    {
+      "code": "TF",
+      "name": "三角窝"
+    },
+    {
+      "code": "TG",
+      "name": "耳屏"
+    },
+    {
+      "code": "AT",
+      "name": "对耳屏"
+    },
+    {
+      "code": "CO",
+      "name": "耳甲"
+    },
+    {
+      "code": "LO",
+      "name": "耳垂"
+    },
+    {
+      "code": "P",
+      "name": "耳背"
+    },
+    {
+      "code": "R",
+      "name": "耳根"
+    }
+  ],
+  "points": [
+    {
+      "name": "耳中",
+      "pinyin": "ěr zhōng",
+      "code": "HX1",
+      "region": "耳轮",
+      "regionCode": "HX",
+      "location": "在耳轮脚处,即耳轮1区",
+      "indication": "呃逆、荨麻疹、皮肤瘙痒、咯血"
+    },
+    {
+      "name": "尿道",
+      "pinyin": "niào dào",
+      "code": "HX3",
+      "region": "耳轮",
+      "regionCode": "HX",
+      "location": "在直肠上方的耳轮处,即耳轮3区",
+      "indication": "尿频、尿急、尿痛、尿潴留"
+    },
+    {
+      "name": "外生殖器",
+      "pinyin": "wài shēng zhí qì",
+      "code": "HX4",
+      "region": "耳轮",
+      "regionCode": "HX",
+      "location": "在对耳轮下脚前方的耳轮处,即耳轮4区",
+      "indication": "睾丸炎、附睾炎、外阴瘙痒"
+    },
+    {
+      "name": "耳尖",
+      "pinyin": "ěr jiān",
+      "code": "HX6,7i",
+      "region": "耳轮",
+      "regionCode": "HX",
+      "location": "在耳郭向前对折的上部尖端处,即耳轮6、7区交界处",
+      "indication": "发热、高血压、急性结膜炎、麦粒肿（常点刺放血）"
+    },
+    {
+      "name": "结节",
+      "pinyin": "jié jié",
+      "code": "HX8",
+      "region": "耳轮",
+      "regionCode": "HX",
+      "location": "在耳轮结节处,即耳轮8区",
+      "indication": "头晕、头痛、高血压"
+    },
+    {
+      "name": "风溪",
+      "pinyin": "fēng xī",
+      "code": "SF1,2i",
+      "region": "耳舟",
+      "regionCode": "SF",
+      "location": "在耳轮结节前方,指区与腕区之间,即耳舟1、2区交界处",
+      "indication": "荨麻疹、皮肤瘙痒、过敏性鼻炎"
+    },
+    {
+      "name": "锁骨",
+      "pinyin": "suǒ gǔ",
+      "code": "SF6",
+      "region": "耳舟",
+      "regionCode": "SF",
+      "location": "在肩区的下方处,即耳舟6区",
+      "indication": "肩关节疼痛、无脉症"
+    },
+    {
+      "name": "交感",
+      "pinyin": "jiāo gǎn",
+      "code": "AH6a",
+      "region": "对耳轮",
+      "regionCode": "AH",
+      "location": "在对耳轮下脚前端与耳轮内缘交界处,即对耳轮6区前端",
+      "indication": "胃肠痉挛、心绞痛、胆绞痛、泌尿系结石痛、植物神经功能紊乱"
+    },
+    {
+      "name": "腰骶椎",
+      "pinyin": "yāo dǐ zhuī",
+      "code": "AH9",
+      "region": "对耳轮",
+      "regionCode": "AH",
+      "location": "在腹区后方,即对耳轮9区",
+      "indication": "腰骶部疼痛"
+    },
+    {
+      "name": "胸",
+      "pinyin": "xiōng",
+      "code": "AH10",
+      "region": "对耳轮",
+      "regionCode": "AH",
+      "location": "在对耳轮体前部中2/5处,即对耳轮10区",
+      "indication": "乳腺炎、缺乳"
+    },
+    {
+      "name": "颈椎",
+      "pinyin": "jǐng chuí",
+      "code": "AH13",
+      "region": "对耳轮",
+      "regionCode": "AH",
+      "location": "在颈区后方,即对耳轮13区",
+      "indication": "落枕、颈椎综合征"
+    },
+    {
+      "name": "内生殖器",
+      "pinyin": "nèi shēng zhí qì",
+      "code": "TF2",
+      "region": "三角窝",
+      "regionCode": "TF",
+      "location": "在三角窝前1/3的下部,即三角窝2区",
+      "indication": "痛经、月经不调、盆腔炎、白带多、遗精、阳痿"
+    },
+    {
+      "name": "神门",
+      "pinyin": "shén mén",
+      "code": "TF4",
+      "region": "三角窝",
+      "regionCode": "TF",
+      "location": "在三角窝后1/3的上部,即三角窝4区",
+      "indication": "失眠、多梦、焦虑、心悸、各种疼痛、戒断综合征"
+    },
+    {
+      "name": "盆腔",
+      "pinyin": "pén qiāng",
+      "code": "TF5",
+      "region": "三角窝",
+      "regionCode": "TF",
+      "location": "在三角窝后1/3的下部,即三角窝5区",
+      "indication": "盆腔炎、附件炎"
+    },
+    {
+      "name": "外耳",
+      "pinyin": "wài ěr",
+      "code": "TG1u",
+      "region": "耳屏",
+      "regionCode": "TG",
+      "location": "在屏上切迹前方近耳轮部,即耳屏1区上缘处",
+      "indication": "耳鸣、外耳道炎"
+    },
+    {
+      "name": "屏尖",
+      "pinyin": "píng jiān",
+      "code": "TG1p",
+      "region": "耳屏",
+      "regionCode": "TG",
+      "location": "在耳屏游离缘上部尖端,即耳屏1区后缘处",
+      "indication": "发热、牙痛"
+    },
+    {
+      "name": "外鼻",
+      "pinyin": "wài bí",
+      "code": "TG1,2i",
+      "region": "耳屏",
+      "regionCode": "TG",
+      "location": "在耳屏外侧面中部,即耳屏1、2区之间",
+      "indication": "鼻炎、鼻疖、鼻部痤疮"
+    },
+    {
+      "name": "肾上腺",
+      "pinyin": "shèn shàng xiàn",
+      "code": "TG2p",
+      "region": "耳屏",
+      "regionCode": "TG",
+      "location": "在耳屏游离缘下部尖端,即耳屏2区后缘处",
+      "indication": "低血压、休克、咳嗽、哮喘、风湿性关节炎、 anaphylaxis 应急"
+    },
+    {
+      "name": "咽喉",
+      "pinyin": "yān hóu",
+      "code": "TG3",
+      "region": "耳屏",
+      "regionCode": "TG",
+      "location": "在耳屏内侧面上1/2处,即耳屏3区",
+      "indication": "咽炎、声音嘶哑、扁桃体炎"
+    },
+    {
+      "name": "内鼻",
+      "pinyin": "nèi bí",
+      "code": "TG4",
+      "region": "耳屏",
+      "regionCode": "TG",
+      "location": "在耳屏内侧面下1/2处,即耳屏4区",
+      "indication": "鼻炎、副鼻窦炎、鼻衄"
+    },
+    {
+      "name": "皮质下",
+      "pinyin": "pí zhì xià",
+      "code": "AT4",
+      "region": "对耳屏",
+      "regionCode": "AT",
+      "location": "在对耳屏内侧面,即对耳屏4区",
+      "indication": "失眠、多梦、头痛、眩晕、耳鸣、健忘、各种疼痛"
+    },
+    {
+      "name": "对屏尖",
+      "pinyin": "duì píng jiān",
+      "code": "AT1,2,4i",
+      "region": "对耳屏",
+      "regionCode": "AT",
+      "location": "在对耳屏游离缘的尖端,即对耳屏1、2、4区交点处",
+      "indication": "哮喘、腮腺炎、遗尿、落枕"
+    },
+    {
+      "name": "缘中",
+      "pinyin": "yuán zhōng",
+      "code": "AT2,3,4i",
+      "region": "对耳屏",
+      "regionCode": "AT",
+      "location": "在对耳屏游离缘上,对屏尖与轮屏切迹之中点处,即对耳屏2、3、4区交点处",
+      "indication": "遗尿、失眠、头痛、内耳眩晕"
+    },
+    {
+      "name": "脑干",
+      "pinyin": "nǎo gàn",
+      "code": "AT3,4i",
+      "region": "对耳屏",
+      "regionCode": "AT",
+      "location": "在轮屏切迹处,即对耳屏3、4区之间",
+      "indication": "眩晕、头痛、假性近视、抽搐"
+    },
+    {
+      "name": "食道",
+      "pinyin": "shí dào",
+      "code": "CO2",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在耳轮脚下方中1/3处,即耳甲2区",
+      "indication": "食道炎、食道痉挛"
+    },
+    {
+      "name": "贲门",
+      "pinyin": "bēn mén",
+      "code": "CO3",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在耳轮脚下方后1/3处,即耳甲3区",
+      "indication": "贲门痉挛、神经性呕吐"
+    },
+    {
+      "name": "胃",
+      "pinyin": "wèi",
+      "code": "CO4",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在耳轮脚消失处,即耳甲4区",
+      "indication": "胃痛、胃炎、胃溃疡、失眠、牙痛、消化不良"
+    },
+    {
+      "name": "十二指肠",
+      "pinyin": "shí èr zhǐ cháng",
+      "code": "CO5",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在耳轮脚及部分耳轮与AB线之间的后1/3处,即耳甲5区",
+      "indication": "十二指肠溃疡、胆囊炎、幽门痉挛"
+    },
+    {
+      "name": "小肠",
+      "pinyin": "xiǎo cháng",
+      "code": "CO6",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在耳轮脚及部分耳轮与AB线之间的中1/3处,即耳甲6区",
+      "indication": "消化不良、腹痛、心悸"
+    },
+    {
+      "name": "大肠",
+      "pinyin": "dà cháng",
+      "code": "CO7",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在耳轮脚及部分耳轮与AB线之间的前1/3处,即耳甲7区",
+      "indication": "腹泻、便秘、咳嗽、痤疮"
+    },
+    {
+      "name": "阑尾",
+      "pinyin": "lán wěi",
+      "code": "CO6,7i",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在小肠区与大肠区之间,即耳甲6、7区交界处",
+      "indication": "阑尾炎、腹泻"
+    },
+    {
+      "name": "膀胱",
+      "pinyin": "páng guāng",
+      "code": "CO9",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在对耳轮下脚下方中部,即耳甲9区",
+      "indication": "膀胱炎、遗尿、尿潴留、腰痛"
+    },
+    {
+      "name": "肾",
+      "pinyin": "shèn",
+      "code": "CO10",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在对耳轮下脚下方后部,即耳甲10区",
+      "indication": "耳鸣、耳聋、腰痛、遗精、月经不调、失眠"
+    },
+    {
+      "name": "输尿管",
+      "pinyin": "shū niào guǎn",
+      "code": "CO9,10i",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在肾区与膀胱区之间,即耳甲9、10区交界处",
+      "indication": "输尿管结石绞痛"
+    },
+    {
+      "name": "胰胆",
+      "pinyin": "yí dǎn",
+      "code": "CO11",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在耳甲艇的后上部,即耳甲11区",
+      "indication": "胆囊炎、胆石症、胰腺炎、偏头痛、带状疱疹"
+    },
+    {
+      "name": "肝",
+      "pinyin": "gān",
+      "code": "CO12",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在耳甲艇的后下部,即耳甲12区",
+      "indication": "胁痛、眩晕、高血压、近视、更年期"
+    },
+    {
+      "name": "艇中",
+      "pinyin": "tǐng zhōng",
+      "code": "CO6,10i",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在小肠区与肾区之间,即耳甲6、10区交界处",
+      "indication": "腹痛、腹胀、低音耳鸣、听力减退"
+    },
+    {
+      "name": "脾",
+      "pinyin": "pí",
+      "code": "CO13",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在BD线下方,耳甲腔的后上部,即耳甲13区",
+      "indication": "腹胀、腹泻、食欲不振、白带多"
+    },
+    {
+      "name": "肺",
+      "pinyin": "fèi",
+      "code": "CO14",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在心、气管区周围处,即耳甲14区",
+      "indication": "喘息、支气管炎、咳嗽"
+    },
+    {
+      "name": "心",
+      "pinyin": "xīn",
+      "code": "CO15",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在耳甲腔正中凹陷处,即耳甲15区",
+      "indication": "心动过速、心律不齐、失眠、口舌生疮"
+    },
+    {
+      "name": "气管",
+      "pinyin": "qì guǎn",
+      "code": "CO16",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在心区与外耳门之间,即耳甲16区",
+      "indication": "哮喘、支气管炎、咳嗽"
+    },
+    {
+      "name": "三焦",
+      "pinyin": "sān jiāo",
+      "code": "CO17",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在外耳门后下,肺与内分泌区之间,即耳甲17区",
+      "indication": "腹胀、便秘、上肢外侧痛"
+    },
+    {
+      "name": "内分泌",
+      "pinyin": "nèi fēn mì",
+      "code": "CO18",
+      "region": "耳甲",
+      "regionCode": "CO",
+      "location": "在屏间切迹内,耳甲腔的底部,即耳甲18区",
+      "indication": "痛经、月经不调、更年期综合征、痤疮、甲状腺炎"
+    },
+    {
+      "name": "颌",
+      "pinyin": "hé",
+      "code": "LO3",
+      "region": "耳垂",
+      "regionCode": "LO",
+      "location": "在耳垂正面后上部,即耳垂3区",
+      "indication": "上颌牙痛、颞下颌关节炎"
+    },
+    {
+      "name": "内耳",
+      "pinyin": "nèi ěr",
+      "code": "LO6",
+      "region": "耳垂",
+      "regionCode": "LO",
+      "location": "在耳垂正面后中部,即耳垂6区",
+      "indication": "耳鸣、听力减退、中耳炎、眩晕"
+    },
+    {
+      "name": "扁桃体",
+      "pinyin": "biǎn táo tǐ",
+      "code": "LO7,8,9",
+      "region": "耳垂",
+      "regionCode": "LO",
+      "location": "在耳垂正面下部,即耳垂7、8、9区",
+      "indication": "扁桃体炎、咽炎"
+    },
+    {
+      "name": "耳背肺",
+      "pinyin": "ěr bèi fèi",
+      "code": "P2",
+      "region": "耳背",
+      "regionCode": "P",
+      "location": "在耳背中内部,即耳背2区",
+      "indication": "咳喘、皮肤瘙痒"
+    },
+    {
+      "name": "耳背肝",
+      "pinyin": "ěr bèi gān",
+      "code": "P4",
+      "region": "耳背",
+      "regionCode": "P",
+      "location": "在耳背中外部,即耳背4区",
+      "indication": "头痛、眩晕、肝郁"
+    },
+    {
+      "name": "耳背沟",
+      "pinyin": "ěr bèi gōu",
+      "code": "PS",
+      "region": "耳背",
+      "regionCode": "P",
+      "location": "在对耳轮沟和对耳轮上、下脚沟处",
+      "indication": "高血压"
+    },
+    {
+      "name": "耳迷根",
+      "pinyin": "ěr mí gēn",
+      "code": "R2",
+      "region": "耳根",
+      "regionCode": "R",
+      "location": "在耳轮脚沟的耳根处",
+      "indication": "胆囊炎、胆石症、鼻塞、心动过速、高血压"
+    }
+  ]
+}

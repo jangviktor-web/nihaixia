@@ -158,6 +158,8 @@ python scripts/nishi_retrieve.py --json "…"   # 需结构化字段（seq / key
 | `references/distilled/audit-notes.md` | 134 | 校对/版本历史 |
 | `references/distilled/README.md` | — | 蒸馏目录说明/AI 调用顺序 |
 | `data/formula_index.json` | — | **方剂见于经典反查**（278 方；旁路，不改检索排名） |
+| `data/acupuncture.json` | — | **针灸处方/透针旁路**（381 方 + 29 透针；本地整理，非讲稿原文） |
+| `data/ear_points.json` | — | **耳穴旁路**（50 穴；GB/T 13734-2008 定位，主治为App自有整理） |
 
 > **⚠️ 条文编号体系声明（2026-11-27 修订 · 全文只用宋本编号）**：索引 `data/classic_index.json.gz` 的 `title` 前缀（如「七四、」「一一二、」）＝**宋本编号**，面向用户的条文号一律用它——读者拿任何一本宋本都能逐条核对。`modules/` 里的「条文N」是**倪师讲课编号**，与宋本整体错位（条文80≈宋本74、条文152≈宋本124，详见 modules/13 头部），**只用于内部检索定位，不得写进回答**。
 >

@@ -59,6 +59,12 @@ MAX_FORMULA_HITS = 3
 MAX_CLASSIC_PER_FORMULA = 5
 MAX_FORMULA_HIT_BLOCK = 600
 
+# 针灸结构化旁路：最多 3 条处方 / 3 条透针 / 3 个耳穴；只做补充，不改 classics 排名。
+MAX_ACU_RX_HITS = 3
+MAX_PENETRATION_HITS = 3
+MAX_EAR_HITS = 3
+MAX_ACU_STRUCT_BLOCK = 600
+
 # 标题锚点：只匹配 skill 自带 classic_index 中的金匮条目，不依赖 App 文件路径。
 SONGBEN_CROSSBOOK = {
     391: "吐利发汗，脉平，小烦者",
@@ -391,6 +397,78 @@ def crossbook_hits(q):
             "snippet": _snippet(e["x"], -1, len(q), SNIPPET_SPAN),
             "songben": n,
         })
+    return out
+
+
+def load_acupuncture():
+    """App同源结构化针灸处方 + 透针；已过滤空穴位/重复透针。"""
+    if "acupuncture" not in _CACHE:
+        d = _json("acupuncture.json")
+        entries = [e for c in d.get("acupuncture", {}).get("categories", [])
+                   for e in c.get("entries", []) if e.get("acupoints")]
+        _CACHE["acupuncture"] = (entries, d.get("penetration") or [])
+    return _CACHE["acupuncture"]
+
+
+def load_ear_points():
+    """国标耳穴；已过滤 indication 为空的条目。"""
+    if "ear_points" not in _CACHE:
+        _CACHE["ear_points"] = _json("ear_points.json").get("points") or []
+    return _CACHE["ear_points"]
+
+
+def retrieve_acupuncture_entries(q):
+    text = normalize(q)
+    out = []
+    for e in load_acupuncture()[0]:
+        names = [e.get("symptom") or ""] + list(e.get("aliases") or [])
+        if not any(n and n in text for n in names):
+            continue
+        out.append({
+            "symptom": e.get("symptom") or "",
+            "acupoints": [p.get("name") for p in e.get("acupoints", [])
+                          if p.get("name")][:12],
+            "source": e.get("source") or "",
+            "notes": e.get("notes") or "",
+        })
+        if len(out) >= MAX_ACU_RX_HITS:
+            break
+    return out
+
+
+def retrieve_penetration_hits(q):
+    text = normalize(q)
+    out = []
+    for p in load_acupuncture()[1]:
+        keys = [p.get("name") or ""] + list(p.get("indications") or [])
+        if not any(k and k in text for k in keys):
+            continue
+        out.append({
+            "name": p.get("name") or "",
+            "indications": list(p.get("indications") or [])[:6],
+            "source": p.get("source") or "",
+        })
+        if len(out) >= MAX_PENETRATION_HITS:
+            break
+    return out
+
+
+def retrieve_ear_hits(q):
+    text = normalize(q)
+    out = []
+    for p in load_ear_points():
+        keys = [p.get("name") or "", p.get("code") or "",
+                p.get("pinyin") or "", p.get("region") or ""]
+        if not any(k and k in text for k in keys):
+            continue
+        out.append({
+            "name": p.get("name") or "",
+            "code": p.get("code") or "",
+            "location": p.get("location") or "",
+            "indication": p.get("indication") or "",
+        })
+        if len(out) >= MAX_EAR_HITS:
+            break
     return out
 
 
@@ -1083,6 +1161,10 @@ def prepare(q):
         if fh:
             formula_hits.append(fh)
 
+    acu_rx = retrieve_acupuncture_entries(q) if is_acu else []
+    penetration = retrieve_penetration_hits(q) if is_acu else []
+    ear_points = retrieve_ear_hits(q) if is_acu else []
+
     return {
         "classics": res["hits"],
         "matched": res["total"],
@@ -1093,6 +1175,9 @@ def prepare(q):
         "cases": cases,
         "caseFormulas": case_formulas,
         "acupoints": acupoints,
+        "acupunctureHits": acu_rx,
+        "penetrationHits": penetration,
+        "earHits": ear_points,
         "diseases": aliases,
         "stats": stats_if_counting(q, res["total"], len(cases)),
         "emergency": is_emergency(q),
@@ -1135,6 +1220,28 @@ def build_context(r, question):
                 bits.append("禁忌：" + _clip(p["contraindication"], 32))
             extra.append("· {}（{}）｜{}".format(
                 p["name"], p.get("meridian", ""), "｜".join(bits)))
+        extra.append("")
+    if r.get("acupunctureHits") or r.get("penetrationHits"):
+        lines = ["【针灸处方 / 透针（本地结构化整理；非讲稿原文）】"]
+        for e in r.get("acupunctureHits", []):
+            bits = ["、".join(e["acupoints"])]
+            if e.get("notes"):
+                bits.append("要点：" + _clip(e["notes"], 36))
+            if e.get("source"):
+                bits.append("来源：" + e["source"])
+            lines.append("· {}｜{}".format(e["symptom"], "｜".join(bits)))
+        for p in r.get("penetrationHits", []):
+            lines.append("· {}｜{}｜来源：{}".format(
+                p["name"], "、".join(p["indications"][:4]), _clip(p["source"], 46)))
+        extra.append("\n".join(lines)[:MAX_ACU_STRUCT_BLOCK])
+        extra.append("")
+    if r.get("earHits"):
+        lines = ["【耳穴（GB/T 13734-2008 定位；主治为App自有整理）】"]
+        for p in r["earHits"]:
+            lines.append("· {}（{}）｜定位：{}｜主治：{}".format(
+                p["name"], p["code"], _clip(p["location"], 32),
+                _clip(p["indication"], 46)))
+        extra.append("\n".join(lines)[:MAX_ACU_STRUCT_BLOCK])
         extra.append("")
     if r["diseases"]:
         extra.append(disease_brief(r["diseases"]))
@@ -1289,7 +1396,17 @@ def _selftest():
     cb_ctx = build_context(cb, "宋本398条")
     assert "【宋本跨书归属】" in cb_ctx and "assets/" not in cb_ctx
 
-    print("selftest OK：切词/检索/医案/穴位/二跳/自由率/多意图/审计/方剂反查/跨书 全部通过")
+    # P1：针灸结构化旁路（过滤后的安全子集）
+    ears = load_ear_points()
+    assert ears and all(e.get("indication") for e in ears), "耳穴须过滤空主治"
+    rx = retrieve_acupuncture_entries("冠心病针灸")
+    assert rx and rx[0]["symptom"] == "冠心病", "冠心病处方应命中"
+    acu_ctx = build_context(prepare("冠心病针灸"), "冠心病针灸")
+    assert "【针灸处方 / 透针" in acu_ctx, "针灸旁路块须出现"
+    assert "assets/" not in acu_ctx and "medicalCase" not in acu_ctx
+    assert "【耳穴" in build_context(prepare("耳穴 神门"), "耳穴 神门")
+
+    print("selftest OK：切词/检索/医案/穴位/二跳/自由率/多意图/审计/方剂反查/跨书/针灸旁路 全部通过")
 
 
 def main(argv):
