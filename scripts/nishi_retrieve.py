@@ -59,15 +59,16 @@ MAX_FORMULA_HITS = 3
 MAX_CLASSIC_PER_FORMULA = 5
 MAX_FORMULA_HIT_BLOCK = 600
 
+# 标题锚点：只匹配 skill 自带 classic_index 中的金匮条目，不依赖 App 文件路径。
 SONGBEN_CROSSBOOK = {
-    391: "assets/jingui/clause_376.md",
-    392: "assets/jingui/clause_446.md",
-    393: "assets/jingui/clause_447.md",
-    394: "assets/jingui/clause_448.md",
-    395: "assets/jingui/clause_449.md",
-    396: "assets/jingui/clause_450.md",
-    397: "assets/jingui/clause_451.md",
-    398: "assets/jingui/clause_452.md",
+    391: "吐利发汗，脉平，小烦者",
+    392: "阴阳易之为病",
+    393: "大病差后，劳复者",
+    394: "伤寒差以后，更发热",
+    395: "从腰以下有水气者",
+    396: "喜唾久不了了",
+    397: "伤寒解后，虚羸少气",
+    398: "病人脉已解，而日暮微烦",
 }
 SONGBEN_CN = {391: "三九一", 392: "三九二", 393: "三九三", 394: "三九四",
               395: "三九五", 396: "三九六", 397: "三九七", 398: "三九八"}
@@ -367,7 +368,7 @@ def formula_classic_hits(name):
 
 
 def crossbook_hits(q):
-    """宋本391-398在金匮；只做 query→asset 重定向，不改索引。"""
+    """宋本391-398在金匮；按标题锚点重定向，不依赖 App 资产路径。"""
     text = normalize(q)
     nums = []
     for n in SONGBEN_CROSSBOOK:
@@ -375,10 +376,11 @@ def crossbook_hits(q):
             nums.append(n)
     if not nums:
         return []
-    by_asset = {e.get("a"): e for e in load_index() if e.get("a")}
     out = []
     for n in nums:
-        e = by_asset.get(SONGBEN_CROSSBOOK[n])
+        anchor = SONGBEN_CROSSBOOK[n]
+        e = next((x for x in load_index()
+                  if x["s"] == "jingui" and anchor in x["t"]), None)
         if not e:
             continue
         out.append({
@@ -1277,7 +1279,11 @@ def _selftest():
     ctx = build_context(rc, "桂枝汤")
     assert "【方剂见于经典" in ctx and "assets/" not in ctx, "反查块不得输出 asset"
 
-    # P1：宋本391-398跨书重定向
+    # P1：宋本391-398跨书重定向（标题锚点须唯一）
+    for n, anchor in SONGBEN_CROSSBOOK.items():
+        hits = [e for e in load_index()
+                if e["s"] == "jingui" and anchor in e["t"]]
+        assert len(hits) == 1, "宋本{}锚点不唯一".format(n)
     cb = prepare("宋本398条")
     assert any(h.get("songben") == 398 for h in cb["crossbook"]), "398须重定向金匮"
     cb_ctx = build_context(cb, "宋本398条")
