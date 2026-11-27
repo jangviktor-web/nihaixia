@@ -112,13 +112,13 @@ cp -r nihaixia ~/.openclaw/skills/
 <div align="center">
 
 **같은 질문, 두 가지 답: 조문 번호를 송본으로 대조할 수 있는가**
-<img width="900" alt="v2.3.3 검증 가능성 비교" src="docs/images/v233_verifiability.webp" />
+<img width="900" alt="v2.3.3 검증 가능성 비교" src="docs/images/v233_verifiability_ko.webp" />
 
 **출처 표식: 모든 인용에 근거가 있다**
-<img width="900" alt="출처 표식 확대" src="docs/images/v233_provenance_chain.webp" />
+<img width="900" alt="출처 표식 확대" src="docs/images/v233_provenance_chain_ko.webp" />
 
 **검색기 회귀: 네 계열 모두 통과**
-<img width="880" alt="검색기 회귀 대시보드" src="docs/images/v233_regression_dashboard.webp" />
+<img width="880" alt="검색기 회귀 대시보드" src="docs/images/v233_regression_dashboard_ko.webp" />
 
 </div>
 
@@ -127,13 +127,13 @@ cp -r nihaixia ~/.openclaw/skills/
 <div align="center">
 
 **육경변증의 기본 응용**
-<img width="900" alt="육경변증: 증상에서 방증으로" src="docs/images/demo_six_meridian.webp" />
+<img width="900" alt="육경변증: 증상에서 방증으로" src="docs/images/demo_six_meridian_ko.webp" />
 
 **육경 전변의 법칙**
-<img width="900" alt="육경 전변: 발한 후 어디로 가는가" src="docs/images/demo_transmission.webp" />
+<img width="900" alt="육경 전변: 발한 후 어디로 가는가" src="docs/images/demo_transmission_ko.webp" />
 
 **일상 양생과 음식 금기**
-<img width="900" alt="음식 금기: 왜 우유를 마시지 않는가" src="docs/images/demo_diet.webp" />
+<img width="900" alt="음식 금기: 왜 우유를 마시지 않는가" src="docs/images/demo_diet_ko.webp" />
 
 </div>
 

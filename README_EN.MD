@@ -179,13 +179,13 @@ Taiyin (spleen cold) → Shaoyin (heart-kidney yang deficiency) → Jueyin (yin-
 <div align="center">
 
 **Same question, two answers: can the article number be checked against the Song edition?**
-<img width="900" alt="v2.3.3 verifiability comparison" src="docs/images/v233_verifiability.webp" />
+<img width="900" alt="v2.3.3 verifiability comparison" src="docs/images/v233_verifiability_en.webp" />
 
 **Provenance markers: every citation lands somewhere**
-<img width="900" alt="Provenance marker close-up" src="docs/images/v233_provenance_chain.webp" />
+<img width="900" alt="Provenance marker close-up" src="docs/images/v233_provenance_chain_en.webp" />
 
 **Retriever regression: all four suites green**
-<img width="880" alt="Retriever regression dashboard" src="docs/images/v233_regression_dashboard.webp" />
+<img width="880" alt="Retriever regression dashboard" src="docs/images/v233_regression_dashboard_en.webp" />
 
 </div>
 
@@ -195,15 +195,15 @@ Taiyin (spleen cold) → Shaoyin (heart-kidney yang deficiency) → Jueyin (yin-
 
 **Basic Application of Six-Meridian Differentiation**
 
-<img width="900" alt="Six-meridian differentiation: from symptoms to formula" src="docs/images/demo_six_meridian.webp" />
+<img width="900" alt="Six-meridian differentiation: from symptoms to formula" src="docs/images/demo_six_meridian_en.webp" />
 
 **Six-Meridian Transmission Rules**
 
-<img width="900" alt="Six-meridian transmission: where it goes after sweating" src="docs/images/demo_transmission.webp" />
+<img width="900" alt="Six-meridian transmission: where it goes after sweating" src="docs/images/demo_transmission_en.webp" />
 
 **Daily Health Preservation and Dietary Contraindications**
 
-<img width="900" alt="Dietary contraindication: why not milk" src="docs/images/demo_diet.webp" />
+<img width="900" alt="Dietary contraindication: why not milk" src="docs/images/demo_diet_en.webp" />
 
 </div>
 

@@ -112,13 +112,13 @@ cp -r nihaixia ~/.openclaw/skills/
 <div align="center">
 
 **同じ問い、二つの答え：条文番号は宋本で照合できるか**
-<img width="900" alt="v2.3.3 検証可能性の比較" src="docs/images/v233_verifiability.webp" />
+<img width="900" alt="v2.3.3 検証可能性の比較" src="docs/images/v233_verifiability_ja.webp" />
 
 **出典マーカー：すべての引用に出所がある**
-<img width="900" alt="出典マーカーの拡大" src="docs/images/v233_provenance_chain.webp" />
+<img width="900" alt="出典マーカーの拡大" src="docs/images/v233_provenance_chain_ja.webp" />
 
 **検索器の回帰：四系統すべてグリーン**
-<img width="880" alt="検索器の回帰ダッシュボード" src="docs/images/v233_regression_dashboard.webp" />
+<img width="880" alt="検索器の回帰ダッシュボード" src="docs/images/v233_regression_dashboard_ja.webp" />
 
 </div>
 
@@ -127,13 +127,13 @@ cp -r nihaixia ~/.openclaw/skills/
 <div align="center">
 
 **六経弁証の基本応用**
-<img width="900" alt="六経弁証：症状から方証へ" src="docs/images/demo_six_meridian.webp" />
+<img width="900" alt="六経弁証：症状から方証へ" src="docs/images/demo_six_meridian_ja.webp" />
 
 **六経伝変の法則**
-<img width="900" alt="六経伝変：発汗後どこへ行くか" src="docs/images/demo_transmission.webp" />
+<img width="900" alt="六経伝変：発汗後どこへ行くか" src="docs/images/demo_transmission_ja.webp" />
 
 **日常養生と飲食の禁忌**
-<img width="900" alt="飲食禁忌：なぜ牛乳を飲まないか" src="docs/images/demo_diet.webp" />
+<img width="900" alt="飲食禁忌：なぜ牛乳を飲まないか" src="docs/images/demo_diet_ja.webp" />
 
 </div>
 

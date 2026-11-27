@@ -78,6 +78,45 @@ cp -r nihaixia/ ~/.openclaw/skills/nihaixia/
 <img width="3085"  alt="1000013923" src="https://github.com/user-attachments/assets/9746a3b0-fd37-49e2-8a3a-0d72a06a765a" />
 </details>
 
+<details>
+<summary><b>手机端（腾讯 IMA APP）</b></summary>
+
+### 第一步　在 IMA Skill 商店下载
+
+倪海厦skill 腾讯 IMA 地址：https://ima.qq.com/skill?shareId=70e35c8a24ed4c01a0986f9e3c83f3d1&from=share
+
+### 第二步　调用方法
+
+<img width="1400" alt="IMA 调用" src="https://github.com/user-attachments/assets/79ac68b1-cf18-47fe-ab32-1f876c5394f9" />
+
+### 第三步　更新到最新版
+
+把下面这句原样发给 IMA Copilot：
+
+```
+请根据 https://skillhub.cn/install/skillhub.md，安装 @user_ff4d9420/nihaixia-pro。
+```
+
+</details>
+
+<details>
+<summary><b>历史版本下载</b></summary>
+
+| 版本 | 关键变更 | 下载 |
+|:---|:---|:---|
+| v2.3.1 | 输出格式折中版：口语主体 + 表格/加粗标注重点 | [zip](https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/v2.3.1/nihaixia-2.3.1.zip) |
+| v2.3.0 | 258 方剂量全量勘误 + 经方条文卡片体系 | [tar.gz](https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/V2.3.0/nihaixia_skill_20260815_v2.3.0.tar.gz) |
+| v2.2.8d | 卡片触发规则前移 + 出卡对账校验 | [tar.gz](https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/V2.3.0/nihaixia_skill_20260815_v2.2.8d.tar.gz) |
+| v2.2.4 | 三套度量衡换算体系重构 | [tar.gz](https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/V2.2.1/nihaixia_skill_20260813_v2.2.4.tar.gz) |
+| v2.2.3 | 方剂数据补全与版本口径统一 | [tar.gz](https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/V2.2.1/nihaixia_skill_20260813_v2.2.3.tar.gz) |
+| v2.2.2 | 258 方逐条剂量提取与两轮复核 | [tar.gz](https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/V2.2.1/nihaixia_skill_20260813.V2.2.2tar.gz) |
+| v2.1.0 | 六经辨证诊断公式 | [zip](https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive/refs/tags/v2.1.0.zip) |
+| v2.0.1 | 245 例医案按疾病索引 | [zip](https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive/refs/tags/v2.0.1.zip) |
+| v1.1.0 | 本草、伤寒、金匮深度蒸馏 | [zip](https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive/refs/tags/v1.1.0.zip) |
+| v1.0.0 | 首个正式稳定版 | [zip](https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive/refs/tags/v1.0.0.zip) |
+
+</details>
+
 
 ---
 
@@ -152,13 +191,13 @@ cp -r nihaixia/ ~/.openclaw/skills/nihaixia/
 <div align="center">
 
 **同一个问题，两种答法：条文号能不能拿宋本对上**
-<img width="900" alt="v2.3.3 可考据性对比" src="docs/images/v233_verifiability.webp" />
+<img width="900" alt="v2.3.3 可考据性对比" src="docs/images/v233_verifiability_zh.webp" />
 
 **溯源标记：每个出处都能落地**
-<img width="900" alt="溯源标记特写" src="docs/images/v233_provenance_chain.webp" />
+<img width="900" alt="溯源标记特写" src="docs/images/v233_provenance_chain_zh.webp" />
 
 **检索器回归：四套全绿**
-<img width="880" alt="检索器回归仪表" src="docs/images/v233_regression_dashboard.webp" />
+<img width="880" alt="检索器回归仪表" src="docs/images/v233_regression_dashboard_zh.webp" />
 
 </div>
 
@@ -167,13 +206,13 @@ cp -r nihaixia/ ~/.openclaw/skills/nihaixia/
 <div align="center">
 
 **六经辨证基础应用**
-<img width="900" alt="六经辨证：从症状到方证" src="docs/images/demo_six_meridian.webp" />
+<img width="900" alt="六经辨证：从症状到方证" src="docs/images/demo_six_meridian_zh.webp" />
 
 **六经传变规律**
-<img width="900" alt="六经传变：汗后不解往哪走" src="docs/images/demo_transmission.webp" />
+<img width="900" alt="六经传变：汗后不解往哪走" src="docs/images/demo_transmission_zh.webp" />
 
 **日常养生与饮食禁忌**
-<img width="900" alt="饮食禁忌：为什么牛奶不喝" src="docs/images/demo_diet.webp" />
+<img width="900" alt="饮食禁忌：为什么牛奶不喝" src="docs/images/demo_diet_zh.webp" />
 
 </div>
 
@@ -247,6 +286,52 @@ cp -r nihaixia/ ~/.openclaw/skills/nihaixia/
 [![ClawHub](https://img.shields.io/badge/ClawHub-install%20wujutong-green?style=flat-square)](https://clawhub.ai/jangviktor-web/skills/wujutong)
 
 </div>
+
+---
+
+### 全部同源蒸馏项目
+
+以下角色包都出自同一条流水线 [`中医思维蒸馏器`](https://github.com/jangviktor-web/tcm-distiller)（Pipeline A）。**选包看辨证坐标系，不看人名**——同样是中医，六经、卫气营血、三焦、气机升降是四套不同的定位法。
+
+| 项目 | 领域 · 坐标系 | 内核 | 正典规模 | 入口 |
+|:---|:---|:---|:---|:---|
+| **倪海厦**（本库） | 经方 · 六经辨证 | 六经八纲 + 314 方剂量全量勘误 + 倪师口吻还原 | 1,257 案 · 3.5M 字 · 2,452 页讲义 | [GitHub](https://github.com/jangviktor-web/nihaixia) · [SkillHub](https://skillhub.cn/skills/user_ff4d9420/nihaixia-pro) |
+| [胡希恕](https://github.com/jangviktor-web/huxishu) | 经方 · 六经来自八纲 | 「六经来自八纲」——对《伤寒论》辨证体系最清晰的解读，方证对应 | 38 万字讲稿 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/huxisu) |
+| [黄元御](https://github.com/jangviktor-web/huangyuanyu) | 气机升降派 | 六气主客、彭子益圆运动 | 医书十一种 3.5 MB · 38,266 行 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/huangyuanyu) |
+| [李可](https://github.com/jangviktor-web/likeskill) | 扶阳 · 急危重症 | 破格救心汤，附子 30–750g；25 种假证识别 | 395 案 · 170+ 方 · 92 症状路由 | [GitHub](https://github.com/jangviktor-web/likeskill) |
+| [叶天士](https://github.com/jangviktor-web/ye-tianshi-skill) | 温病 · 卫气营血 | 四层深浅 + 养胃阴 + 阳化内风 + 久病入络 + 奇经八脉 | 四部原著 10,338 行 · 215 案 · 158 条病名映射 | [GitHub](https://github.com/jangviktor-web/ye-tianshi-skill) · [SkillHub](https://skillhub.cn/skills/user_ff4d9420/yetianshi) |
+| [吴鞠通](https://github.com/jangviktor-web/wujutong) | 温病 · 三焦辨证 | 三焦分部 + 津液存亡，自称「羽翼伤寒」 | 4 部著作 · 359 案 45 病证 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/wujutong) |
+| [李白](https://github.com/jangviktor-web/libai-skill) | 文学 · 创作六步法 | 气→象→体→夸→断→尽；引诗 grep 可核，拟作必标非原作 | 25 卷 1,010 首 · 58 篇赏析 · 16 意象 | [GitHub](https://github.com/jangviktor-web/libai-skill) · [SkillHub](https://skillhub.cn/skills/user_ff4d9420/libai) |
+| [曾仕强](https://github.com/jangviktor-web/zeng-shiqiang) | 管理 · 易学 | 修己 · 安人 · 圆通 · 持经 · 达变 · 合理 · 和谐（曾氏七标准） | 中国式管理 + 易经义理 + 道德经 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/zengshiqiang) |
+| [汉唐中医 · 安卓APP](https://github.com/jangviktor-web/nihaixia-app) | 安卓 APP | 同一知识库离线版，完全免费；智能问诊引导 + 六经筛选 | 方 · 药 · 穴 · 针灸处方 · 紫微/64 卦 | [下载 APK](https://github.com/jangviktor-web/nihaixia-app/releases/latest) |
+
+### 外感病三派怎么选
+
+急性期从温病、缓解期从经方——**一纵一横，合观乃得中医外感病全貌**。倪海厦修水龙头（温阳化湿治本），叶吴扫积水（清湿护津治标）。
+
+| 维度 | 经方派（倪／胡） | 叶天士（卫气营血） | 吴鞠通（三焦） |
+|:---|:---|:---|:---|
+| 坐标系 | 六经 · 看深浅 | 卫气营血 · 看深浅（四段） | 三焦 · 看部位（上中下） |
+| 治法核心 | 驱邪外出 | 透热转气 · 存津液 | 分消三焦 · 存津液 |
+| 汗法 | 该汗则汗 | 温病忌汗，宜辛凉轻剂 | 温病禁汗，忌升提 |
+| 方剂风格 | 药少力专（麻黄／附子／乌头） | 轻灵甘寒，**银翘散·桑菊饮系吴方，非叶方** | 成套方（银翘散／白虎／复脉） |
+| 医案规模 | 1,257 案全科 | 215 案 | 359 案 45 病证 |
+
+### 流水线本身
+
+[`中医思维蒸馏器`](https://github.com/jangviktor-web/tcm-distiller) 不堆素材，而是把著作、讲稿、医案提炼成可被 AI 调用、还原真人辨证思路的技能。已验证案例：
+
+| 人物 | 流派 | 成果 |
+|:---|:---|:---|
+| 胡希恕 | 经方派 | 38 万字讲稿 → 完整技能（首发验证案例） |
+| 黄元御 | 气机升降派 | 医书十一种 3.5 MB / 38,266 行 → V3 深度优化 |
+| 吴鞠通 | 温病派 | 4 部著作 → V3.5 端到端 + 359 医案 + GitHub 发布 |
+| 倪海厦 | 经方派 | 314 方剂量全量勘误 + 表达还原度反超旧版 + v2.3.3 出处纪律 |
+| 叶天士 | 温病派 | 四部原著 → 7 段式角色规则 + 158 条病名映射 + 两轮盲评（4.27 → 4.49） |
+| 李白 | 文学家 14 维 | 方法论跨领域迁移：诗全集编码损坏修复 + 1,010 首正典 + 58 篇赏析 |
+
+[![中医思维蒸馏器](https://img.shields.io/badge/中医思维蒸馏器-V4.6.0-red?style=flat-square)](https://github.com/jangviktor-web/tcm-distiller)
+[![SkillHub](https://img.shields.io/badge/腾讯云skillhub-蒸馏器SKILL-green?style=flat-square)](https://skillhub.cn/skills/user_ff4d9420/tcm-distiller)
 
 
 ## 数据来源
