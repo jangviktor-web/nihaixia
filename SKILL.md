@@ -157,8 +157,11 @@ python scripts/nishi_retrieve.py --json "…"   # 需结构化字段（seq / key
 | `references/distilled/04-acupuncture-highlights.md` | 1761 | 针灸详解详注 |
 | `references/distilled/audit-notes.md` | 134 | 校对/版本历史 |
 | `references/distilled/README.md` | — | 蒸馏目录说明/AI 调用顺序 |
+| `data/formula_index.json` | — | **方剂见于经典反查**（278 方；旁路，不改检索排名） |
 
 > **⚠️ 条文编号体系声明（2026-11-27 修订 · 全文只用宋本编号）**：索引 `data/classic_index.json.gz` 的 `title` 前缀（如「七四、」「一一二、」）＝**宋本编号**，面向用户的条文号一律用它——读者拿任何一本宋本都能逐条核对。`modules/` 里的「条文N」是**倪师讲课编号**，与宋本整体错位（条文80≈宋本74、条文152≈宋本124，详见 modules/13 头部），**只用于内部检索定位，不得写进回答**。
+>
+> **宋本391–398跨书归属**：正文收在《金匮要略》——391 在 `assets/jingui/clause_376.md`，392–398 在 `clause_446.md`–`clause_452.md`；检索器遇到这些条号会重定向到金匮条目，不得答「伤寒未覆盖」。
 
 ## G. 金匮篇目导航（23 篇定位表）
 

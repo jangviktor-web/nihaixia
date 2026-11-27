@@ -54,6 +54,24 @@ MAX_CASE_FORMULAS = 3
 MAX_ACUPOINTS = 3
 MAX_ACU_HITS = 3
 
+# 方剂→经典反查只做旁路上下文，不改 classics 排名；3 方 × 每方 5 条足够。
+MAX_FORMULA_HITS = 3
+MAX_CLASSIC_PER_FORMULA = 5
+MAX_FORMULA_HIT_BLOCK = 600
+
+SONGBEN_CROSSBOOK = {
+    391: "assets/jingui/clause_376.md",
+    392: "assets/jingui/clause_446.md",
+    393: "assets/jingui/clause_447.md",
+    394: "assets/jingui/clause_448.md",
+    395: "assets/jingui/clause_449.md",
+    396: "assets/jingui/clause_450.md",
+    397: "assets/jingui/clause_451.md",
+    398: "assets/jingui/clause_452.md",
+}
+SONGBEN_CN = {391: "三九一", 392: "三九二", 393: "三九三", 394: "三九四",
+              395: "三九五", 396: "三九六", 397: "三九七", 398: "三九八"}
+
 ACU_KEYWORDS = {
     "针灸", "针", "灸", "扎针", "下针", "取穴", "穴位", "艾灸", "艾条",
     "刺血", "放血", "耳针", "耳穴", "拔罐", "火罐", "经络", "埋线", "电针",
@@ -299,6 +317,79 @@ def load_formulas():
                     candidates.append(al)
         _CACHE["formulas"] = (items, by_name, candidates)
     return _CACHE["formulas"]
+
+
+def load_formula_index():
+    """方剂→经典/讲稿提及；跳过 App 的 `_v` 版本键。"""
+    if "formula_index" not in _CACHE:
+        _CACHE["formula_index"] = {
+            k: v for k, v in _json("formula_index.json").items()
+            if isinstance(v, dict)
+        }
+    return _CACHE["formula_index"]
+
+
+def _classic_titles():
+    """按 asset 反查标题；j 按 skill 索引中 jingui 顺序对齐 App seq。"""
+    if "classic_titles" not in _CACHE:
+        sh, jg = {}, []
+        for e in load_index():
+            a = e.get("a") or ""
+            if e["s"] == "shanghan":
+                m = re.search(r"clause_(\d+)\.md$", a)
+                if m:
+                    sh[int(m.group(1)) - 1] = e["t"]
+            elif e["s"] == "jingui":
+                jg.append(e["t"])
+        _CACHE["classic_titles"] = (sh, jg)
+    return _CACHE["classic_titles"]
+
+
+def formula_classic_hits(name):
+    """方剂见于哪些伤寒/金匮条目；讲稿提及只给计数，不冒充条文。"""
+    v = load_formula_index().get(name)
+    if not v:
+        return None
+    sh_titles, jg_titles = _classic_titles()
+    out = {"name": name, "shanghan": [], "jingui": [], "lectureCounts": {}}
+    for seq in (v.get("s") or [])[:MAX_CLASSIC_PER_FORMULA]:
+        out["shanghan"].append({
+            "songben": seq + 1,
+            "title": sh_titles.get(seq, ""),
+        })
+    for seq in (v.get("j") or [])[:MAX_CLASSIC_PER_FORMULA]:
+        out["jingui"].append({"title": jg_titles[seq] if seq < len(jg_titles) else ""})
+    for key, label in (("b", "bencao"), ("z", "zhenjiu")):
+        out["lectureCounts"][label] = sum(
+            int(x.get("n") or 0) for x in (v.get(key) or []) if isinstance(x, dict)
+        )
+    return out
+
+
+def crossbook_hits(q):
+    """宋本391-398在金匮；只做 query→asset 重定向，不改索引。"""
+    text = normalize(q)
+    nums = []
+    for n in SONGBEN_CROSSBOOK:
+        if re.search(r"(?<!\d){}(?!\d)".format(n), text) or SONGBEN_CN[n] in text:
+            nums.append(n)
+    if not nums:
+        return []
+    by_asset = {e.get("a"): e for e in load_index() if e.get("a")}
+    out = []
+    for n in nums:
+        e = by_asset.get(SONGBEN_CROSSBOOK[n])
+        if not e:
+            continue
+        out.append({
+            "source": e["s"],
+            "label": label_of(e["s"], e.get("b")),
+            "title": e["t"],
+            "asset": e["a"],
+            "snippet": _snippet(e["x"], -1, len(q), SNIPPET_SPAN),
+            "songben": n,
+        })
+    return out
 
 
 def load_acupoints():
@@ -952,12 +1043,14 @@ def prepare(q):
             if f not in case_formulas:
                 case_formulas.append(f)
 
+    crossbook = crossbook_hits(q)
+
     # 二跳必须预留槽位，否则第一轮填满 8 条，二跳永远轮不上。
     # 按「每个方剂 1 条」预留，不是固定 3 条：只有 1 个方剂时固定留 3 会
     # 白白砍掉两个意图槽位（实测六症状查询的第 6 个症状被挤掉）。
     reserve = min(len(case_formulas), MAX_CASE_FORMULAS)
     res = retrieve_result(q, priority=priority, extra=expand_terms(aliases),
-                          seed=outline_hits(q) + list(acu_hits),
+                          seed=outline_hits(q) + crossbook + list(acu_hits),
                           cap=MAX_HITS - reserve)
     if case_formulas:
         res = extend_by_formulas(res, case_formulas)
@@ -982,11 +1075,19 @@ def prepare(q):
             "gist": (d.get("explanation") or "").strip(),
         })
 
+    formula_hits = []
+    for name in formulas[:MAX_FORMULA_HITS]:
+        fh = formula_classic_hits(name)
+        if fh:
+            formula_hits.append(fh)
+
     return {
         "classics": res["hits"],
         "matched": res["total"],
         "formulas": formulas,
         "briefs": briefs,
+        "formulaHits": formula_hits,
+        "crossbook": crossbook,
         "cases": cases,
         "caseFormulas": case_formulas,
         "acupoints": acupoints,
@@ -1051,6 +1152,30 @@ def build_context(r, question):
                 parts.append("要点 " + _clip(b["gist"], 40))
             if parts:
                 extra.append("· {}：{}".format(b["name"], "｜".join(parts)))
+        extra.append("")
+    if r.get("formulaHits"):
+        lines = ["【方剂见于经典（本地预索引；提及≠该方出处）】"]
+        for h in r["formulaHits"][:MAX_FORMULA_HITS]:
+            bits = []
+            if h["shanghan"]:
+                bits.append("伤寒·" + "、".join(
+                    "宋本{}条".format(x["songben"]) for x in h["shanghan"]))
+            if h["jingui"]:
+                bits.append("金匮·" + "、".join(
+                    _clip(x["title"], 18) for x in h["jingui"]))
+            counts = h.get("lectureCounts") or {}
+            if counts.get("bencao"):
+                bits.append("本草讲稿{}处".format(counts["bencao"]))
+            if counts.get("zhenjiu"):
+                bits.append("针灸讲稿{}处".format(counts["zhenjiu"]))
+            lines.append("· {}：{}".format(h["name"], "；".join(bits)))
+        extra.append("\n".join(lines)[:MAX_FORMULA_HIT_BLOCK])
+        extra.append("")
+    if r.get("crossbook"):
+        lines = ["【宋本跨书归属】宋本391-398正文收在金匮，不是伤寒未覆盖"]
+        lines.extend("· 宋本{}条 → 金匮·{}".format(h["songben"], _clip(h["title"], 46))
+                     for h in r["crossbook"])
+        extra.append("\n".join(lines)[:MAX_FORMULA_HIT_BLOCK])
         extra.append("")
     if r["cases"]:
         extra.append("【倪师医案】（本地医案库，引用时写「医案 #序号」）")
@@ -1142,7 +1267,23 @@ def _selftest():
     assert "白虎汤" not in unverified_formulas("用白虎汤即可", ra), "有据方名不得误报"
     assert "一物瓜蒂汤" in unverified_formulas("再用一物瓜蒂汤", ra), "无据方名须挑出"
 
-    print("selftest OK：切词/检索/医案/穴位/二跳/自由率/多意图/审计 全部通过")
+    # P0：方剂→经典反查（旁路，不改 classics 排名）
+    fi = load_formula_index()
+    assert len(fi) == 278 and "_v" not in fi, "方剂索引须跳过版本键"
+    fh = formula_classic_hits("桂枝汤")
+    assert fh and fh["shanghan"] and fh["jingui"], "桂枝汤应有伤寒/金匮命中"
+    assert all(x["songben"] > 0 for x in fh["shanghan"]), "伤寒须输出宋本条号"
+    rc = prepare("桂枝汤")
+    ctx = build_context(rc, "桂枝汤")
+    assert "【方剂见于经典" in ctx and "assets/" not in ctx, "反查块不得输出 asset"
+
+    # P1：宋本391-398跨书重定向
+    cb = prepare("宋本398条")
+    assert any(h.get("songben") == 398 for h in cb["crossbook"]), "398须重定向金匮"
+    cb_ctx = build_context(cb, "宋本398条")
+    assert "【宋本跨书归属】" in cb_ctx and "assets/" not in cb_ctx
+
+    print("selftest OK：切词/检索/医案/穴位/二跳/自由率/多意图/审计/方剂反查/跨书 全部通过")
 
 
 def main(argv):

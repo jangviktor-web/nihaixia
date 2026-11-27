@@ -217,6 +217,7 @@ print(build_context(r, "糖尿病有哪些方剂"))
 |---|---|---|---|
 | `classic_index.json.gz` | `assets/guji/` | 直接复制 | 3.1 MB |
 | `formulas.json` | `assets/data/` | 直接复制（314 方） | 419 KB |
+| `formula_index.json` | `assets/data/` | 直接复制（278 方，跳过 `_v`） | 12.55 KB |
 | `acupoints.json` | `assets/data/` | 直接复制（401 穴） | 622 KB |
 | `disease_alias_index.json` | `assets/data/` | 直接复制（48 条） | 12 KB |
 | `cases.json` | `assets/medical_cases/cases_table.md` | **格式转换** | 约 400 KB |
