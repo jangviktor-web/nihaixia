@@ -213,7 +213,7 @@ Taiyin (spleen cold) → Shaoyin (heart-kidney yang deficiency) → Jueyin (yin-
 
 <div align="center">
 
-<img src="docs/assets/related/app.webp" width="120" alt="Han Tang TCM Android App">
+<img src="logo.jpg" width="120" alt="Han Tang TCM Android App">
 
 ### [Han Tang Chinese Medicine · Android Diagnostic App](https://github.com/jangviktor-web/nihaixia-app)
 

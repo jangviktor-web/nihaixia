@@ -239,7 +239,7 @@ cp -r nihaixia ~/.openclaw/skills/
 
 <div align="center">
 
-<img src="docs/assets/related/app.webp" width="120" alt="漢唐中醫 · Android 진단 앱">
+<img src="logo.jpg" width="120" alt="漢唐中醫 · Android 진단 앱">
 
 ### [漢唐中醫 · Android 진단 앱](https://github.com/jangviktor-web/nihaixia-app)
 
