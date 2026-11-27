@@ -182,12 +182,15 @@ cp -r nihaixia/ ~/.openclaw/skills/nihaixia/
 <div align="center">
 
 **同一个问题，两种答法：条文号能不能拿宋本对上**
+
 <img width="900" alt="v2.3.3 可考据性对比" src="docs/images/v233_verifiability_zh.webp" />
 
 **溯源标记：每个出处都能落地**
+
 <img width="900" alt="溯源标记特写" src="docs/images/v233_provenance_chain_zh.webp" />
 
 **检索器回归：四套全绿**
+
 <img width="880" alt="检索器回归仪表" src="docs/images/v233_regression_dashboard_zh.webp" />
 
 </div>
@@ -197,12 +200,15 @@ cp -r nihaixia/ ~/.openclaw/skills/nihaixia/
 <div align="center">
 
 **六经辨证基础应用**
+
 <img width="900" alt="六经辨证：从症状到方证" src="docs/images/demo_six_meridian_zh.webp" />
 
 **六经传变规律**
+
 <img width="900" alt="六经传变：汗后不解往哪走" src="docs/images/demo_transmission_zh.webp" />
 
 **日常养生与饮食禁忌**
+
 <img width="900" alt="饮食禁忌：为什么牛奶不喝" src="docs/images/demo_diet_zh.webp" />
 
 </div>
