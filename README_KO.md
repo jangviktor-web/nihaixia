@@ -107,6 +107,17 @@ cp -r nihaixia ~/.openclaw/skills/
 
 ---
 
+## 데모
+
+<div align="center">
+
+**같은 질문, 두 가지 답: 조문 번호를 송본으로 대조할 수 있는가**
+<img width="900" alt="v2.3.3 검증 가능성 비교" src="docs/images/v233_verifiability.png" />
+
+</div>
+
+---
+
 ## 핵심 지식 체계
 
 ### 육경변증 빠른 조회

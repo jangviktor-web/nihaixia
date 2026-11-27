@@ -107,6 +107,17 @@ cp -r nihaixia ~/.openclaw/skills/
 
 ---
 
+## デモ
+
+<div align="center">
+
+**同じ問い、二つの答え：条文番号は宋本で照合できるか**
+<img width="900" alt="v2.3.3 検証可能性の比較" src="docs/images/v233_verifiability.png" />
+
+</div>
+
+---
+
 ## 核心知識体系
 
 ### 六経弁証 早見表

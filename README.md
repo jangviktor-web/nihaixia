@@ -147,6 +147,17 @@ cp -r nihaixia/ ~/.openclaw/skills/nihaixia/
 
 ## 效果演示
 
+### v2.3.3 · 可考据性
+
+<div align="center">
+
+**同一个问题，两种答法：条文号能不能拿宋本对上**
+<img width="900" alt="v2.3.3 可考据性对比" src="docs/images/v233_verifiability.png" />
+
+</div>
+
+### 经典辨证
+
 <div align="center">
 
 **六经辨证基础应用**

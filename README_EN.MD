@@ -174,6 +174,17 @@ Taiyin (spleen cold) → Shaoyin (heart-kidney yang deficiency) → Jueyin (yin-
 
 ## Demonstration
 
+### v2.3.3 · Verifiability
+
+<div align="center">
+
+**Same question, two answers: can the article number be checked against the Song edition?**
+<img width="900" alt="v2.3.3 verifiability comparison" src="docs/images/v233_verifiability.png" />
+
+</div>
+
+### Classic differentiation
+
 <div align="center">
 
 **Basic Application of Six-Meridian Differentiation**
