@@ -6,16 +6,16 @@
 
 **Injecting Master Ni Haixia's complete TCM (Traditional Chinese Medicine) reasoning system into an AI Agent**
 
-`129 articles of Shang Han Lun` · `23 chapters of Jin Gui` · `71 chapters of Huang Di Nei Jing` · `345 herbs of Materia Medica` · `849 medical cases` · `2,452 pages of lecture notes` · `3.5M characters distilled`
+`129 articles of Shang Han Lun + Taiyang/Yangming supplement` · `23 chapters of Jin Gui` · `72 chapters of Huang Di Nei Jing` · `374 herbs of Materia Medica` · `1,257 structured cases + 243 narrative cases` · `2,452 pages of lecture notes` · `3.5M characters distilled`
 
 [![GitHub Stars](https://img.shields.io/github/stars/jangviktor-web/nihaixia?style=for-the-badge&color=yellow&label=Stars)](https://github.com/jangviktor-web/nihaixia/stargazers)
-[![Version](https://img.shields.io/badge/version-v2.1.0-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia/releases)
+[![Version](https://img.shields.io/badge/version-v2.3.3-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia/releases)
 [![TCM Mind Distiller](https://img.shields.io/badge/TCM_Mind_Distiller-v4.4.0-red?style=for-the-badge)](https://github.com/jangviktor-web/tcm-distiller)
 [![License](https://img.shields.io/badge/license-MulanPSL--2.0-green?style=for-the-badge)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Ready-orange?style=for-the-badge&logo=anthropic&logoColor=white)]()
 [![Platforms](https://img.shields.io/badge/platforms-5-purple?style=for-the-badge)](#installation)
 
-**🌐 [中文](https://github.com/jangviktor-web/nihaixia/blob/main/README.md) | [English](https://github.com/jangviktor-web/nihaixia/blob/main/README_EN.MD)**
+**🌐 [中文](https://github.com/jangviktor-web/nihaixia/blob/main/README.md) | [English](https://github.com/jangviktor-web/nihaixia/blob/main/README_EN.MD) | [日本語](https://github.com/jangviktor-web/nihaixia/blob/main/README_JA.md) | [한국어](https://github.com/jangviktor-web/nihaixia/blob/main/README_KO.md)**
 
 </div>
 
@@ -115,10 +115,10 @@ Download: https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive
 | Six-Meridian Differentiation | ✅ | Taiyang/Yangming/Shaoyang/Taiyin/Shaoyin/Jueyin, transmission rules + optimal resolution times |
 | **Six-Meridian Diagnostic Formulas** | ✅ | **8 diagnostic formulas + rapid-diagnosis flowchart + pulse/tongue quick-reference + seven-step thinking model (added in v2.1.0)** |
 | Classical Formula Selection | ✅ | 129 articles of Shang Han Lun + 23 chapters of Jin Gui, including composition/dosage/decoction method/contraindications |
-| Herb Properties | ✅ | 345 herbs from Shen Nong's Materia Medica, three-grade classification + five flavors and meridian tropism + processing essentials |
-| Clinical Cases | ✅ | 849 of Master Ni's real cases, categorized into 6 groups: cancer / cardiovascular / metabolic disease, etc. |
+| Herb Properties | ✅ | 374 herbs from Shen Nong's Materia Medica, three-grade classification + five flavors and meridian tropism + processing essentials |
+| Clinical Cases | ✅ | 1,257 structured cases + 243 categorized narrative cases, grouped into cancer / cardiovascular / metabolic disease and 7 categories |
 | Acupuncture Points | ✅ | Twelve meridians + Jing-Rong-Yu-Jing-He (Well-Spring-Transport-Channel-Sea) + key Ren and Du points + stroke first aid |
-| Huang Di Nei Jing | ✅ | 71 chapters fully distilled, the core of TCM basic theory |
+| Huang Di Nei Jing | ✅ | 72 chapters fully distilled, the core of TCM basic theory |
 | Tian Ji Destiny Studies | ✅ | Zi Wei Dou Shu (Purple Star Astrology) + I Ching Sixty-Four Hexagrams + Yang House Feng Shui |
 | Liang Dong Dialogue | ✅ | Full distillation of the 7 episodes from 2009, views on modern topics |
 | 3rd Forum on Supporting Yang Speech | ✅ | Supporting-Yang theory / yin-deficiency → yang-deficiency → yin-excess transmission chain / major clinical cases of lupus, leukemia, brain tumors / categorized use of raw aconite and raw sulfur |
@@ -126,6 +126,8 @@ Download: https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive
 | Stanford University Speech + Disciples' Experience | ✅ | Treating from the common cold all the way to cancer / three steps to enter classical formulas / records of disciples Li Zong'en and Yang Zhen / summary of inspection diagnosis + ten questions for diagnosis / common tender points / special formulas for gallstones and kidney stones |
 | Closed-Door Lectures | ✅ | 7 major critical-illness topics + 7 disciples' lessons, covering leukemia / breast cancer / brain tumors, etc. |
 | Oral Expression | ✅ | Module for Ni Haixia's spoken style, making replies "sound like" Master Ni |
+| **Verifiability** | ✅ | **Article numbers unified to the Song edition (checkable against any Song-edition copy) + source discipline (later-era concepts may not be attributed to Shang Han Lun) + citation audit (auto-flags formulas with no retrieved basis) + 14/14 provenance-trap tests (new in v2.3.3)** |
+| **Reproducible Retriever** | ✅ | `scripts/nishi_retrieve.py`, pure stdlib, deterministic; `--selftest` plus three regression suites (holdout 13/13, differential 42/42, provenance 14/14) |
 
 ---
 
@@ -332,6 +334,20 @@ nihaixia/
 
 ## Changelog
 
+#### v2.3.3 (2026-11-27) — Source discipline and verifiability: every article number is checkable
+
+Core upgrade: turned "can the user verify this answer line by line?" into a hard constraint. Added source discipline, provenance markers and Q&A discipline; gave the retriever a negation/positional-term exemption; added a citation-audit function and provenance-trap tests.
+
+- **Source discipline**: article numbers may only come from the retrieved `title` (Song edition); if the lecture covers only "heavy sweating, great thirst, large pulse", write only those three — never back the Shang Han Lun claim with the Wen Bing Tiao Bian "four great signs"; formula-library summaries are not Master Ni's words
+- **Provenance markers**: inline `〔傷寒論講稿·九六〕`, `〔金匮要略講稿·呕而发热〕`, `case #N` — every citation traceable
+- **Unified numbering**: index `title` prefix = Song-edition number, used in all user-facing output; `modules/`'s "article N" is a lecture-order number (offset from the Song edition) and is for internal lookup only
+- **Retriever**: negation terms (no thirst / no sweat / no aversion to cold) and positional terms (left side / abdomen / morning) enter the priority tier and bypass the free-ratio filter — holdout 12/13 → **13/13**
+- **Citation audit**: `unverified_formulas()` flags formulas in the answer with no retrieved basis; flags only, never blocks
+- **Provenance-trap tests**: `test_source_discipline.py` checks sentence by sentence whether later-era concepts are attributed to the Shang Han Lun; negation and rhetorical-question exemptions included; 14/14 passing
+- **Dosage verification**: retrieval snippets are truncated at 520 chars, so formula dosages must be re-checked character by character against the original formula line in `modules/`
+- **Validation**: `--selftest` pass, holdout 13/13, differential 42/42, provenance 14/14; three rounds of independent agent verification passed progressively
+
+---
 
 #### v2.3.0 (2026-08-15) — Full dosology correction + expression restoration + classical-formula card system + rigor-first differentiation
 

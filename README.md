@@ -9,12 +9,12 @@
 `129条伤寒论+太阳下篇阳明篇补齐` · `23篇金匮` · `72篇黄帝内经` · `374种本草` · `1,257例结构化医案+243例叙事` · `2,452页讲义` · `3.5M字精萃`
 
 [![GitHub Stars](https://img.shields.io/github/stars/jangviktor-web/nihaixia?style=for-the-badge&color=yellow&label=Stars)](https://github.com/jangviktor-web/nihaixia/stargazers)
-[![版本](https://img.shields.io/badge/版本-v2.3.0-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia/releases)
+[![版本](https://img.shields.io/badge/版本-v2.3.3-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia/releases)
 [![License](https://img.shields.io/badge/协议-MulanPSL--2.0-green?style=for-the-badge)](LICENSE)
 [![Agent Skills Standard](https://img.shields.io/badge/Agent%20Skills%20Standard-Ready-orange?style=for-the-badge&logo=openai&logoColor=white)]()
 [![Multi-Runtime](https://img.shields.io/badge/Multi--Runtime-5个-purple?style=for-the-badge)](#安装)
 
-**🌐 [中文](https://github.com/jangviktor-web/nihaixia/blob/main/README.md) | [English](https://github.com/jangviktor-web/nihaixia/blob/main/README_EN.MD)**
+**🌐 [中文](https://github.com/jangviktor-web/nihaixia/blob/main/README.md) | [English](https://github.com/jangviktor-web/nihaixia/blob/main/README_EN.MD) | [日本語](https://github.com/jangviktor-web/nihaixia/blob/main/README_JA.md) | [한국어](https://github.com/jangviktor-web/nihaixia/blob/main/README_KO.md)**
 
 </div>
 
@@ -99,6 +99,8 @@ cp -r nihaixia/ ~/.openclaw/skills/nihaixia/
 |斯坦福大学演讲 + 弟子经验|✅|从感冒一路治到癌症/经方入门三步走/李宗恩杨贞弟子实录/望诊总结+诊病十问/常用压痛点/胆肾结石专方|
 | 闭门课 | ✅ | 7大重病专题+7堂弟子课，血癌/乳癌/脑瘤等 |
 | 口述表达 | ✅ | 倪海厦口语风格模块，回复"像"倪师 |
+| **可考据性** | ✅ | **条文号统一宋本编号（可拿任何一本宋本逐条核验）+ 出处纪律（禁止把后世概念归给《伤寒论》）+ 出处审计（自动挑出无据方名）+ 考据陷阱判据 14/14（v2.3.3 新增）** |
+| **检索器可复现** | ✅ | `scripts/nishi_retrieve.py` 纯 stdlib，确定性检索；`--selftest` 自检 + 三套回归（holdout 13/13、鉴别 42/42、考据 14/14） |
 
 ---
 
@@ -304,6 +306,21 @@ nihaixia/
 
 <details>
 <summary><b>点击展开完整更新日志</b></summary>
+
+#### v2.3.3 (2026-11-27) — 出处纪律与可考据性：条文号可核验
+
+核心升级：把「回答能不能被用户逐条核验」变成硬约束。新增出处纪律、溯源标记、问答纪律；检索器补否定词/方位词豁免；加出处审计函数与考据陷阱判据。
+
+- **出处纪律**：条文号只取检索返回的 `title`（宋本编号）；讲稿只讲「大汗出、大烦渴、脉洪大」就只写这三个，不得拿《温病条辨》「四大症」给《伤寒论》背书；方剂库摘要非倪师原话
+- **溯源标记**：行内写 `〔伤寒论讲稿·九六〕`、`〔金匮要略讲稿·呕而发热〕`、`医案 #序号`，可逐条回查
+- **编号统一**：索引 `title` 前缀＝宋本编号，面向用户一律用它；`modules/` 的「条文N」是讲稿顺序号（与宋本错位），只作内部定位，不得写进回答
+- **检索器**：否定词（不渴／无汗／不恶寒）与方位词（左边／肚子／早上）进 priority 档豁免自由率——holdout 12/13 → **13/13**
+- **出处审计**：`unverified_formulas()` 挑出回答中无检索依据的方名，只标注不拦截
+- **考据陷阱判据**：`test_source_discipline.py` 按句判后世概念是否被归给《伤寒论》，含否定式与反问豁免，14/14 通过
+- **剂量核对**：检索片段按 520 字截断，方剂剂量必须回 `modules/` 搜方名取原方行逐字核对
+- **验证**：`--selftest` 通过、holdout 13/13、differential 42/42、考据 14/14；3 轮独立 agent 验证递进通过（v1 抓到剂量误判 → v2 抓到编号混入 → v3 全通过）
+
+---
 
 #### v2.3.0 (2026-08-14) — 达尔文安全机制重构：固定免责框 + 给方优先级铁律
 
