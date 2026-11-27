@@ -33,12 +33,16 @@ MAX_HITS = 8
 #    （左边/右边/肚子/手心/脚心/腿软/早上/晚上 在讲稿口语段里常黏在邻字上），
 #    以及 3-gram 拼接漏杀（扎右边、便黄）。调阈值前先看那份报告，别单点调。
 FREE_MIN = 0.5
+# P1-2/P1-3 (2026-11-27)：否定词与方位/身体/时段词口语里常黏邻字，free_ratio 系统性误杀。
+# 这些词进 priority 档（tier=0）天然豁免过滤；只取提问里实际出现的，不按词表硬塞。
+EXEMPT_TERMS = (
+    "不渴", "无汗", "不恶寒", "不汗出", "不下利", "不呕", "不烦",
+    "左边", "右边", "肚子", "手心", "脚心", "腿软", "早上", "晚上",
+)
 # TODO(性能)：prepare() 158ms/问，free_ratio 约占 60ms，因为每个候选词都要扫一遍
 #   索引。词表有限（keywords_for 上限 32 个），可按词做进程内缓存
 #   （_CACHE["free"]），跨进程持久化没必要。本轮不做。
-# TODO(P1-2 否定语义)：「不渴」「无汗」「不恶寒」这类否定词的自由率未必高，会被
-#   free_ratio 误判成拼接词踢掉。做否定语义那次改动时，否定词必须进 priority 档
-#   **豁免过滤**（与方名同级），否则否定语义还没生效就先被过滤层吃掉。本轮不动。
+# P1-2/P1-3 (2026-11-27 完成)：否定词与方位/身体词见 EXEMPT_TERMS，进 priority 档豁免过滤。
 SNIPPET_SPAN = 200
 MAX_SNIPPET_CHARS = 520
 MAX_CONTEXT_CHARS = 3600
@@ -921,7 +925,8 @@ def prepare(q):
     aliases = match_aliases(q)
     priority = ([e["a"] for e in aliases if e.get("k") == "gujin"]
                 + extract_formula_names(q)
-                + symptom_terms(q))
+                + symptom_terms(q)
+                + [w for w in EXEMPT_TERMS if w in q])
 
     case_formulas = []
     for c in cases:
