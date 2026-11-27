@@ -195,15 +195,15 @@ Taiyin (spleen cold) → Shaoyin (heart-kidney yang deficiency) → Jueyin (yin-
 
 **Basic Application of Six-Meridian Differentiation**
 
-<img width="729" alt="1" src="https://github.com/user-attachments/assets/5d874838-9339-40cd-ae47-70c153c9c57a" />
+<img width="900" alt="Six-meridian differentiation: from symptoms to formula" src="docs/images/demo_six_meridian.webp" />
 
 **Six-Meridian Transmission Rules**
 
-<img width="729"  alt="2" src="https://github.com/user-attachments/assets/79c5c8fc-2894-4ecf-8988-42fa0dd354d6" />
+<img width="900" alt="Six-meridian transmission: where it goes after sweating" src="docs/images/demo_transmission.webp" />
 
 **Daily Health Preservation and Dietary Contraindications**
 
-<img width="729" alt="3" src="https://github.com/user-attachments/assets/70a37746-0d15-4839-aab4-f5fe0e37b8f6" />
+<img width="900" alt="Dietary contraindication: why not milk" src="docs/images/demo_diet.webp" />
 
 </div>
 

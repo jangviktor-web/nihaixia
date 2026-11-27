@@ -122,6 +122,21 @@ cp -r nihaixia ~/.openclaw/skills/
 
 </div>
 
+### 고전 변증
+
+<div align="center">
+
+**육경변증의 기본 응용**
+<img width="900" alt="육경변증: 증상에서 방증으로" src="docs/images/demo_six_meridian.webp" />
+
+**육경 전변의 법칙**
+<img width="900" alt="육경 전변: 발한 후 어디로 가는가" src="docs/images/demo_transmission.webp" />
+
+**일상 양생과 음식 금기**
+<img width="900" alt="음식 금기: 왜 우유를 마시지 않는가" src="docs/images/demo_diet.webp" />
+
+</div>
+
 ---
 
 ## 핵심 지식 체계

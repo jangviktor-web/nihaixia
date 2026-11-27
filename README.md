@@ -167,13 +167,13 @@ cp -r nihaixia/ ~/.openclaw/skills/nihaixia/
 <div align="center">
 
 **六经辨证基础应用**
-<img width="729" alt="六经辨证" src="https://github.com/user-attachments/assets/98af88a7-fbaa-4a50-ac63-7f10e8c61dbe" />
+<img width="900" alt="六经辨证：从症状到方证" src="docs/images/demo_six_meridian.webp" />
 
 **六经传变规律**
-<img width="726" alt="六经传变" src="https://github.com/user-attachments/assets/af0fb0c1-944b-4846-8dc2-4aaa2bc5b531" />
+<img width="900" alt="六经传变：汗后不解往哪走" src="docs/images/demo_transmission.webp" />
 
 **日常养生与饮食禁忌**
-<img width="731" alt="饮食养生" src="https://github.com/user-attachments/assets/7c252c14-9497-4a94-be31-4a9670df3afb" />
+<img width="900" alt="饮食禁忌：为什么牛奶不喝" src="docs/images/demo_diet.webp" />
 
 </div>
 

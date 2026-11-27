@@ -122,6 +122,21 @@ cp -r nihaixia ~/.openclaw/skills/
 
 </div>
 
+### 古典弁証
+
+<div align="center">
+
+**六経弁証の基本応用**
+<img width="900" alt="六経弁証：症状から方証へ" src="docs/images/demo_six_meridian.webp" />
+
+**六経伝変の法則**
+<img width="900" alt="六経伝変：発汗後どこへ行くか" src="docs/images/demo_transmission.webp" />
+
+**日常養生と飲食の禁忌**
+<img width="900" alt="飲食禁忌：なぜ牛乳を飲まないか" src="docs/images/demo_diet.webp" />
+
+</div>
+
 ---
 
 ## 核心知識体系
