@@ -346,26 +346,29 @@ a:hover{color:var(--white)}
     <div class="install-grid">
       <div class="install-card">
         <h4>ClawHub <span class="badge">推荐</span></h4>
-        <pre>openclaw skills install @jangviktor-web/nihaixia </pre>
+        <pre>npm install -g clawhub && clawhub login
+clawhub install nihaixia</pre>
       </div>
       <div class="install-card">
         <h4>SkillHub（腾讯云）</h4>
-        <pre>请根据 https://skillhub.cn/install/skillhub.md，安装 @user_ff4d9420/nihaixia-pro。 </pre>
+        <pre>curl -fsSL https://skillhub.cn/install/install.sh \
+  | bash -s -- --no-skills
+skillhub install nihaixia-pro</pre>
       </div>
       <div class="install-card">
         <h4>OpenClaw</h4>
-        <pre>npx skills add https://clawhub.ai/jangviktor-web/skills/nihaixia </pre>
+        <pre>npm install -g openclaw
+openclaw skills install nihaixia</pre>
       </div>
       <div class="install-card">
         <h4>OpenClawMP</h4>
-        <pre>openclaw skills install @jangviktor-web/nihaixia</pre>
+        <pre>npm install -g openclawmp
+openclawmp install skill/c03b361cb99d4b4ebc6cd17f361741ba</pre>
       </div>
       <div class="install-card">
         <h4>手动安装</h4>
         <pre>git clone https://github.com/jangviktor-web/nihaixia.git
-cp -r nihaixia/ ~/.claude/skills/nihaixia/
-把github“https://github.com/jangviktor-web/nihaixia”项目安装到本地skill
-</pre>
+cp -r nihaixia/ ~/.claude/skills/nihaixia/</pre>
       </div>
       <div class="install-card">
         <h4>手机端 IMA APP</h4>
@@ -408,7 +411,7 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 <footer class="footer">
   <div class="footer-links">
     <a href="https://github.com/jangviktor-web/nihaixia">GitHub</a>
-    <a href="https://clawhub.ai/jangviktor-web/skills/nihaixia">ClawHub</a>
+    <a href="https://clawhub.ai/skills/nihaixia">ClawHub</a>
     <a href="https://skillhub.cloud.tencent.com/skills/nihaixia-pro">SkillHub</a>
     <a href="https://github.com/jangviktor-web/nihaixia-app">Android APP</a>
     <a href="https://github.com/jangviktor-web/nihaixia/blob/main/LICENSE">MulanPSL-2.0</a>
@@ -419,8 +422,8 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 
 <!-- Star History -->
 <section style="padding:40px 20px;text-align:center;background:var(--bg)">
-  <a href="https://repostars.dev/?repos=jangviktor-web%2Fnihaixia&theme=grape" target="_blank">
-    <img src="https://repostars.dev/api/embed?repo=jangviktor-web%2Fnihaixia&theme=grape" alt="RepoStars" style="max-width:100%;height:auto;opacity:.85">
+  <a href="https://star-history.com/#jangviktor-web/nihaixia&Date">
+    <img src="https://api.star-history.com/svg?repos=jangviktor-web/nihaixia&type=Date" alt="Star History Chart" style="max-width:100%;height:auto;opacity:.85">
   </a>
 </section>
 

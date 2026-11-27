@@ -2,26 +2,19 @@
 
 <img width="120" src="logo.jpg" alt="倪海厦skill Logo">
 
-# 倪海厦Skill · 经方中医AI
+# 倪海厦skill · 经方中医AI
 
 **将经方大师倪海厦的完整中医思维体系注入 AI Agent**
 
-`129条伤寒论` · `23篇金匮` · `72篇黄帝内经` · `神农本草经374种本草（上137/中110/下127）` · `1257 例结构化医案 + 243 例叙事医案` · `2,452页讲义` · `3.5M字精萃`
-
-<a href="https://trendshift.io/repositories/108262?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-108262" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/108262/daily?language=HTML" alt="jangviktor-web%2Fnihaixia | Trendshift" width="250" height="55"/></a>
-<a href="https://trendshift.io/repositories/108262?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-108262" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/108262/weekly?language=HTML" alt="jangviktor-web%2Fnihaixia | Trendshift" width="250" height="55"/></a>
-<a href="https://trendshift.io/repositories/108262?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-108262" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/108262/monthly?language=HTML" alt="jangviktor-web%2Fnihaixia | Trendshift" width="250" height="55"/></a>
-
+`129条伤寒论+太阳下篇阳明篇补齐` · `23篇金匮` · `72篇黄帝内经` · `374种本草` · `1,257例结构化医案+243例叙事` · `2,452页讲义` · `3.5M字精萃`
 
 [![GitHub Stars](https://img.shields.io/github/stars/jangviktor-web/nihaixia?style=for-the-badge&color=yellow&label=Stars)](https://github.com/jangviktor-web/nihaixia/stargazers)
-[![ClawHub](https://img.shields.io/badge/腾讯云skillhub-安装倪海厦SKILL-green?style=for-the-badge)](https://skillhub.cn/skills/user_ff4d9420/nihaixia-pro)
-[![版本](https://img.shields.io/badge/版本-v2.3.1-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia/releases)
-[![中医思维蒸馏器](https://img.shields.io/badge/中医思维蒸馏器-v4.4.0-red?style=for-the-badge)](https://github.com/jangviktor-web/tcm-distiller)
+[![版本](https://img.shields.io/badge/版本-v2.3.3-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia/releases)
 [![License](https://img.shields.io/badge/协议-MulanPSL--2.0-green?style=for-the-badge)](LICENSE)
 [![Agent Skills Standard](https://img.shields.io/badge/Agent%20Skills%20Standard-Ready-orange?style=for-the-badge&logo=openai&logoColor=white)]()
 [![Multi-Runtime](https://img.shields.io/badge/Multi--Runtime-5个-purple?style=for-the-badge)](#安装)
 
-**🌐 [中文](https://github.com/jangviktor-web/nihaixia/blob/main/README.md) | [English](https://github.com/jangviktor-web/nihaixia/blob/main/README_EN.MD)**
+**🌐 [中文](https://github.com/jangviktor-web/nihaixia/blob/main/README.md) | [English](https://github.com/jangviktor-web/nihaixia/blob/main/README_EN.MD) | [日本語](https://github.com/jangviktor-web/nihaixia/blob/main/README_JA.md) | [한국어](https://github.com/jangviktor-web/nihaixia/blob/main/README_KO.md)**
 
 </div>
 
@@ -39,82 +32,50 @@
 
 ## 快速安装
 
-<details>
-<summary><b>SkillHub（腾讯云·推荐）已更新至V2.3.1版本可复制下面文字到agent更新</b></summary>
+<details open>
+<summary><b> ClawHub（推荐）</b></summary>
 
 ```bash
-
-请根据 https://skillhub.cn/install/skillhub.md，安装 @user_ff4d9420/nihaixia-pro。
-
+openclaw skills install @jangviktor-web/nihaixia
 ```
 </details>
 
 <details>
-<summary><b>手动安装</b></summary>
+<summary><b>SkillHub（腾讯云）</b></summary>
 
 ```bash
+curl -fsSL https://skillhub.cn/install/install.sh | bash -s -- --no-skills
+skillhub install nihaixia-pro
+```
+</details>
 
-# 手动
+<details>
+<summary><b>OpenClaw / 手动安装</b></summary>
+
+```bash
+# OpenClaw
+openclaw skills install @jangviktor-web/nihaixia
+
+
+# 手动安装（复制到任意 runtime 的 skills 目录）
 git clone https://github.com/jangviktor-web/nihaixia.git
-cp -r nihaixia/ ~/.claude/skills/nihaixia/
-把github“https://github.com/jangviktor-web/nihaixia”项目安装到本地skill
-
+# 示例：OpenClaw → ~/.openclaw/skills/ ；Claude Code → ~/.claude/skills/ ；Codex → ~/.codex/skills/
+cp -r nihaixia/ ~/.openclaw/skills/nihaixia/
 ```
 </details>
 
 <details>
-<summary><b>手机端（腾讯 IMA APP）（平台商场已更新至V2.3.1，直接到IMA SKILL 商场更新即可)</b></summary>
+<summary><b>手机端（腾讯 IMA APP）</b></summary>
 
-### 第一步 直接在imaSkill商店下载旧版
+下载腾讯 IMA APP，扫描下面知识码，无需配置直接使用。
 
-<img width="2200"  alt="03" src="https://github.com/user-attachments/assets/de39de98-60d2-40a5-ae1a-2a5ca55b693d" />
+<img width="200"  alt="【倪海厦】知识码" src="https://github.com/user-attachments/assets/fb4fb05c-fc21-41fe-941e-c820ec16b750" />
 
 倪海厦skill腾讯ima地址： https://ima.qq.com/skill?shareId=70e35c8a24ed4c01a0986f9e3c83f3d1&from=share
 
-### 第二步 调用方法：
-
-<img width="3000"  alt="1000013924" src="https://github.com/user-attachments/assets/79ac68b1-cf18-47fe-ab32-1f876c5394f9" />
-<img width="3000"  alt="1000013923" src="https://github.com/user-attachments/assets/9746a3b0-fd37-49e2-8a3a-0d72a06a765a" />
-
-### 第三步 腾讯ima更新到V2.3.0方法（先复制腾讯SkillHub命令发给IMA Copilot更新）：
-```bash
-复制下面文字
-请根据 https://skillhub.cn/install/skillhub.md，安装 @user_ff4d9420/nihaixia-pro。
-
-```
-<img width="2411" height="1339" alt="01" src="https://github.com/user-attachments/assets/43e5f9b6-2eda-476b-9752-212780f271a2" />
-<img width="1808" height="1339" alt="02" src="https://github.com/user-attachments/assets/74a2a813-2d68-40ba-a200-dee07d7cb661" />
-
-</details>
-
-<details>
-<summary><b>历史版本下载</b></summary>
-
-#### v1.0.0  （更新日志：首个正式稳定版，基于开源项目二次开发，完整蒸馏倪海厦人纪系列核心内容。）
-下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive/refs/tags/v1.0.0.zip
-#### v1.1.0 （更新日志：神农本草经药性体系、伤寒论、金匮要略深度蒸馏 + 全模块检索链路修复）
-下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive/refs/tags/v1.1.0.zip   
-#### v2.0.1版本 （更新日志：更新245 例医案按疾病索引）
-下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive/refs/tags/v2.0.1.zip   
-#### v2.1.0版本 （更新日志：从知识库查询工具升级为具备六经辨证思维模式的临床诊断助手。）
-下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive/refs/tags/v2.1.0.zip
-#### v2.2.0版本  （更新日志：核心升级：新增结构化速查层与三场倪师重要演讲，SKILL.md 入口植入开阖枢图/原穴全表/五输穴公式等六大速查块，六十四卦从简洁列表升级为完整人事应用百科。）
-下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive/refs/tags/V2.2.0.zip
-#### V2.2.1版本  （更新日志：索引体系重构）
-下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/archive/refs/tags/V2.2.1.zip
-#### V2.2.2版本  （更新日志：完成伤寒金匮 258 方逐条剂量提取与两轮复核，修正通行本与倪师授课原版剂量偏差、模块硬错误、速查表错乱、源文件行号标注错误，整改勘误表自身误判漏判，提升方剂剂量原始数据准确率。）
-下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/V2.2.1/nihaixia_skill_20260813.V2.2.2tar.gz
-#### V2.2.3版本  （更新日志：方剂数据补全、遗方增补与版本口径统一：批量补齐多方剂缺失的古代原方剂量、倪师临床剂量与规范方行，增补差后劳复、金匮附方共计7类未收录方剂并标注史料来源边界，统一处理全书多处方剂古今版本分歧，固化桃花汤等方剂的倪师标准解读口径，规范版本差异备注规则，仅保留5处源文件无记载遗留项。）
-下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/V2.2.1/nihaixia_skill_20260813_v2.2.3.tar.gz
-#### V2.2.4版本  （更新日志：批量补齐缺失古方、临床剂量与方行文本，增补差后劳复、金匮附方遗方，统一多方剂版本分歧与解读口径；重构三套度量衡换算体系，固化倪师临床直换开方铁律，重写感冒经方速查表，厘清各换算体系使用边界，规避判定误判。）
-下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/V2.2.1/nihaixia_skill_20260813_v2.2.4.tar.gz
-#### V2.2.8d版本 （更新日志：完成 7 处核心改动与 R1‑R8 补修，将经方条文卡片触发规则前移置顶，新增方剂出卡对账校验实现首次出现即出卡，落实会话级断言短语去重与断言池轮换，同步修正范例矛盾、触发口径、失效编号引用等细节，解决漏卡与模板复用缺陷。）
-下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/V2.3.0/nihaixia_skill_20260815_v2.2.8d.tar.gz
-#### V2.3.0版本 （更新日志：完成 258 方剂量全量勘误与三体系换算固化；修复新版输出学术化问题（倪师味还原）；上线经方条文卡片体系并前移到回答前必读区；新增辨证严谨优先铁律与卡片版本标注、中文编号防混机制。）
-下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/V2.3.0/nihaixia_skill_20260815_v2.3.0.tar.gz
-#### 🆕V2.3.1版本🆕 （更新日志：重构输出格式为 "优化版"—— 口语叙述为主体 + 表格 / 加粗标注重点，每答必达；置顶速查卡四查升级为八查并新增 ✅/❌ 双错误示范；固化表格完整性铁律（主证表症状逐条独立成行、涉方必出剂量对照、鉴别回归完整格式）
-下载地址：https://ghproxy.net/https://github.com/jangviktor-web/nihaixia/releases/download/v2.3.1/nihaixia-2.3.1.zip
-
+调用方法：
+<img width="3085"  alt="1000013924" src="https://github.com/user-attachments/assets/79ac68b1-cf18-47fe-ab32-1f876c5394f9" />
+<img width="3085"  alt="1000013923" src="https://github.com/user-attachments/assets/9746a3b0-fd37-49e2-8a3a-0d72a06a765a" />
 </details>
 
 
@@ -126,11 +87,11 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 |:---|:---:|:---|
 | 六经辨证 | ✅ | 太阳/阳明/少阳/太阴/少阴/厥阴，传变规律+欲解时 |
 | **六经辨证诊断公式** | ✅ | **8个诊断公式+快速诊断流程图+脉舌速查+七步走思维模式（v2.1.0新增）** |
-| 经方选药 | ✅ | 伤寒论129条+金匮23篇，含组成/剂量/煎服法/禁忌 |
-| 药物性味 | ✅ | 神农本草经345种，三品分类+五味归经+炮制要点 |
-| 临床医案 | ✅ | 849例倪师真实医案，按癌症/心血管/代谢病等6类分类 |
+| 经方选药 | ✅ | 伤寒论129条+太阳下篇阳明篇补齐+金匮23篇，含组成/剂量/煎服法/禁忌 |
+| 药物性味 | ✅ | 神农本草经374种，三品分类+五味归经+炮制要点 |
+| 临床医案 | ✅ | 1,257例结构化医案+243例分类叙事医案，按癌症/心血管/代谢病等7类分类 |
 | 针灸穴位 | ✅ | 十二经络+井荣俞经合+任督要穴+中风急救 |
-| 黄帝内经 | ✅ | 71篇完整蒸馏，中医基础理论核心 |
+| 黄帝内经 | ✅ | 72篇完整蒸馏，中医基础理论核心 |
 | 天纪命理 | ✅ | 紫微斗数+易经六十四卦+阳宅风水 |
 | 梁冬对话 | ✅ | 2009年7期完整录音蒸馏，现代话题观点 |
 |第三届扶阳论坛演讲|✅|扶阳理论/阴虚→阳虚→阴实传变链/红斑狼疮血癌脑瘤临床重案/生附子生硫黄分类应用|
@@ -138,6 +99,8 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 |斯坦福大学演讲 + 弟子经验|✅|从感冒一路治到癌症/经方入门三步走/李宗恩杨贞弟子实录/望诊总结+诊病十问/常用压痛点/胆肾结石专方|
 | 闭门课 | ✅ | 7大重病专题+7堂弟子课，血癌/乳癌/脑瘤等 |
 | 口述表达 | ✅ | 倪海厦口语风格模块，回复"像"倪师 |
+| **可考据性** | ✅ | **条文号统一宋本编号（可拿任何一本宋本逐条核验）+ 出处纪律（禁止把后世概念归给《伤寒论》）+ 出处审计（自动挑出无据方名）+ 考据陷阱判据 14/14（v2.3.3 新增）** |
+| **检索器可复现** | ✅ | `scripts/nishi_retrieve.py` 纯 stdlib，确定性检索；`--selftest` 自检 + 三套回归（holdout 13/13、鉴别 42/42、考据 14/14） |
 
 ---
 
@@ -184,23 +147,106 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 
 ## 效果演示
 
+### v2.3.3 · 可考据性
+
 <div align="center">
 
-# 六经辨证基础应用
-<img width="992" height="808" alt="图1_compressed" src="https://github.com/user-attachments/assets/791a3053-fc0e-4ea6-a4d5-a3d8a9f80b6e" />
+**同一个问题，两种答法：条文号能不能拿宋本对上**
+<img width="900" alt="v2.3.3 可考据性对比" src="docs/images/v233_verifiability.webp" />
 
+**溯源标记：每个出处都能落地**
+<img width="900" alt="溯源标记特写" src="docs/images/v233_provenance_chain.webp" />
 
+**检索器回归：四套全绿**
+<img width="880" alt="检索器回归仪表" src="docs/images/v233_regression_dashboard.webp" />
 
-# 六经传变规律
-<img width="992" height="808" alt="图2_compressed" src="https://github.com/user-attachments/assets/314dabce-0554-4765-bf53-203e276d2813" />
+</div>
 
+### 经典辨证
 
-# 日常养生与饮食禁忌
-<img width="992" height="836" alt="图3_compressed" src="https://github.com/user-attachments/assets/e44968de-983e-458d-929f-6e90f63c6490" />
+<div align="center">
+
+**六经辨证基础应用**
+<img width="900" alt="六经辨证：从症状到方证" src="docs/images/demo_six_meridian.webp" />
+
+**六经传变规律**
+<img width="900" alt="六经传变：汗后不解往哪走" src="docs/images/demo_transmission.webp" />
+
+**日常养生与饮食禁忌**
+<img width="900" alt="饮食禁忌：为什么牛奶不喝" src="docs/images/demo_diet.webp" />
 
 </div>
 
 ---
+
+## 相关项目
+
+<div align="center">
+
+### [汉唐中医 · 安卓诊断 APP](https://github.com/jangviktor-web/nihaixia-app)
+
+同一个知识库，独立的安卓应用。离线可用，完全免费。
+
+[![Download APK](https://img.shields.io/badge/下载-APK-green?style=for-the-badge&logo=android)](https://github.com/jangviktor-web/nihaixia-app/releases/latest)
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=for-the-badge)](https://github.com/jangviktor-web/nihaixia-app)
+
+| 六经辨证诊断 | 271首方剂速查 | 345味药物速查 | 子午流注取穴 |
+|:---:|:---:|:---:|:---:|
+| 智能问诊引导 | 搜索+六经筛选 | 性味归经分类 | 361穴时间推算 |
+
+</div>
+
+<div align="center">
+         
+### [李可skill · 急危重症中医AI](https://github.com/jangviktor-web/likeskill)
+
+李可老中医（1930-2013）急危重症思维操作系统。395个医案、170+首方剂、92种症状路由、25种假证识别。
+
+与倪海厦skill互补：倪海厦覆盖全科教学（849医案），李可专注急危重症实战（附子最大750g）。
+
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=flat-square&logo=github)](https://github.com/jangviktor-web/likeskill)
+[![ClawHub](https://img.shields.io/badge/ClawHub-install%20like-green?style=flat-square)](https://clawhub.ai/jangviktor-web/skills/like)
+
+| 破格救心汤 | 假证识别25种 | 圆运动理论 | 经方剂量体系 |
+|:---:|:---:|:---:|:---:|
+| 附子30-750g | 假阳证24+假阴证1 | 彭子益完整蒸馏 | 汉代一两=15.625g |
+
+</div>
+
+<div align="center">
+
+### [胡希恕skill · 经方中医AI](https://github.com/jangviktor-web/huxishu)
+
+将胡希恕（1898-1984）的经方临床思维、六经八纲辨证体系、方证对应心法蒸馏为可激活的 Agent Skill，使 AI 能以胡希恕的视角进行六经辨证、方证鉴别、临床选方。
+
+胡希恕被誉为"经方传道第一人"，其"六经来自八纲"的创见是对《伤寒论》辨证体系最清晰的解读，直接影响了冯世纶等当代经方名家。
+
+与倪海厦skill互补：倪海厦覆盖全科教学（849医案），胡希恕是经方传道第一人，是对《伤寒论》辨证体系最清晰的解读。
+
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=flat-square&logo=github)](https://github.com/jangviktor-web/huxishu)
+[![ClawHub](https://img.shields.io/badge/ClawHub-install%20huxishu-green?style=flat-square)](https://clawhub.ai/jangviktor-web/skills/huxishu)
+
+</div>
+
+<div align="center">
+
+### [温病派吴鞠通skill · 温病派中医AI](https://github.com/jangviktor-web/wujutong)
+**吴鞠通**（1758-1836）——温病学派集大成者，三焦辨证 + 卫气营血，359 医案 45 病证，自称"羽翼伤寒"，以"津液的存亡"为核心，温病禁汗、甘寒存津，护阴第一。
+
+| 维度 | 倪海厦（经方） | 吴鞠通（温病派） |
+|------|--------------|--------------|
+| **辨证** | 六经（看深浅） | 三焦（看部位） |
+| **治法核心** | 驱邪外出 | 存津液 |
+| **汗法** | 该汗则汗 | 温病禁汗 |
+| **方剂** | 药少力专（麻黄/附子/乌头） | 药多面广（银翘/白虎/复脉） |
+| **医案** | 849 案全科 | 359 案温病+杂病 |
+
+**互补关系**：倪海厦修水龙头（温阳化湿治本），吴鞠通扫积水（清湿护津治标）——一纵一横，急性期从吴、缓解期从倪，合观乃得中医外感病全貌。
+
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-blue?style=flat-square&logo=github)](https://github.com/jangviktor-web/wujutong)
+[![ClawHub](https://img.shields.io/badge/ClawHub-install%20wujutong-green?style=flat-square)](https://clawhub.ai/jangviktor-web/skills/wujutong)
+
+</div>
 
 
 ## 数据来源
@@ -221,8 +267,6 @@ cp -r nihaixia/ ~/.claude/skills/nihaixia/
 | 汉唐文章集锦 | 383 页 | 670K | 10 篇蒸馏 |
 | 倪海厦文集 | 139 页 | 234K | 8 则医案蒸馏 |
 | **合计** | **2,452 页** | **3.5M** | |
-
-
 
 </details>
 
@@ -277,84 +321,43 @@ nihaixia/
 
 ## 更新日志
 
-
-#### v2.3.1 (2026-08-19) — 输出格式优化版：重点好找 + 倪师口吻兼得
-
-核心升级：根据用户反馈（"输出整段文字重点难找，希望像 v2.1.0 那样有格式区分"），重构输出格式规则为"折中版"——**口语叙述为主体 + 表格/加粗标注重点**，既保留倪师口吻温度，又让辨证结论、鉴别、剂量、禁忌一眼可找。所有改动经 3 独立评审盲测验证，零败绩。
-
-改动内容：
-
-#### 输出格式折中版（08-19a）
-- 14b 由"禁止表格/编号"改为"折中版"：正文口语叙述是主体，**每答必达至少 1 个表格或加粗要点块**标注重点（主证表/剂量对照/⚠️注意），无则违规重写
-- 置顶速查卡四查升级为**八查**：新增"表格必达""表格行全""辨证行模板""防重复"四项自检
-- 新增✅/❌双错误示范："只有口语无表格/卡片=错误示范二"，正反双向锚定边界
-
-#### 表格完整性铁律（08-19b）
-- 吸收 v2.1.0"表格行全"优点并固化为显式规则：**主证表症状逐条独立成行**（禁止挤行合并，如"口渴引饮、脉洪大"必须拆两行，与知识库条目逐条对齐）
-- 涉方必出剂量对照（药名+剂量逐味）；⚠️注意/禁忌加粗必达
-- 鉴别改用 **v2.1.0 原生格式**：粗体"XX vs YY 的鉴别"标题 + 项目符号列表，不用表格（用户定稿）
-
-#### 辨证行模板 + 防重复条款（08-19c）
-- 辨证行统一模板：`**辨证：{证型}（{病机}·{方名}证）**`（如"**辨证：脏躁证（心神失养、脏阴不足·甘麦大枣汤证）**"）
-- 防重复条款：同一要点只写一次，"**注意**：X"整句复制两遍=违规；倪师原话用括注并入一行
-- README 运行时中立化：移除单一 runtime badge，改为 Agent Skills Standard + Multi-Runtime
-
-验证：40+ 道经方辨证题（本地 10 + 联网 30+）双版本盲测，折中版 **100+ 比 0 全胜**；judge 一致评"口语开场+鉴别清单+断言收束+条文卡片"为必胜模板。
-
 <details>
 <summary><b>点击展开完整更新日志</b></summary>
 
-#### v2.3.0 (2026-08-15) — 剂量全量勘误 + 表达还原 + 经方卡片体系 + 辨证严谨优先
+#### v2.3.3 (2026-11-27) — 出处纪律与可考据性：条文号可核验
 
-核心升级：完成 258 方剂量全量勘误与三体系换算固化；修复新版输出学术化问题（倪师味还原）；上线经方条文卡片体系并前移到回答前必读区；新增辨证严谨优先铁律与卡片版本标注、中文编号防混机制。所有改动复查无负优化。
+核心升级：把「回答能不能被用户逐条核验」变成硬约束。新增出处纪律、溯源标记、问答纪律；检索器补否定词/方位词豁免；加出处审计函数与考据陷阱判据。
 
-改动内容：
+- **出处纪律**：条文号只取检索返回的 `title`（宋本编号）；讲稿只讲「大汗出、大烦渴、脉洪大」就只写这三个，不得拿《温病条辨》「四大症」给《伤寒论》背书；方剂库摘要非倪师原话
+- **溯源标记**：行内写 `〔伤寒论讲稿·九六〕`、`〔金匮要略讲稿·呕而发热〕`、`医案 #序号`，可逐条回查
+- **编号统一**：索引 `title` 前缀＝宋本编号，面向用户一律用它；`modules/` 的「条文N」是讲稿顺序号（与宋本错位），只作内部定位，不得写进回答
+- **检索器**：否定词（不渴／无汗／不恶寒）与方位词（左边／肚子／早上）进 priority 档豁免自由率——holdout 12/13 → **13/13**
+- **出处审计**：`unverified_formulas()` 挑出回答中无检索依据的方名，只标注不拦截
+- **考据陷阱判据**：`test_source_discipline.py` 按句判后世概念是否被归给《伤寒论》，含否定式与反问豁免，14/14 通过
+- **剂量核对**：检索片段按 520 字截断，方剂剂量必须回 `modules/` 搜方名取原方行逐字核对
+- **验证**：`--selftest` 通过、holdout 13/13、differential 42/42、考据 14/14；3 轮独立 agent 验证递进通过（v1 抓到剂量误判 → v2 抓到编号混入 → v3 全通过）
 
-#### 剂量体系全量勘误（08-13）
+---
 
-- 258 方逐味对照源文件（人纪伤寒论 5174 行 / 金匮要略 8920 行），分 5 批提取古代原方 + 倪师临床剂量
-- 修 P0 模块层硬错 5 处（橘皮竹茹汤 / 大黄附子汤 / 柴胡桂姜汤 / 栝蒌薤白半夏汤 / 射干麻黄汤）、补 P2 剂量 16 处、补 P3 未列方 7 方
-- 固化「古方一两 = 临床一钱」直换铁律，考古换算降级为仅参考原方规模
-- 感冒六大经方速查表重写为 4 列（主症 / 古方 / 临床），6 方全修；桃花汤双版本注
+#### v2.3.0 (2026-08-14) — 达尔文安全机制重构：固定免责框 + 给方优先级铁律
 
-#### 表达还原度修复（08-14）
+核心升级：修复 SKILL.md 安全条款自相矛盾（8处冲突），确立「正文零安全话术 + 文末固定免责框一次」机制，恢复倪师风格"给完整方剂"的默认行为。
 
-- SKILL.md 14b 禁定位 / 编号结构铁律 + expression_style 三范式（完整回答 / 问诊往返 / 调侃）
-- 解禁倪师式冗余、跑题、骂西医强度；废弃过时 03 表达 DNA
-- 酸枣仁汤芎䓖二两 → 芎藭一两；剂量授权谱区分原文实例与临床档位
+新增内容：
 
-#### 临床剂量全量补齐（08-14b）
+#### 安全机制重构（达尔文.skill 2.0 流程）
+- **固定免责框机制**：每题文末输出一次固定文案免责框（"本内容仅用于中医学习与学术研究，不构成医疗诊断、处方或个体化治疗建议"），正文零"请找中医师/建议就医"式话术
+- **免责框三版**：常规版（默认）/ 重症版（已确诊癌症/中风/心梗等）/ 急救版（急性发作），按主诉自动选择，每题且仅一次
+- **给方优先级裁决（铁律）**：常规辨证问诊必须给完整方剂（组成+剂量+煎服法+禁忌），禁止因安全顾虑只给方向不给方
+- **条款冲突修复**：统一 493⑤/519/522（安全提示位置）、1400（开场话术）、1408/1506/1508/1514（"不给处方"条款）为单一机制——"不给处方"仅约束怂恿自行抓药，不约束学术展示
+- **胸痹重症模板加固**：急性发作送医提示由急救版免责框承载，教学三层出方照常完整输出（部分命中仍三层全给）
 
-- 经方条文卡片规范（出处 + 原方 + 临床三行，临床行永不省，逐味独立判定口述 / 换算 / 常例）
-- 249 方临床剂量全量补齐（references/distilled/05、06 两表），全库仅杏子汤源阙
-- 柴胡加龙骨牡蛎汤确认无黄芩为版本差异非缺药；消肿溃坚汤补录
+#### 质量验证
+- 达尔文 9 维评分：72.7/100 → 重构后独立 judge 三场景（常规/重症/急救）审计通过
+- 独立验证：正文必给完整方、正文零安全话术、免责框文末一次
+- 旧话术 grep 全文零残留
 
-#### 方剂卡时机前移 + 断言会话级去重（08-15a）
-
-- 速查卡⑧卡片必出前移到回答前必读区；四查机制；出卡对账（正文方数 = 卡片数）
-- 断言会话级去重（9 短语池轮换，池尽间隔 ≥3 轮）；R1–R8 补修全落地
-- 修复断言池引号转义笔误
-
-#### 辨证严谨优先 + 卡片版本标注 + 编号防混（08-15b）
-
-- 辨证严谨优先于风格铁律（六经定位 → 关键追问 → 类证鉴别 → 方证对症，辨证错整答重写）
-- 「读者认为呢」降频至每答 ≤1 处、非必达、仅故事讲完后自然反问
-- 卡片标版本（倪师讲课版 / 金匮版 / 宋本三选一）；中文编号禁转阿拉伯（防误成宋本 N 条）
-- 大承气宋本对应修正为 208（原标约 220 错误）
-
-验证：30 题开放问诊对照 30 胜 0 输；5 题复测 7/7 全绿；9 维评审 90.0 vs 旧版 67.1（+22.9）。
-
-| 能力维度     | v2.2.0 |         v2.3.0         |
-| -------- | :----: | :--------------------: |
-| 经方条文卡片体系 |    无   |   有（14c 规范 + 速查卡⑧前移）   |
-| 临床剂量覆盖   |   未全量  |   258 方勘误 + 249 方临床全量  |
-| 表达还原范式   |    无   | 3 范式（完整回答 / 问诊往返 / 调侃） |
-| 辨证严谨铁律   |    无   |      有（14b 优先于风格）      |
-| 断言去重     |    无   |        会话级 9 短语池       |
-| 中文编号防混   |    无   |       有（讲课编号原样保留）      |
-| 卡片版本标注   |    无   |    有（讲课版 / 金匮版 / 宋本）   |
-
-
+---
 
 #### v2.2.0 (2026-08-12) — 知识库蒸馏速查 + 倪师演讲三讲 + 易经六十四卦全量升级
 
@@ -378,7 +381,6 @@ nihaixia/
 - 开阖枢总图：三阳（太阳开→少阳枢→阳明阖）+ 三阴（太阴开→少阴枢→厥阴阖）ASCII 可视化图
 - 伤寒论两大补虚方铁律：小建中汤（表阳虚，太阳兼太阴）+ 炙甘草汤（里阴虚，少阴阴阳两虚）
 - 十二经原穴全表：12 经 × 时辰 × 五行 × 原穴 +「肺寅大卯胃辰宫」口诀
-- 五输穴公式：井荥俞经合 × 阴阳经五行 + 主治法则口诀
 - 感冒六大经方速查：主症关键 + 剂量核心一图呈现
 - 素材路径索引：9 文件行数/适用场景速查表
 
@@ -427,7 +429,7 @@ nihaixia/
 - 倪海厦《金匮要略讲义》（人纪系列）
 
 **质量验证**：
-- 独立评估评分：9.4/10
+- 达尔文skill评分：9.4/10
 - 10个临床场景测试：10/10覆盖
 - 11个方剂剂量逐方核对：100%与源文件一致
 - 六经提纲条文核对：6条中5条完全一致，1条异体字差异
@@ -445,51 +447,7 @@ nihaixia/
 - **v1.0.0** (2026-04-14)：初版发布
 
 </details>
----
 
-## 相关项目 · 同源蒸馏更多.skill
-
-以下角色包都出自同一条流水线 [`中医思维蒸馏器`](https://github.com/jangviktor-web/tcm-distiller)（Pipeline A）。**选包看辨证坐标系，不看人名**——同样是中医，六经、卫气营血、三焦、气机升降是四套不同的定位法。
-
-| 项目 | 领域 · 坐标系 | 内核 | 正典规模 | 入口 |
-|:---|:---|:---|:---|:---|
-| **倪海厦**（本库） | 经方 · 六经辨证 | 六经八纲 + 258 方剂量全量勘误 + 倪师口吻还原 | 1,500+ 案 · 3.5M 字 · 2,452 页讲义 | [GitHub](https://github.com/jangviktor-web/nihaixia) · [SkillHub](https://skillhub.cn/skills/user_ff4d9420/nihaixia-pro) |
-| [胡希恕·中医思维Skill](https://github.com/jangviktor-web/huxishu) | 经方 · 六经来自八纲 | "六经来自八纲"——对《伤寒论》辨证体系最清晰的解读，方证对应 | 38 万字讲稿 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/huxisu) |
-| [黄元御·中医思维Skill](https://github.com/jangviktor-web/huangyuanyu) | 气机升降派 | 黄元御六气主客、彭子益圆运动 | 医书十一种 3.5 MB · 38,266 行 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/huangyuanyu)  |
-| [李可·中医思维Skill](https://github.com/jangviktor-web/likeskill) | 扶阳 · 急危重症 | 破格救心汤，附子 30–750g；25 种假证识别 | 395 案 · 170+ 方 · 92 症状路由 | [GitHub](https://github.com/jangviktor-web/likeskill)  |
-| [叶天士·中医思维Skill](https://github.com/jangviktor-web/ye-tianshi-skill) | 温病 · **卫气营血** | 四层深浅 + 养胃阴 + 阳化内风 + 久病入络 + 奇经八脉 | 四部原著 10,338 行 · 215 案 · 158 条病名映射 | [GitHub](https://github.com/jangviktor-web/ye-tianshi-skill) · [SkillHub](https://skillhub.cn/skills/user_ff4d9420/yetianshi) · [说明页](https://jangviktor-web.github.io/ye-tianshi-skill/) |
-| [吴鞠通·中医思维Skill](https://github.com/jangviktor-web/wujutong) | 温病 · 三焦辨证 | 三焦分部 + 津液存亡，自称"羽翼伤寒" | 4 部著作 · 359 案 45 病证 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/wujutong) |
-| [李白·诗作家思维Skill](https://github.com/jangviktor-web/libai-skill) | 文学 · 创作六步法 | 气→象→体→夸→断→尽；引诗 grep 可核，拟作必标非原作 | 25 卷 1,010 首 · 58 篇赏析 · 16 意象 | [GitHub](https://github.com/jangviktor-web/libai-skill) · [SkillHub](https://skillhub.cn/skills/user_ff4d9420/libai) · [说明页](https://jangviktor-web.github.io/libai-skill/) |
-| [曾仕强·传统国学思维Skill](https://github.com/jangviktor-web/zeng-shiqiang) | 管理 · 易学 | 修己 · 安人 · 圆通 · 持经 · 达变 · 合理 · 和谐（曾氏七标准） | 中国式管理 + 易经义理 + 道德经 | [SkillHub](https://skillhub.cn/skills/user_ff4d9420/zengshiqiang) |
-| [汉唐中医 · 安卓APP](https://github.com/jangviktor-web/nihaixia-app) | 安卓 APP | 同一知识库离线版，完全免费；智能问诊引导 + 六经筛选 | 322 方 · 448 药 · 408 穴 · 257 方+31 透针 · 紫微/64 卦/命卦 | [下载 APK](https://github.com/jangviktor-web/nihaixia-app/releases/latest) |
-
-### 外感病三派怎么选
-
-急性期从温病、缓解期从经方——**一纵一横，合观乃得中医外感病全貌**。倪海厦修水龙头（温阳化湿治本），叶吴扫积水（清湿护津治标）。
-
-| 维度 | 经方派（倪 / 胡） | 叶天士（卫气营血） | 吴鞠通（三焦） |
-|:---|:---|:---|:---|
-| 坐标系 | 六经 · 看深浅 | 卫气营血 · 看深浅（四段） | 三焦 · 看部位（上中下） |
-| 治法核心 | 驱邪外出 | 透热转气 · 存津液 | 分消三焦 · 存津液 |
-| 汗法 | 该汗则汗 | 温病忌汗，宜辛凉轻剂 | 温病禁汗，忌升提 |
-| 方剂风格 | 药少力专（麻黄 / 附子 / 乌头） | 轻灵甘寒，**银翘散·桑菊饮系吴方，非叶方** | 成套方（银翘散 / 白虎 / 复脉） |
-| 医案规模 | 849 案全科 | 215 案 | 359 案 45 病证 |
-
-### 流水线本身
-
-[`中医思维蒸馏器`](https://github.com/jangviktor-web/tcm-distiller) 不堆素材，而是把著作、讲稿、医案提炼成可被 AI 调用、还原真人辨证思路的技能。已验证案例：
-
-| 人物 | 流派 | 成果 |
-|:---|:---|:---|
-| 胡希恕 | 经方派 | 38 万字讲稿 → 完整技能（首发验证案例） |
-| 黄元御 | 气机升降派 | 医书十一种 3.5 MB / 38,266 行 → V3 深度优化 |
-| 吴鞠通 | 温病派 | 4 部著作 → V3.5 端到端 + 359 医案 + GitHub 发布 |
-| 倪海厦 | 经方派 | 258 方剂量全量勘误 + 表达还原度反超旧版 + 输出格式折中优化（V4.5 七项经验反哺） |
-| 叶天士 | 温病派 | 四部原著 → 7 段式角色规则 + 158 条病名映射 + 两轮盲评（4.27 → 4.49） |
-| 李白 | 文学家 14 维 | 方法论跨领域迁移：诗全集编码损坏修复 + 1,010 首正典 + 58 篇赏析 |
-
-[![中医思维蒸馏器](https://img.shields.io/badge/中医思维蒸馏器-V4.6.0-red?style=flat-square)](https://github.com/jangviktor-web/tcm-distiller)
-[![SkillHub](https://img.shields.io/badge/腾讯云skillhub-蒸馏器SKILL-green?style=flat-square)](https://skillhub.cn/skills/user_ff4d9420/tcm-distiller)
 ---
 
 ## 致谢
@@ -509,7 +467,7 @@ nihaixia/
 
 ## 免责声明
 
-本项目内容仅供中医学习与研究，不替代专业医疗诊断。所有诊疗请务必咨询执业医师。
+本项目内容仅供中医学习与研究，不替代专业医疗诊断。所有诊疗请务必咨询执业医师。Skill 内置固定免责框，AI 回答仅用于学习与研究，不构成医疗建议。
 
 ---
 
@@ -517,7 +475,7 @@ nihaixia/
 
 **基于 [nihaisha-skill](https://github.com/huoyalong/nihaisha-skill) 二次开发 · 遵循 MulanPSL-2.0 开源协议**
 
-[![ClawHub](https://img.shields.io/badge/ClawHub-v2.1.0-orange)](https://clawhub.ai/jangviktor-web/skills/nihaixia)
+[![ClawHub](https://img.shields.io/badge/ClawHub-v2.3.0-orange)](https://clawhub.ai/jangviktor-web/skills/nihaixia)
 [![OpenClawMP](https://img.shields.io/badge/OpenClawMP-v2.0.1-blueviolet)](https://openclawmp.cc)
 [![SkillHub](https://img.shields.io/badge/SkillHub-nihaixia--pro-red)](https://skillhub.cloud.tencent.com/skills/nihaixia-pro)
 

@@ -1,22 +1,7 @@
-# Old/temp files
-SKILL.old.md
-SKILL_compressed.md
-analyze.py
-compress.py
-compress_v2.py
-distill_cases.py
-distill_cases_v2.py
-distillation_analysis.txt
-long_lines_analysis.txt
-undistilled_lines.txt
-split_skill.py
-scripts/
-
-# Python
+*.bak.*
+_sync_bak_*/
 __pycache__/
 *.pyc
-
-# OS
-Thumbs.db
-Desktop.ini
-.DS_Store
+_sync_bak_*/
+.git_abort_*/
+.snapshots/
